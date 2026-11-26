@@ -43,6 +43,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 """
 
 QUIZ_JS = """
@@ -75,6 +101,202 @@ function build(){
 build();
 document.getElementById('reset').onclick = build;
 """
+
+# Interactive components (tabs / sliders / selectors / simulations / checklists)
+# reproduced from the states recorded in the Markdown, driven by IX_DATA.
+IX_JS = """
+const IX_DATA = __IX_JSON__;
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
+"""
+
+def esc_text(t):
+    return html.escape(str(t)).replace("\n", "<br>")
+
+def render_component(comp, idx):
+    """Render one interactive component spec to static HTML wired by IX_JS."""
+    t = comp.get("type")
+    title = comp.get("title", "")
+    note = comp.get("note", "")
+    head = f'<div class="ix-title">{esc_text(title)}</div>' if title else ""
+    note_h = f'<p class="ix-note">{esc_text(note)}</p>' if note else ""
+    cap = '<p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p>'
+    if t in ("tabs", "selector"):
+        cls = "ix-tabs" if t == "tabs" else "ix-selector"
+        items = comp.get("tabs") or comp.get("options") or []
+        btns, panels = [], []
+        for it in items:
+            btns.append(f'<button class="ix-tab">{esc_text(it.get("label", ""))}</button>')
+            inner = ""
+            if it.get("diagram"):
+                inner += f'<div class="ix-diagram">{esc_text(it["diagram"])}</div>'
+            inner += f'<div>{esc_text(it.get("body", it.get("text", "")))}</div>'
+            panels.append(f'<div class="ix-panel">{inner}</div>')
+        return (f'<div class="ix {cls}" data-initial="{comp.get("initial", 0)}">{head}'
+                f'<div class="ix-tabbar">{"".join(btns)}</div>{"".join(panels)}{note_h}{cap}</div>')
+    if t == "slider":
+        scale = f'<span>{esc_text(comp.get("left_label", ""))}</span>'
+        if comp.get("mid_label"):
+            scale += f'<span class="mid">{esc_text(comp["mid_label"])}</span>'
+        scale += f'<span>{esc_text(comp.get("right_label", ""))}</span>'
+        formula = f'<p class="ix-note">{esc_text(comp["formula"])}</p>' if comp.get("formula") else ""
+        return (f'<div class="ix ix-slider" data-ix="{idx}">{head}'
+                f'<input type="range" min="{comp.get("min", 0)}" max="{comp.get("max", 0)}" step="1" value="{comp.get("initial", 0)}">'
+                f'<div class="ix-scale">{scale}</div><div class="ix-disp"></div>'
+                f'<div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div>'
+                f'{formula}{note_h}{cap}</div>')
+    if t == "simulation":
+        if comp.get("mode") == "send_sim":
+            return (f'<div class="ix ix-send" data-ix="{idx}">{head}'
+                    '<div class="ix-tabbar"><button class="ix-tab ix-mode">一括送付</button>'
+                    '<button class="ix-tab ix-mode">五月雨式</button></div>'
+                    '<div class="ix-status"></div><div class="ix-items">'
+                    '<span class="ix-chip"></span><span class="ix-chip"></span><span class="ix-chip"></span><span class="ix-chip"></span></div>'
+                    '<div class="ix-foot"><button class="act ix-act"></button>'
+                    '<button class="act ix-rst">最初からやり直す</button></div>'
+                    f'<div class="ix-msg"></div>{note_h}{cap}</div>')
+        groups = []
+        for g in comp.get("selectors", []):
+            btns = "".join(f'<button class="ix-tab">{esc_text(o)}</button>' for o in g.get("options", []))
+            groups.append(f'<div class="ix-sgroup"><div>{esc_text(g.get("name", ""))}</div><div class="ix-tabbar">{btns}</div></div>')
+        return (f'<div class="ix ix-sim" data-ix="{idx}">{head}{"".join(groups)}'
+                f'<div class="ix-state ix-out"></div>{note_h}{cap}</div>')
+    if t == "checklist":
+        items = "".join(f'<label><input type="checkbox"> {esc_text(x)}</label>' for x in comp.get("items", []))
+        return (f'<div class="ix ix-check" data-ix="{idx}">{head}{items}'
+                '<div class="ix-foot"><span class="ix-count"></span>'
+                '<button class="act ix-rst">リセット</button></div>'
+                f'<div class="ix-msg"></div>{note_h}{cap}</div>')
+    return ""
+
+def insert_components(body, components):
+    """Insert rendered components after the heading/paragraph their anchor names."""
+    rendered = []
+    for idx, comp in enumerate(components):
+        rendered.append((comp, render_component(comp, idx)))
+    for comp, comp_html in rendered:
+        if not comp_html:
+            continue
+        anchor = (comp.get("anchor") or "").lstrip("#").strip()
+        placed = False
+        if anchor:
+            m = re.search(r"<h[23]>" + re.escape(anchor) + r"</h[23]>", body)
+            if m:
+                body = body[:m.end()] + "\n" + comp_html + body[m.end():]
+                placed = True
+            else:
+                key = anchor[:24]
+                pos = body.find(key)
+                if pos >= 0:
+                    end = body.find("</p>", pos)
+                    if end >= 0:
+                        body = body[:end + 4] + "\n" + comp_html + body[end + 4:]
+                        placed = True
+        if not placed:
+            print(f"WARNING: anchor not found for component {comp.get('type')} anchor={anchor!r}", file=sys.stderr)
+            body += "\n" + comp_html
+    return body
+
+ABCD = ["A｜要点", "B｜詳しい解説", "C｜イメージ理解", "D｜具体例"]
+
+def abcd_tabs(body):
+    """Wrap the A/B/C/D <h2> sections (tab-era entries) into a tab switcher."""
+    parts = re.split(r"(?=<h2>)", body)
+    idxs = []
+    for k, part in enumerate(parts):
+        m = re.match(r"<h2>(.*?)</h2>", part)
+        if m:
+            label = re.sub(r"^[🅰🅱🅲🅳]\s*", "", m.group(1)).strip()
+            if label in ABCD:
+                idxs.append((ABCD.index(label), k))
+    if [i for i, _ in idxs] != [0, 1, 2, 3]:
+        return body, False
+    ks = [k for _, k in idxs]
+    if ks != [ks[0], ks[0] + 1, ks[0] + 2, ks[0] + 3]:
+        return body, False
+    btns = "".join(f'<button class="ix-tab">{html.escape(ABCD[i])}</button>' for i in range(4))
+    panels = []
+    for i in range(4):
+        part = parts[ks[i]]
+        content = part[part.find("</h2>") + 5:]
+        panels.append(f'<div class="ix-panel">{content}</div>')
+    widget = (f'<div class="ix ix-tabs" data-initial="0"><div class="ix-tabbar">{btns}</div>'
+              + "".join(panels)
+              + '<p class="ix-cap">ChatGPTと同じタブ切り替え形式で再現しています。</p></div>')
+    new_parts = parts[:ks[0]] + [widget] + parts[ks[0] + 4:]
+    return "\n".join(new_parts), True
+
 
 def inline(text):
     text = html.escape(text)
@@ -263,6 +485,14 @@ def md_to_html(lines, num):
 
 def main():
     os.makedirs(DOCS, exist_ok=True)
+    # copy images into docs/images/ so GitHub Pages (served from docs/) can serve them
+    src_images = os.path.join(BASE, "images")
+    if os.path.isdir(src_images):
+        dst_images = os.path.join(DOCS, "images")
+        os.makedirs(dst_images, exist_ok=True)
+        import shutil
+        for f in os.listdir(src_images):
+            shutil.copyfile(os.path.join(src_images, f), os.path.join(dst_images, f))
     files = sorted(f for f in os.listdir(WORDS) if f.endswith(".md"))
     entries = []
     for f in files:
@@ -273,6 +503,24 @@ def main():
         entries.append({"num": num, "file": f, "html": f[:-3] + ".html", "title": title, "lines": lines})
     for idx, e in enumerate(entries):
         body, quizzes = md_to_html(e["lines"][1:], e["num"])  # skip the '# title' line; rendered as h1
+        # Pages is served from docs/, so repo-root images/ is outside the site;
+        # the build copies images into docs/images/ and rewrites the paths.
+        body = body.replace("../images/", "images/")
+        # interactive components recorded for this entry, if any
+        components = []
+        spec_path = os.path.join(BASE, "interactive", e["num"] + ".json")
+        if os.path.exists(spec_path):
+            with open(spec_path, encoding="utf-8") as fh:
+                components = json.load(fh).get("components", [])
+        if components:
+            body = insert_components(body, components)
+        # Only the tab-era entries (011-016) were A/B/C/D tabs in ChatGPT;
+        # other entries show the same headings as a normal scroll.
+        if e["num"] in ("011", "012", "013", "014", "015", "016"):
+            body, has_abcd = abcd_tabs(body)
+        else:
+            has_abcd = False
+        has_ix = bool(components) or has_abcd
         prev = entries[idx - 1] if idx > 0 else None
         nxt = entries[idx + 1] if idx + 1 < len(entries) else None
         def nav():
@@ -297,6 +545,9 @@ def main():
             else:
                 body += "\n" + quiz_html
             script = "<script>\n" + QUIZ_JS.replace("__QUIZ_JSON__", json.dumps(quizzes, ensure_ascii=False)) + "\n</script>"
+        if has_ix:
+            ix_script = "<script>\n" + IX_JS.replace("__IX_JSON__", json.dumps(components, ensure_ascii=False)) + "\n</script>"
+            script = (script + "\n" + ix_script) if script else ix_script
         page = f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -330,7 +581,7 @@ def main():
 </head>
 <body>
 <h1>日本語語彙 単語帳（全{len(entries)}語）</h1>
-<p>ChatGPTの会話「メルクマール解説」の全文を収めた単語帳です。各ページに、ChatGPTと同じ形式の理解確認クイズ（選択肢を押すと正解と解説が表示され、正解数とリセット付き）が付いています。</p>
+<p>ChatGPTの会話「メルクマール解説」の全文を収めた単語帳です。各ページに、ChatGPTと同じ形式の理解確認クイズ（選択肢を押すと正解と解説が表示され、正解数とリセット付き）が付いています。また、ChatGPT側にあったタブ切り替え・スライダー・選択式・シミュレーション・チェックリストなどの要素も、記録された全状態の内容で操作できる形に再現しています。</p>
 <ol>
 {items}
 </ol>
