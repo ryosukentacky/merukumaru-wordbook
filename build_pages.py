@@ -69,6 +69,14 @@ summary{cursor:pointer;font-weight:bold}
 .ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
 .ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
 .ix-cap{font-size:12.5px;color:#777;margin-top:8px}
+.ix-dboxes{display:flex;align-items:stretch;gap:8px;margin-bottom:10px}
+.ix-dbox{flex:1;background:#eef1f5;border:1px solid #c9d4e6;border-radius:10px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:110px}
+.ix-dbox .t{font-size:14.5px;font-weight:bold}
+.ix-dbox .n{font-size:13px;color:#666;margin:auto 0}
+.ix-dbox svg{margin:auto 0}
+.ix-darrow{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px}
+.ix-darrow .a{font-size:22px;color:#4a6fa5;line-height:1}
+.ix-darrow .l{font-size:13.5px;margin-top:4px}
 """
 
 QUIZ_JS = """
@@ -184,6 +192,28 @@ document.querySelectorAll('.ix-check').forEach(root => {
 def esc_text(t):
     return html.escape(str(t)).replace("\n", "<br>")
 
+DOC_SVG = ('<svg width="46" height="58" viewBox="0 0 60 76" aria-hidden="true">'
+           '<rect x="4" y="4" width="52" height="68" rx="9" fill="#8fbc8f"/>'
+           '<line x1="16" y1="26" x2="44" y2="26" stroke="#fff" stroke-width="4" stroke-linecap="round"/>'
+           '<line x1="16" y1="38" x2="44" y2="38" stroke="#fff" stroke-width="4" stroke-linecap="round"/>'
+           '<line x1="16" y1="50" x2="36" y2="50" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>')
+TRASH_SVG = ('<svg width="46" height="58" viewBox="0 0 60 76" aria-hidden="true">'
+             '<rect x="14" y="22" width="32" height="46" rx="5" fill="#d9534f"/>'
+             '<rect x="9" y="14" width="42" height="6" rx="3" fill="#b52b27"/>'
+             '<rect x="24" y="6" width="12" height="6" rx="3" fill="#b52b27"/>'
+             '<line x1="23" y1="32" x2="23" y2="58" stroke="#fff" stroke-width="4" stroke-linecap="round"/>'
+             '<line x1="30" y1="32" x2="30" y2="58" stroke="#fff" stroke-width="4" stroke-linecap="round"/>'
+             '<line x1="37" y1="32" x2="37" y2="58" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>')
+
+def render_diagram_boxes(db):
+    def box(side):
+        icon = {"doc": DOC_SVG, "trash": TRASH_SVG}.get(side.get("icon", "none"), "")
+        note = f'<div class="n">{esc_text(side["note"])}</div>' if side.get("note") else ""
+        return f'<div class="ix-dbox"><div class="t">{esc_text(side.get("title", ""))}</div>{icon}{note}</div>'
+    return (f'<div class="ix-dboxes">{box(db.get("left", {}))}'
+            f'<div class="ix-darrow"><div class="a">→</div><div class="l">{esc_text(db.get("arrow", ""))}</div></div>'
+            f'{box(db.get("right", {}))}</div>')
+
 def render_component(comp, idx):
     """Render one interactive component spec to static HTML wired by IX_JS."""
     t = comp.get("type")
@@ -199,7 +229,9 @@ def render_component(comp, idx):
         for it in items:
             btns.append(f'<button class="ix-tab">{esc_text(it.get("label", ""))}</button>')
             inner = ""
-            if it.get("diagram"):
+            if it.get("diagram_boxes"):
+                inner += render_diagram_boxes(it["diagram_boxes"])
+            elif it.get("diagram"):
                 inner += f'<div class="ix-diagram">{esc_text(it["diagram"])}</div>'
             inner += f'<div>{esc_text(it.get("body", it.get("text", "")))}</div>'
             panels.append(f'<div class="ix-panel">{inner}</div>')
