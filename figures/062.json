@@ -1,0 +1,21 @@
+{
+  "num": "062",
+  "figures": [
+    {
+      "component_index": 0,
+      "figure_desc": "",
+      "change": "図の記録なし。選択式の要素は、観察された事実（共通）に対する解釈テキストが3状態で切り替わるだけという記録で、図・イラストへの言及はない。",
+      "states_visual": [],
+      "drawable": "none",
+      "note": "selector（否定的／肯定的／客観的）。テキストのみの要素。"
+    },
+    {
+      "component_index": 1,
+      "figure_desc": "",
+      "change": "図の記録なし。「判断の偏りを防ぐチェックリスト」（5項目、カウンタ0/5、「リセット」ボタン）という記録のみで、図・イラストへの言及はない。",
+      "states_visual": [],
+      "drawable": "none",
+      "note": "checklist。テキストのみの要素。"
+    }
+  ]
+}
