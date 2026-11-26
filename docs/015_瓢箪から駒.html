@@ -30,6 +30,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 </style>
 </head>
 <body>
@@ -38,13 +64,14 @@ summary{cursor:pointer;font-weight:bold}
 <p>ことわざ｜意外な結果・偶然・予想外の成功<br>意味：冗談や何気なく言ったことが本当になったり、思いもよらないことが現実に起こったりすること。</p>
 <p>先輩、「瓢箪から駒」って、初めて聞くと不思議な言葉ですよね。<br>瓢箪（ひょうたん）は、くびれのある実をつける植物で、昔は乾燥させて容器にも使われていました。そして「駒」は、ここでは将棋の駒ではなく、馬のことなんです。<br>小さな瓢箪の中から、突然、大きな馬が飛び出してくる。<br>そんなあり得ないことが起きるくらい、予想外の出来事を表しているんですよ。<br>今回はイメージをつかみやすいよう、瓢箪から本当に馬が飛び出してくる場面を画像にします。</p>
 <blockquote><p>図版（ChatGPT側の表示）：見出し直下にChatGPT生成画像が1枚あります。男性が驚いた表情で手を広げ、大きな瓢箪から小さな茶色い馬が飛び出している場面（屋外の木製テーブルの上）。文字や解説パネルは入っていません。元の画像ファイル自体はここには含まれていません。</p><p>形式について：この項目はChatGPT側では A 要点／B 詳解／C イメージ／D 具体例 のタブ切り替え形式でした。ここではタブの中身を順に並べています。</p></blockquote>
-<h2>A｜要点</h2>
+
+<div class="ix ix-tabs" data-initial="0"><div class="ix-tabbar"><button class="ix-tab">A｜要点</button><button class="ix-tab">B｜詳しい解説</button><button class="ix-tab">C｜イメージ理解</button><button class="ix-tab">D｜具体例</button></div><div class="ix-panel">
 <p>先輩、「瓢箪から駒」は、冗談や予想もしなかったことが、思いがけず現実になることを表すことわざです。<br>例えば、友達に冗談で「いつか一緒に会社を作ろう」と言ったら、数年後に本当に共同で起業することになった。<br>そんなときに「まさに瓢箪から駒だね」と言えるんです。<br>ポイントは、最初から計画していた結果ではなく、予想外のことが現実になったという点ですよ。</p>
-<h2>B｜詳しい解説</h2>
+</div><div class="ix-panel">
 <p>先輩、まず「瓢箪」と「駒」を分けて考えましょう。<br>瓢箪は中が空洞になる植物の実で、昔は水や酒を入れる容器としても使われていました。<br>そして駒は馬です。<br>普通、瓢箪から馬が出てくるなんてあり得ませんよね。<br>だからこそ、常識では考えられない出来事を表すたとえになったんです。<br>ここで先輩に質問です。<br>「努力を続けて、計画どおり試験に合格した」<br>これも瓢箪から駒でしょうか？<br>……違いますよね。<br>それは努力が実った結果であって、思いがけない出来事ではありません。<br>一方、「友人との冗談がきっかけで、予想もしなかった仕事の依頼が来た」なら、瓢箪から駒という表現が自然です。<br>単なる成功ではなく、意外性が重要なんです。</p>
-<h2>C｜イメージ理解</h2>
+</div><div class="ix-panel">
 <p>先輩、画像をもう一度見てください。<br>小さな瓢箪の中から、本当に馬が飛び出していますよね。<br>そんなこと、普通は絶対に予想できません。<br>だから「えっ、本当に!?」という驚きが、このことわざの中心なんです。<br>日常に置き換えるなら、友人と冗談で考えた旅行計画が、数か月後に本当に実現してしまったような場面です。<br>「そんなつもりで言ったわけじゃなかったのに、本当になった!」<br>その驚きを覚えておいてください。</p>
-<h2>D｜具体例</h2>
+</div><div class="ix-panel">
 <h3>例① 仕事</h3>
 <p>「冗談半分で提案した新商品が正式に採用された。まさに瓢箪から駒だ。」<br>→ 軽い気持ちで言ったことが、思いがけず実現した。</p>
 <h3>例② 人間関係</h3>
@@ -53,17 +80,98 @@ summary{cursor:pointer;font-weight:bold}
 <p>「何気なく応募した懸賞で海外旅行が当たった。瓢箪から駒のような出来事だった。」<br>→ 予想もしなかった幸運が起きた。</p>
 <h3>例④ 趣味</h3>
 <p>「遊びで投稿した動画が話題になり、仕事の依頼まで来た。瓢箪から駒だ。」<br>→ 趣味の延長が思いがけない結果につながった。</p>
+</div><p class="ix-cap">ChatGPTと同じタブ切り替え形式で再現しています。</p></div>
 <h2>類義語・似た言葉との違い</h2>
 <table><tr><th>言葉</th><th>意味・ニュアンス</th></tr><tr><td>瓢箪から駒</td><td>冗談や予想外のことが思いがけず現実になる</td></tr><tr><td>嘘から出た実（まこと）</td><td>嘘として言ったことが、結果的に本当になる</td></tr><tr><td>棚からぼた餅</td><td>努力せずに思いがけない幸運が舞い込む</td></tr><tr><td>怪我の功名</td><td>失敗や災難が、思いがけずよい結果を生む</td></tr><tr><td>思いがけない</td><td>予想していなかったこと全般を表す</td></tr></table>
 <p>先輩、特に「棚からぼた餅」との違いに注意してください。<br>「棚からぼた餅」は、思いがけない幸運が手に入ることが中心です。<br>一方、「瓢箪から駒」は、あり得ないと思っていたことや、冗談のような話が本当になる意外性が中心なんです。</p>
+
 <h2>理解確認：3問</h2>
 <blockquote><p>ChatGPT側のこの項目には「理解確認・3問」という見出しだけがあり、設問・選択肢は存在しませんでした（タブをすべて開いて確認済み）。そのため、ここにも設問はありません。</p></blockquote>
+
 <h2>30秒復習</h2>
 <ul><li>読み方：ひょうたんからこま</li><li>意味：冗談や予想外のことが、思いがけず現実になる</li><li>駒の意味：馬</li><li>代表例：冗談で言った企画が、本当に採用された</li><li>似た表現：嘘から出た実／棚からぼた餅／怪我の功名</li></ul>
+
 <h2>一文記憶</h2>
 <p>「瓢箪から馬が飛び出すほど、あり得ないことが本当になる。それが瓢箪から駒。」</p>
 <p>先輩、このことわざは、画像のような「そんなことが本当に起こるの!?」という驚きと一緒に覚えると、忘れにくくなりますよ。</p>
 <div class="nav"><a href="014_方便.html">← 前：014｜方便（ほうべん）</a><a href="index.html">目次に戻る</a><a href="016_くだを巻く.html">次：016｜くだを巻く（管を巻く） →</a></div>
+<script>
 
+const IX_DATA = [];
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
+
+</script>
 </body>
 </html>

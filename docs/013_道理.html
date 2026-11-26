@@ -30,6 +30,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 </style>
 </head>
 <body>
@@ -38,13 +64,14 @@ summary{cursor:pointer;font-weight:bold}
 <p>名詞｜物事の筋道・正しさ・人間関係<br>意味：物事がそうなるのが当然だと考えられる、合理的で正しい筋道。</p>
 <p>先輩、「道理」は、ただ「正しいこと」という意味で覚えると、少しもったいないですよ。<br>例えば、約束を破った人が「なんで怒るんだ！」と言ってきたとします。<br>「いや、約束を破られたら怒るのも道理でしょう」<br>つまり、原因や事情を考えれば、その結果や主張には納得できる理由があるということなんです。<br>「筋合い」が「その人に要求する理由や立場があるか」を問題にしやすいのに対し、「道理」は「その考えや行動に筋が通っているか」に注目する言葉です。</p>
 <blockquote><p>図版（ChatGPT側の表示）：見出し直下にChatGPT生成画像が1枚あります。横長のイラストで、複数のパネルに日本語テキスト（解説文・クイズ・類義語の表）が詰め込まれた形式で、文字が小さく画像内のテキストの詳細は読み取れません。2026-10-28にユーザーが「またイメージ画像がおかしくなってる」と指摘した画像で、その直後に作り直しのやり取りがありました。元の画像ファイル自体はここには含まれていません。</p><p>形式について：この項目はChatGPT側では A 要点／B 詳解／C イメージ／D 具体例 のタブ切り替え形式でした。ここではタブの中身を順に並べています。</p></blockquote>
-<h2>A｜要点</h2>
+
+<div class="ix ix-tabs" data-initial="0"><div class="ix-tabbar"><button class="ix-tab">A｜要点</button><button class="ix-tab">B｜詳しい解説</button><button class="ix-tab">C｜イメージ理解</button><button class="ix-tab">D｜具体例</button></div><div class="ix-panel">
 <p>先輩、「道理」は、理由や事情を考えれば、そうなるのが当然だと納得できる筋道のことです。<br>例えば、毎日一生懸命練習してきた人が試合で勝ったとします。<br>「あれだけ努力したのだから、勝つのも道理だ」<br>つまり、結果に至る理由があるので、納得できるということです。<br>ただし、努力すれば必ず勝つという意味ではありませんよ。「道理」は、その結果が理解できるという判断を表しているんです。</p>
-<h2>B｜詳しい解説</h2>
+</div><div class="ix-panel">
 <p>先輩、道理を理解するには、「原因→判断→結果」のつながりを考えてください。<br>例えば、仕事でミスをした人がいるとします。<br>その人がミスを認め、謝罪し、改善策を考えたら、周囲も納得しやすくなりますよね。<br>でも、ミスを認めず、ほかの人に責任を押し付けたらどうでしょう。<br>「それは道理が通らない」と感じるはずです。<br>なぜなら、自分の行動に責任を持つという考え方から外れているからです。<br>ここで大切なのは、道理には、論理的に筋が通ることだけでなく、人として正当だと認められることも含まれるという点です。<br>「理屈が成立しているから、必ず道理にかなっている」とは限らないんですよ。</p>
-<h2>C｜イメージ理解</h2>
+</div><div class="ix-panel">
 <p>先輩、道理は「理由と結論をつなぐ、まっすぐな道」だと思ってください。<br>例えば、遅刻しそうなので早めに家を出る。これは理由と行動が自然につながっています。<br>一方で、雨が降ったからといって、突然ほかの人に怒鳴りつける。これは理由と行動がうまくつながっていません。<br>前者は筋が通っていますが、後者は「道理に合わない」と感じますよね。<br>もちろん、何が道理にかなうかは状況や価値観によって判断が分かれることもあります。</p>
-<h2>D｜具体例</h2>
+</div><div class="ix-panel">
 <h3>例① 日常生活</h3>
 <p>「約束を破ったのだから、相手が怒るのも道理だ。」<br>→ 相手が怒ることには納得できる理由がある。</p>
 <h3>例② 職場</h3>
@@ -53,17 +80,98 @@ summary{cursor:pointer;font-weight:bold}
 <p>「彼の主張には道理がある。」<br>→ 彼の主張には、納得できる理由や正当性がある。</p>
 <h3>例④ 判断</h3>
 <p>「感情だけで決めず、道理にかなった判断をする。」<br>→ 好き嫌いではなく、合理性や正当性を考えて判断する。</p>
+</div><p class="ix-cap">ChatGPTと同じタブ切り替え形式で再現しています。</p></div>
 <h2>類義語・似た言葉との違い</h2>
 <table><tr><th>言葉</th><th>意味・ニュアンス</th></tr><tr><td>道理</td><td>物事がそうあるべきだと認められる正しい筋道</td></tr><tr><td>理由</td><td>なぜそうなのかを説明する根拠やわけ</td></tr><tr><td>理屈</td><td>物事を説明する論理的な筋道。こじつけの意味でも使う</td></tr><tr><td>論理</td><td>考えや推論を筋道立てて組み立てること</td></tr><tr><td>筋道</td><td>物事の順序や考え方のつながり</td></tr><tr><td>当然</td><td>そうなるのが当たり前だと判断されること</td></tr></table>
 <p>先輩、特に「理由」との違いは覚えてください。<br>「理由がある」は、なぜそうしたのか説明できるということです。<br>でも、「道理がある」は、その理由や主張が正当で、筋が通っているという評価まで含みます。</p>
+
 <h2>理解確認：3問</h2>
 <blockquote><p>ChatGPT側のこの項目には「理解確認・3問」という見出しだけがあり、設問・選択肢は存在しませんでした（タブをすべて開いて確認済み）。そのため、ここにも設問はありません。</p></blockquote>
+
 <h2>30秒復習</h2>
 <ul><li>読み方：どうり</li><li>意味：物事がそうあるべきだと考えられる、正しい筋道</li><li>代表表現：道理がある／道理にかなう／道理が通らない／道理で〜</li><li>筋合いとの違い：筋合いは行為や要求をする理由・立場、道理は考えや行動そのものの正当な筋道</li></ul>
+
 <h2>一文記憶</h2>
 <p>「理由と結果がつながっていて、誰が考えても納得できる。それが道理。」</p>
 <p>先輩、「道理で眠いわけだ」という表現も覚えておいてください。これは「昨夜3時間しか寝ていないのか。なるほど、それなら眠いのも当然だ」という意味です。<br>「道理」は、人の主張の正しさだけでなく、理由が分かって納得したときにも使えるんですよ。</p>
 <div class="nav"><a href="012_筋合い.html">← 前：012｜筋合い（すじあい）</a><a href="index.html">目次に戻る</a><a href="014_方便.html">次：014｜方便（ほうべん） →</a></div>
+<script>
 
+const IX_DATA = [];
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
+
+</script>
 </body>
 </html>

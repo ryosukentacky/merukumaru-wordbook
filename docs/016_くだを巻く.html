@@ -30,6 +30,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 </style>
 </head>
 <body>
@@ -38,13 +64,14 @@ summary{cursor:pointer;font-weight:bold}
 <p>慣用句・動詞｜愚痴・不平不満・酒席での振る舞い<br>意味：酒に酔ったときなどに、同じような愚痴や不平不満を、くどくどと繰り返し言い続けること。</p>
 <p>先輩、「くだを巻く」は、単に愚痴を言うことではありませんよ。<br>例えば、飲み会で同僚が「うちの上司は本当に分かってない！」と話し始めたとします。<br>最初はみんな真剣に聞いていたのに、30分たっても、1時間たっても、同じ不満を繰り返している。<br>周囲が話題を変えようとしても、また同じ話に戻ってしまう。<br>そんな状態が、まさに「くだを巻く」なんです。<br>今回は、意味を覚えやすいように、文字や解説パネルのない場面イラストで表現します。</p>
 <blockquote><p>図版（ChatGPT側の表示）：見出し直下にChatGPT生成画像が1枚あります。デスクでノートパソコンと書類の山を前にした2人の男性。左の男性が身振り手振りで話し続け、頭上に吹き出し（南国ビーチ、ゲームコントローラー、食べ物とビール、友人との飲み会）が描かれ、右の男性は頬杖をついて退屈そうな表情。文字や解説パネルは入っていません。元の画像ファイル自体はここには含まれていません。</p><p>形式について：この項目はChatGPT側では A 要点／B 詳解／C イメージ／D 具体例 のタブ切り替え形式でした（タブ形式の最後の項目）。ここではタブの中身を順に並べています。</p></blockquote>
-<h2>A｜要点</h2>
+
+<div class="ix ix-tabs" data-initial="0"><div class="ix-tabbar"><button class="ix-tab">A｜要点</button><button class="ix-tab">B｜詳しい解説</button><button class="ix-tab">C｜イメージ理解</button><button class="ix-tab">D｜具体例</button></div><div class="ix-panel">
 <p>先輩、「くだを巻く」は、不平不満や愚痴を、しつこく繰り返し言い続けることです。<br>特に、お酒に酔った人が同じ話を何度も蒸し返すような場面でよく使います。<br>ただし、必ずお酒を飲んでいる必要はありません。しらふでも、同じように愚痴を延々と繰り返していれば「くだを巻く」と表現できます。<br>重要なのは、単に話が長いことではなく、愚痴っぽく、くどくどと話し続けるという点ですよ。</p>
-<h2>B｜詳しい解説</h2>
+</div><div class="ix-panel">
 <p>先輩、例えば職場で嫌なことがあった人が、飲み会で不満を話しているとしましょう。<br>「今日、上司に理不尽なことを言われたんだよ」<br>ここまでは普通の愚痴です。<br>でも、その人が何度も同じ話を繰り返し、周囲が別の話題に移ろうとしても、また上司への不満に戻ってしまう。<br>しかも、お酒が進むにつれて声が大きくなり、相手の話を聞かず、一方的にしゃべり続ける。<br>こうなると「くだを巻いている」と表現できます。<br>ちなみに「くだ」は、糸を巻き付けるための管を指すという説明があります。<br>糸を巻くときのように、同じ話をくるくると繰り返す様子に結び付けて覚えると分かりやすいですよ。ただし、語源については諸説あります。<br>先輩、ここで一つ質問です。<br>「友人が好きな映画について2時間、楽しそうに語り続けた」<br>これは「くだを巻く」でしょうか？<br>……基本的には違います。<br>どれだけ長く話していても、単に好きなことを熱心に話しているだけなら、「熱弁する」「語り続ける」のほうが自然です。<br>くどい愚痴や不満が中心にあることが、この表現の特徴なんです。</p>
-<h2>C｜イメージ理解</h2>
+</div><div class="ix-panel">
 <p>先輩、居酒屋での場面を想像してください。<br>会社帰りの二人が飲んでいます。<br>一人は酔っぱらって、さっきからずっと上司への不満を言っています。<br>「あの上司、何にも分かってないんだよ！」<br>「いや、本当に分かってない！」<br>「だからさ、あいつは……」<br>聞いている友人は、もう何度も同じ話を聞かされて、すっかり疲れています。<br>それでも本人は話すのをやめません。<br>先輩、この終わりの見えない愚痴の繰り返しこそが「くだを巻く」です。<br>画像では話し続ける人と、うんざりしている人を描いています。ただ、画像の話題は楽しそうな雑談にも見えるので、「くだを巻く」の典型例としては、今説明した居酒屋の場面のほうが正確ですよ。</p>
-<h2>D｜具体例</h2>
+</div><div class="ix-panel">
 <h3>例① 飲み会</h3>
 <p>「部長は酔っぱらうと、決まって仕事の愚痴を言いながらくだを巻く。」<br>→ お酒に酔うと、仕事への不満をしつこく繰り返す。</p>
 <h3>例② 友人関係</h3>
@@ -53,17 +80,98 @@ summary{cursor:pointer;font-weight:bold}
 <p>「会議が終わった後も、彼は会社への不満を並べてくだを巻いていた。」<br>→ お酒を飲んでいなくても使える例です。</p>
 <h3>例④ 日常生活</h3>
 <p>「父は昔の苦労話になると、いつもくだを巻き始める。」<br>→ 苦労話に不平不満が混じり、くどくどと繰り返される様子です。</p>
+</div><p class="ix-cap">ChatGPTと同じタブ切り替え形式で再現しています。</p></div>
 <h2>類義語・似た言葉との違い</h2>
 <table><tr><th>言葉</th><th>意味・ニュアンス</th></tr><tr><td>くだを巻く</td><td>酔って愚痴や不満をくどくどと繰り返す</td></tr><tr><td>愚痴をこぼす</td><td>不満や弱音を口に出す。繰り返しとは限らない</td></tr><tr><td>ぼやく</td><td>小声や独り言のように不満を言う</td></tr><tr><td>小言を言う</td><td>相手の欠点や行動について細かく注意する</td></tr><tr><td>絡む（からむ）</td><td>相手にしつこく言い寄ったり、面倒な言動をする</td></tr><tr><td>くどくど言う</td><td>同じことをしつこく繰り返す。愚痴以外にも使える</td></tr></table>
 <p>先輩、「愚痴をこぼす」と「くだを巻く」の違いが重要です。<br>「今日は仕事で嫌なことがあった」と一度だけ話すなら、愚痴をこぼす。<br>でも、その話を何度も繰り返し、相手が困っているのに延々と続けるなら、くだを巻く。<br>つまり、不満の内容だけでなく、話し方のしつこさまで含んでいるんです。</p>
+
 <h2>理解確認：3問</h2>
 <blockquote><p>ChatGPT側のこの項目には「理解確認・3問」という見出しだけがあり、設問・選択肢は存在しませんでした（タブをすべて開いて確認済み）。そのため、ここにも設問はありません。</p></blockquote>
+
 <h2>30秒復習</h2>
 <ul><li>読み方：くだをまく</li><li>意味：愚痴や不平不満をしつこく繰り返し言う</li><li>典型的な場面：酒に酔った人が同じ不満を何度も話す</li><li>注意点：飲酒は必須ではない。単なる長話とも違う</li><li>類義語：愚痴をこぼす／ぼやく／くどくど言う</li></ul>
+
 <h2>一文記憶</h2>
 <p>「同じ愚痴を何度も繰り返し、相手をうんざりさせる。それが『くだを巻く』。」</p>
 <p>先輩、「くだを巻く」は、話している本人よりも、延々と聞かされている相手のうんざりした様子を想像すると覚えやすいですよ。</p>
 <div class="nav"><a href="015_瓢箪から駒.html">← 前：015｜瓢箪から駒（ひょうたんからこま）</a><a href="index.html">目次に戻る</a><a href="017_鬨の声.html">次：017｜鬨の声（ときのこえ） →</a></div>
+<script>
 
+const IX_DATA = [];
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
+
+</script>
 </body>
 </html>

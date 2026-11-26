@@ -30,6 +30,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 </style>
 </head>
 <body>
@@ -38,15 +64,16 @@ summary{cursor:pointer;font-weight:bold}
 <p>名詞｜人間関係・責任・権利・道理を表す言葉<br>意味：ある行動や主張をするための、正当な理由・立場・道理。</p>
 <p>先輩、「筋合い」は、特に「〜する筋合いはない」という形でよく使われる言葉です。<br>例えば、何の関係もない人から突然「お前が謝れ！」と言われたとします。<br>「いや、私が謝る筋合いはないでしょう」。<br>これは単に「謝りたくない」という気持ちではありません。<br>「自分が謝るべき理由も責任もない」という意味なんです。</p>
 <blockquote><p>図版（ChatGPT側の表示）：見出し直下にウェブ画像が1枚あります（note.com スカッとマンガの記事画像、アニメ風のオフィス場面）。キャプション：「「自分にその責任はない」。相手の要求が正当かどうかを考える場面です。」ChatGPT生成画像ではありません。元の画像ファイル自体はここには含まれていません。</p><p>形式について：この項目はChatGPT側では A 要点／B 詳解／C イメージ／D 具体例 のタブ切り替え形式でした。ここではタブの中身を順に並べています。</p></blockquote>
-<h2>A｜要点</h2>
+
+<div class="ix ix-tabs" data-initial="0"><div class="ix-tabbar"><button class="ix-tab">A｜要点</button><button class="ix-tab">B｜詳しい解説</button><button class="ix-tab">C｜イメージ理解</button><button class="ix-tab">D｜具体例</button></div><div class="ix-panel">
 <p>先輩、「筋合い」は、ある人が何かをしたり、要求したり、口出ししたりすることについて、「正当な理由や立場があるか」を表す言葉です。<br>特に次のような使い方を覚えてください。</p>
 <ul><li>謝る筋合いはない：謝るべき理由や責任がない。</li><li>文句を言われる筋合いはない：相手から文句を言われる正当な理由がない。</li><li>口出しする筋合いではない：その問題に介入する立場ではない。</li></ul>
 <p>重要なのは、「したくない」ではなく「するべき理由がない」という点ですよ。</p>
-<h2>B｜詳しい解説</h2>
+</div><div class="ix-panel">
 <p>先輩、例えば職場で、Aさんが担当していた書類にミスが見つかったとしましょう。<br>ところが、まったく関与していないBさんが「お前が責任を取れ」と言われました。<br>Bさんは納得できませんよね。<br>ここで考えるべきなのは、次の順番です。<br>まず、誰がその仕事を担当していたのか。<br>次に、誰にミスの原因があるのか。<br>そして、誰が責任を負うべきなのか。<br>Bさんに責任がないなら、「私が責任を取る筋合いはありません」と言えるわけです。<br>ただし、先輩。ここは少し注意してください。<br>「筋合いがない」と本人が主張していることと、実際に責任がないことは別問題です。<br>本当に責任があるかどうかは、事情を確認しなければ分かりません。<br>それに、「筋合いはない」は相手を突き放すような強い響きになりやすいんです。職場では「私の担当範囲ではないと認識しています」など、柔らかい言い方が適切な場合もあります。</p>
-<h2>C｜イメージ理解</h2>
+</div><div class="ix-panel">
 <p>先輩、「筋合い」の「筋」は、物事の道筋や道理をイメージすると分かりやすいですよ。<br>例えば、レストランで隣の席の人が注文を間違えたとします。<br>その人が突然、先輩に向かって「お前が代金を払え！」と言ってきたらどうでしょう。<br>いや、なんで私が？<br>そう思いますよね。<br>注文したのは隣の人。代金を支払う理由も、先輩にはありません。<br>つまり、相手の要求と自分の責任を結びつける道筋がないんです。<br>これが「払う筋合いはない」という感覚です。<br>ただし、責任だけでなく、「その人が口を出す立場にあるか」という場合にも使えることを忘れないでください。</p>
-<h2>D｜具体例</h2>
+</div><div class="ix-panel">
 <h3>例① 日常生活</h3>
 <p>「約束を破ったのは彼なのに、私が謝る筋合いはない。」<br>→ 自分には謝罪する責任がないと主張しています。</p>
 <h3>例② 職場</h3>
@@ -56,15 +83,19 @@ summary{cursor:pointer;font-weight:bold}
 <h3>例④ 自分への戒め</h3>
 <p>「事情を知らない私が、他人の判断を批判する筋合いではない。」<br>→ 自分には批判するだけの立場や根拠がないと考えています。</p>
 <p>先輩、最後の例のように、相手を拒絶するだけでなく、自分の言動を慎む場面でも使えるんですよ。</p>
+</div><p class="ix-cap">ChatGPTと同じタブ切り替え形式で再現しています。</p></div>
 <h2>類義語・似た言葉との違い</h2>
 <table><tr><th>言葉</th><th>意味・ニュアンス</th></tr><tr><td>筋合い</td><td>その行為や要求をする正当な理由・立場</td></tr><tr><td>道理（どうり）</td><td>物事がそうあるべきだと考えられる筋道</td></tr><tr><td>資格（しかく）</td><td>ある行為をするための条件や立場</td></tr><tr><td>権利（けんり）</td><td>正当に認められた利益や行為の自由</td></tr><tr><td>義理（ぎり）</td><td>人間関係や社会的な付き合いから生じる務め</td></tr></table>
 <p>例えば、「あなたに批判する資格はない」は相手が批判できる立場かを問題にしています。一方、「あなたに批判される筋合いはない」は、「自分がその相手から批判を受ける正当な理由がない」と主張する表現です。</p>
+
 <h2>理解確認：3問</h2>
 <div id="quiz"></div>
 <p id="score"></p>
 <button id="reset">もう一度</button>
+
 <h2>30秒復習</h2>
 <ul><li>読み方：すじあい</li><li>意味：行為や要求をする正当な理由・立場・道理</li><li>代表表現：「〜する筋合いはない」「〜される筋合いはない」</li><li>注意点：相手への拒絶が強く響くことがある</li></ul>
+
 <h2>一文記憶</h2>
 <p>「その要求に応じる理由も責任もない。それが『筋合いはない』。」</p>
 <p>先輩、「筋合い」は、単なる好き嫌いではなく、「誰にどんな責任や立場があるのか」を考える言葉です。そこを押さえれば、ニュースや小説の会話でも意味を正確につかめますよ。</p>
@@ -99,6 +130,84 @@ function build(){
 }
 build();
 document.getElementById('reset').onclick = build;
+
+</script>
+<script>
+
+const IX_DATA = [];
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
 
 </script>
 </body>

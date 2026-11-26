@@ -30,6 +30,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 </style>
 </head>
 <body>
@@ -38,13 +64,14 @@ summary{cursor:pointer;font-weight:bold}
 <p>名詞｜目的を達成するための手段・工夫・仏教由来の言葉<br>意味：ある目的を達成するために、その場の状況に応じて用いる手段や工夫。</p>
 <p>先輩、「方便」は、特に「嘘も方便」ということわざでよく使われます。<br>例えば、友人が大切な試験に落ちて落ち込んでいるとき、必要以上に厳しい言葉をかけるのではなく、相手を励ますために伝え方を工夫することがありますよね。<br>ただし、「方便」は単なる嘘の言い換えではありません。もともと仏教では、相手の理解や能力に合わせて真理へ導くための適切な教え方・手段を意味するんです。<br>今回は、前回の反省を踏まえ、イメージ画像は文字や解説パネルを入れず、場面だけで意味を伝える形式にします。</p>
 <blockquote><p>図版（ChatGPT側の表示）：見出し直下にChatGPT生成画像が1枚あります。ベビーカーに乗った赤ちゃんと、その横に立つ大人の日常の場面の写真風イラストで、文字や解説パネルは入っていません。ただし画像の場面が方便の意味と直接結びつきにくい点には注意が必要です。元の画像ファイル自体はここには含まれていません。</p><p>形式について：この項目はChatGPT側では A 要点／B 詳解／C イメージ／D 具体例 のタブ切り替え形式でした。ここではタブの中身を順に並べています。</p></blockquote>
-<h2>A｜要点</h2>
+
+<div class="ix ix-tabs" data-initial="0"><div class="ix-tabbar"><button class="ix-tab">A｜要点</button><button class="ix-tab">B｜詳しい解説</button><button class="ix-tab">C｜イメージ理解</button><button class="ix-tab">D｜具体例</button></div><div class="ix-panel">
 <p>先輩、「方便」は、目的を達成するために、状況に合わせて使う手段や工夫のことです。<br>特に「嘘も方便」という表現では、相手のためになる場合には、必ずしも本当のことをそのまま伝えないほうがよい場合もある、という意味になります。<br>ただし、これは「目的がよければ、どんな嘘でも許される」という意味ではありませんよ。</p>
-<h2>B｜詳しい解説</h2>
+</div><div class="ix-panel">
 <p>先輩、例えば小さな子どもに、難しい科学の仕組みを説明するとします。<br>いきなり専門用語を並べても理解できませんよね。<br>そこで、身近なものにたとえたり、簡単な言葉に置き換えたりします。<br>本来の説明を相手に合わせて工夫するわけです。<br>これが「方便」の基本的な考え方です。<br>もともと仏教では、相手の能力や理解の段階に応じて、真理へ導くための適切な方法を用いることを意味しました。<br>そこから一般的に、目的のために使う手段や工夫という意味でも使われるようになったんです。<br>ただし、先輩。現代では「方便」が言い訳や、その場を取り繕う手段という意味合いで使われることもあります。<br>だから、文脈によって肯定的にも否定的にも受け取られる言葉なんですよ。</p>
-<h2>C｜イメージ理解</h2>
+</div><div class="ix-panel">
 <p>先輩、登山を想像してください。<br>山頂に到達することが目的だとします。<br>体力のある人には急な登山道が合っていても、初心者には危険かもしれません。<br>そこで、初心者には緩やかな道を案内します。<br>目的地は同じでも、相手に合わせて道を変えるんです。<br>これが方便のイメージです。<br>重要なのは、手段そのものが目的なのではなく、相手を適切な目的地へ導くために手段を工夫するということですよ。</p>
-<h2>D｜具体例</h2>
+</div><div class="ix-panel">
 <h3>例① 人間関係</h3>
 <p>「落ち込んでいる友人を励ますため、嘘も方便だと思って少し明るい言葉をかけた。」<br>→ 相手を思いやる目的で、伝え方を工夫した。</p>
 <h3>例② 教育</h3>
@@ -53,17 +80,98 @@ summary{cursor:pointer;font-weight:bold}
 <p>「その説明は顧客を納得させるための方便にすぎなかった。」<br>→ 本当の理由ではなく、その場を取り繕うための説明だったという否定的な意味。</p>
 <h3>例④ 仏教</h3>
 <p>「仏教では、人々を悟りへ導くためにさまざまな方便が説かれる。」<br>→ 相手に合わせた教え方や導き方を指す。</p>
+</div><p class="ix-cap">ChatGPTと同じタブ切り替え形式で再現しています。</p></div>
 <h2>類義語・似た言葉との違い</h2>
 <table><tr><th>言葉</th><th>意味・ニュアンス</th></tr><tr><td>方便</td><td>目的に応じて工夫する手段。仏教由来</td></tr><tr><td>手段</td><td>目的を実現するための方法全般</td></tr><tr><td>工夫</td><td>よりよくするために考え出した方法</td></tr><tr><td>策略</td><td>目的達成のために練った計画。駆け引きの響きがある</td></tr><tr><td>口実</td><td>本当の理由とは別に、表向きに示す理由</td></tr><tr><td>詭弁（きべん）</td><td>道理に合わないことを、もっともらしく見せる議論</td></tr></table>
 <p>先輩、「方便」と「口実」は混同しやすいので注意してください。<br>方便は、目的に応じた手段という広い意味です。一方、口実は、本当の理由を隠すための表向きの理由を指すことが多いんです。</p>
+
 <h2>理解確認：3問</h2>
 <blockquote><p>ChatGPT側のこの項目には「理解確認・3問」という見出しだけがあり、設問・選択肢は存在しませんでした（タブをすべて開いて確認済み）。そのため、ここにも設問はありません。</p></blockquote>
+
 <h2>30秒復習</h2>
 <ul><li>読み方：ほうべん</li><li>意味：目的に応じて用いる手段や工夫</li><li>由来：仏教で、相手に合わせて真理へ導く方法</li><li>代表表現：嘘も方便／方便として用いる／方便にすぎない</li><li>注意点：方便は嘘そのものを意味するわけではない</li></ul>
+
 <h2>一文記憶</h2>
 <p>「目的地は同じでも、相手に合わせて道を変える。それが方便。」</p>
 <p>先輩、「方便」は、相手を助けるための工夫にも、その場を取り繕うための手段にも使われます。<br>「何のために、その方法を選んだのか」まで考えると、意味がしっかりつかめますよ。</p>
 <div class="nav"><a href="013_道理.html">← 前：013｜道理（どうり）</a><a href="index.html">目次に戻る</a><a href="015_瓢箪から駒.html">次：015｜瓢箪から駒（ひょうたんからこま） →</a></div>
+<script>
 
+const IX_DATA = [];
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
+
+</script>
 </body>
 </html>

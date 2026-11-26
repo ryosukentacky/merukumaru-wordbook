@@ -30,6 +30,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 </style>
 </head>
 <body>
@@ -38,28 +64,33 @@ summary{cursor:pointer;font-weight:bold}
 <p>品詞：名詞｜社会・経済・政治・ビジネスで使う言葉<br>意味：物事がある方向へ変化していく、大きな流れや傾向。</p>
 <p>先輩、「趨勢」は、ただの流行とは違いますよ。目の前の一時的な変化ではなく、世の中が長い時間をかけて、どちらの方向へ進んでいるのかを表す言葉なんです。</p>
 <blockquote><p>図版（ChatGPT側の表示）：見出し直下にウェブ画像が1枚あります（openhorizons.org「The Global Process Community: A River with Twelve Tributaries」、山々に囲まれた大きな川と支流の風景画）。キャプション：「小さな流れが集まり、やがて大きな川になる。これが「趨勢」のイメージです。」ChatGPT生成画像ではありません。元の画像ファイル自体はここには含まれていません。</p><p>形式について：この項目はChatGPT側では A 要点／B 詳解／C イメージ／D 具体例 のタブ切り替え形式でした。ここではタブの中身を順に並べています。</p></blockquote>
-<h2>A｜要点</h2>
+
+<div class="ix ix-tabs" data-initial="0"><div class="ix-tabbar"><button class="ix-tab">A｜要点</button><button class="ix-tab">B｜詳しい解説</button><button class="ix-tab">C｜イメージ理解</button><button class="ix-tab">D｜具体例</button></div><div class="ix-panel">
 <p>「趨勢」とは、社会や物事が向かっている全体的・長期的な方向性のことです。<br>例えば、「キャッシュレス化は時代の趨勢だ」と言えば、一時的なブームではなく、社会全体が現金を使わない方向へ進んでいるという意味になります。<br>「趨勢を見極める」「時代の趨勢に逆らえない」などの形でよく使われます。</p>
-<h2>B｜詳しい解説</h2>
+</div><div class="ix-panel">
 <p>先輩、ある年にキャッシュレス決済の利用者が急増したとします。<br>でも、それだけではまだ『趨勢』とは言い切れません。翌年には利用者が減るかもしれませんから。<br>ところが、数年にわたって利用者が増え、店舗側も対応を進め、現金を持ち歩かない人まで増えてきたらどうでしょう。<br>個々の変化が積み重なって、社会全体の進む方向が見えてきますよね。<br>これが『趨勢』です。<br>つまり、個別の出来事ではなく、その背後にある大きな方向性を見る言葉なんです。<br>ただし、趨勢だからといって、必ずその方向に進み続けるわけではありません。政策や技術革新によって変わる可能性もあります。</p>
-<h2>C｜イメージ理解</h2>
+</div><div class="ix-panel">
 <p>先輩、海を思い浮かべてください。<br>波は右にも左にも動きます。でも、海流全体は一定の方向に進んでいることがありますよね。<br>このとき、一つひとつの波が短期的な変動で、海流の向きが趨勢です。<br>株価が今日上がった、明日下がったという話ではなく、長い期間で市場全体がどちらへ向かっているかを見る感覚に近いんですよ。</p>
-<h2>D｜具体例</h2>
+</div><div class="ix-panel">
 <h3>例① 経済</h3>
 <p>「人口減少は日本社会の長期的な趨勢である。」<br>→ 一時的な人口の増減ではなく、長い期間で人口が減る方向に進んでいること。</p>
 <h3>例② ビジネス</h3>
 <p>「企業はデジタル化という時代の趨勢に対応する必要がある。」<br>→ 社会全体がデジタル技術を活用する方向に進んでいること。</p>
 <h3>例③ 投資</h3>
 <p>「短期的な株価の上下に惑わされず、市場の趨勢を見極める。」<br>→ 目先の値動きではなく、市場全体の中長期的な方向性を判断すること。</p>
+</div><p class="ix-cap">ChatGPTと同じタブ切り替え形式で再現しています。</p></div>
 <h2>類義語・似た言葉との違い</h2>
 <table><tr><th>言葉</th><th>意味・ニュアンス</th></tr><tr><td>趨勢</td><td>社会や物事の大きな流れ・方向性</td></tr><tr><td>傾向（けいこう）</td><td>ある方向に偏りやすい性質。短期的な場合もある</td></tr><tr><td>潮流（ちょうりゅう）</td><td>社会や思想などを動かす大きな流れ</td></tr><tr><td>動向（どうこう）</td><td>物事が現在どう動いているか、その変化の様子</td></tr><tr><td>大勢（たいせい）</td><td>物事の全体的な成り行きや優勢な方向</td></tr></table>
 <p>「最近、若者の間で流行している」は傾向。「社会全体がその方向へ長期的に変化している」なら趨勢が自然です。</p>
+
 <h2>理解確認：3問</h2>
 <div id="quiz"></div>
 <p id="score"></p>
 <button id="reset">もう一度</button>
+
 <h2>30秒復習</h2>
 <ul><li>読み方：すうせい</li><li>意味：物事の大きな流れ・方向性</li><li>ポイント：一時的な変化ではなく、全体的・長期的な動き</li><li>代表表現：時代の趨勢／趨勢を見極める／趨勢に逆らう</li></ul>
+
 <h2>一文記憶</h2>
 <p>「小さな波ではなく、大きな海流を見る。それが趨勢。」</p>
 <p>先輩、「趨勢」という言葉を見かけたら、「結局、全体としてどちらに向かっているのか？」と考えてみてください。それだけで、ニュースや経済記事の読み方が一段深くなりますよ。</p>
@@ -94,6 +125,84 @@ function build(){
 }
 build();
 document.getElementById('reset').onclick = build;
+
+</script>
+<script>
+
+const IX_DATA = [];
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
 
 </script>
 </body>
