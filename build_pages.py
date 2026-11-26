@@ -77,6 +77,19 @@ summary{cursor:pointer;font-weight:bold}
 .ix-darrow{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px}
 .ix-darrow .a{font-size:22px;color:#4a6fa5;line-height:1}
 .ix-darrow .l{font-size:13.5px;margin-top:4px}
+.ix-fig{display:none;margin:6px 0 2px}
+.ix-fig.on{display:block}
+.ix-fig svg{width:100%;height:auto;display:block}
+.ix-meter{display:flex;gap:4px;margin:10px 0 2px}
+.ix-meter i{flex:1;height:10px;border-radius:5px;background:#dbe4f0}
+.ix-meter i.on{background:#4a6fa5}
+.ix-fbar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:13.5px}
+.ix-fbar .fn{width:64px;text-align:right}
+.ix-fbar .bar{flex:1;background:#eef1f5;border-radius:5px;height:14px;overflow:hidden}
+.ix-fbar .bar i{display:block;height:100%;background:#5b8dd6;width:0}
+.ix-split{display:flex;height:22px;border-radius:6px;overflow:hidden;margin:10px 0 2px;font-size:13px;color:#fff}
+.ix-split .s0{background:#4a6fa5;text-align:left;padding:2px 8px;white-space:nowrap;overflow:hidden}
+.ix-split .s1{background:#c98a3d;text-align:right;padding:2px 8px;white-space:nowrap;overflow:hidden;flex:1}
 """
 
 QUIZ_JS = """
@@ -125,16 +138,26 @@ document.querySelectorAll('.ix-slider').forEach(root => {
   const d = IX_DATA[parseInt(root.dataset.ix, 10)];
   const input = root.querySelector('input[type=range]');
   const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  const figs = root.querySelectorAll('.ix-fig'), segs = root.querySelectorAll('.ix-meter i');
+  const beam = root.querySelector('.ix-beam'), split = root.querySelector('.ix-split'),
+        fbars = root.querySelectorAll('.ix-fbar');
   function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
   function render(){
     const v = parseInt(input.value, 10);
     if (d.continuous){
+      let a = 0, b = 0;
       if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
-      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v; a = Math.floor(r / 2); b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
       const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      if (split){ const s0 = split.querySelector('.s0'), s1 = split.querySelector('.s1'); s0.style.width = (100 - v) + '%'; s0.textContent = d.value_names[0] + ' ' + (100 - v) + '%'; s1.textContent = d.value_names[1] + ' ' + v + '%'; }
+      if (beam){ beam.style.transform = 'rotate(' + ((v - 50) / 5) + 'deg)'; }
+      if (fbars.length === 3){ const vals = [a, v, b]; fbars.forEach((fb, i) => { fb.querySelector('.bar i').style.width = vals[i] + '%'; fb.querySelector('.fv').textContent = vals[i] + '%'; }); }
     } else {
       const s = d.states.find(s => s.value === v) || nearest(v);
       lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      figs.forEach(f => f.classList.toggle('on', parseInt(f.dataset.v, 10) === s.value));
+      const si = d.states.indexOf(s);
+      segs.forEach((sg, i) => sg.classList.toggle('on', i === si));
     }
   }
   input.oninput = render; render();
@@ -214,6 +237,136 @@ def render_diagram_boxes(db):
             f'<div class="ix-darrow"><div class="a">→</div><div class="l">{esc_text(db.get("arrow", ""))}</div></div>'
             f'{box(db.get("right", {}))}</div>')
 
+def svg_wrap(inner, bg="#fbfcfe"):
+    return f'<svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="{bg}"/>{"".join(inner)}</svg>'
+
+def fig_petals(v):
+    pts = [(40,60),(80,45),(120,70),(160,40),(200,65),(240,50),(280,75),(60,95),(110,100),(170,95),(230,100),(290,105),
+           (30,30),(90,25),(150,30),(210,28),(270,35),(50,120),(140,120),(250,125),(100,80),(190,82),(260,88),(20,85)]
+    n = [0, 5, 12, 24][v]
+    els = ['<path d="M150 150 L156 84" stroke="#8a6d4f" stroke-width="9" stroke-linecap="round"/>',
+           '<path d="M154 104 Q110 84 84 62 M155 96 Q200 78 228 58" stroke="#8a6d4f" stroke-width="5" fill="none" stroke-linecap="round"/>',
+           '<circle cx="105" cy="58" r="30" fill="#f6c9d4"/><circle cx="160" cy="44" r="36" fill="#f8d3dc"/><circle cx="215" cy="58" r="30" fill="#f6c9d4"/>',
+           '<line x1="0" y1="148" x2="320" y2="148" stroke="#b9a888" stroke-width="3"/>']
+    for i in range(n):
+        x, y = pts[i]
+        els.append(f'<ellipse cx="{x}" cy="{y}" rx="6" ry="3.4" fill="#f2a7bb" transform="rotate(-24 {x} {y})"/>')
+    if v >= 2:
+        els.append('<path d="M8 44 Q60 36 112 44 M8 118 Q60 110 112 118" stroke="#bcd3e8" stroke-width="3" fill="none" stroke-linecap="round"/>')
+    return svg_wrap(els, "#fdf6ec")
+
+def fig_soup(v):
+    shades = ["#f7d774", "#f5cd60", "#f2c14e", "#eeb840", "#e8ab32", "#e29e2b", "#db9124"]
+    els = ['<path d="M52 66 L268 66 Q258 128 160 128 Q62 128 52 66 Z" fill="#dfe7ef" stroke="#b9c8dd"/>',
+           f'<ellipse cx="160" cy="66" rx="108" ry="13" fill="{shades[v]}"/>']
+    for i in range(v):
+        x = 96 + (i * 23) % 128
+        y = 61 + (i % 2) * 8
+        els.append(f'<rect x="{x}" y="{y}" width="7" height="7" fill="#ffffff" transform="rotate(45 {x + 3} {y + 3})"/>')
+    els.append('<path d="M52 66 L34 58 M268 66 L286 58" stroke="#b9c8dd" stroke-width="5" stroke-linecap="round"/>')
+    return svg_wrap(els)
+
+def fig_sunlight(v):
+    leaf_pts = [(70,38),(105,26),(140,34),(175,24),(210,32),(245,40),(88,56),(124,50),(160,44),(196,50),(232,56),
+                (60,66),(150,62),(240,68),(110,74),(205,76),(80,84),(170,84),(228,86),(135,92)]
+    light_pts = [(60,132),(105,138),(150,131),(195,137),(240,132),(82,142),(128,144),(218,143),(262,140),(172,145)]
+    nl = [3, 7, 13, 20][v]; ns = [1, 3, 6, 10][v]
+    els = ['<path d="M156 150 L160 70 M159 96 Q120 82 96 62 M160 88 Q198 74 224 56" stroke="#7a5c3e" stroke-width="6" fill="none" stroke-linecap="round"/>',
+           '<line x1="0" y1="148" x2="320" y2="148" stroke="#a8bf8f" stroke-width="4"/>']
+    for i in range(nl):
+        x, y = leaf_pts[i]
+        els.append(f'<circle cx="{x}" cy="{y}" r="13" fill="{"#7fae5f" if i % 2 else "#95c06f"}"/>')
+    for i in range(ns):
+        x, y = light_pts[i]
+        els.append(f'<ellipse cx="{x}" cy="{y}" rx="11" ry="3.6" fill="#f7d774"/>')
+    return svg_wrap(els, "#f4f9ec")
+
+def fig_waves(v):
+    amp = [3, 7, 13, 20][v]
+    els = []
+    for row, yb in enumerate((58, 92, 124)):
+        a = amp * (1 - row * 0.18)
+        els.append(f'<path d="M0 {yb} Q40 {yb - a} 80 {yb} T160 {yb} T240 {yb} T320 {yb}" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/>')
+    return svg_wrap(els, "#eef6fd")
+
+def fig_winddir(i):
+    els = ['<rect x="18" y="34" width="104" height="76" rx="10" fill="#bcd9f2"/>',
+           '<rect x="198" y="34" width="104" height="76" rx="10" fill="#d9e6c3"/>',
+           '<text x="70" y="78" font-size="19" text-anchor="middle" fill="#33526e">海</text>',
+           '<text x="250" y="78" font-size="19" text-anchor="middle" fill="#4c5e33">陸</text>']
+    if i == 0:
+        els.append('<path d="M132 62 L188 62" stroke="#e08a2e" stroke-width="6"/><path d="M188 62 L172 52 M188 62 L172 72" stroke="#e08a2e" stroke-width="6" fill="none"/>')
+        els.append('<text x="160" y="98" font-size="14" text-anchor="middle" fill="#8a5a14">海風</text>')
+    elif i == 2:
+        els.append('<path d="M188 62 L132 62" stroke="#7a6fd0" stroke-width="6"/><path d="M132 62 L148 52 M132 62 L148 72" stroke="#7a6fd0" stroke-width="6" fill="none"/>')
+        els.append('<text x="160" y="98" font-size="14" text-anchor="middle" fill="#4c4390">陸風</text>')
+    else:
+        els.append('<line x1="134" y1="62" x2="186" y2="62" stroke="#b9c8dd" stroke-width="4" stroke-dasharray="6 6"/>')
+        els.append('<text x="160" y="98" font-size="14" text-anchor="middle" fill="#7c8aa0">凪（風が弱まる）</text>')
+    return svg_wrap(els)
+
+def fig_heartmove(v):
+    cx = [66, 128, 192, 254][v]
+    els = ['<rect x="14" y="26" width="118" height="66" rx="10" fill="#eef4ff" stroke="#b9c8dd"/>',
+           '<rect x="188" y="26" width="118" height="66" rx="10" fill="#fdf0e4" stroke="#e3cdb2"/>',
+           '<text x="73" y="118" font-size="13.5" text-anchor="middle" fill="#33526e">目の前のこと</text>',
+           '<text x="247" y="118" font-size="13.5" text-anchor="middle" fill="#7a4c14">別のこと</text>',
+           f'<circle cx="{cx}" cy="59" r="19" fill="#e88ca0"/>',
+           f'<text x="{cx}" y="65" font-size="15" text-anchor="middle" fill="#fff">心</text>']
+    return svg_wrap(els)
+
+def fig_graph(v):
+    pts = [(40, 112), (120, 88), (200, 56), (280, 22)]
+    els = ['<line x1="30" y1="126" x2="300" y2="126" stroke="#b9c8dd" stroke-width="2"/>',
+           '<polyline points="40,112 120,88 200,56 280,22" stroke="#5b8dd6" stroke-width="3.5" fill="none"/>']
+    labels = ["構想", "基礎", "仕上げ前", "完成"]
+    for i, (x, y) in enumerate(pts):
+        r = 9 if i == v else 5.5
+        fill = "#e08a2e" if i == v else "#5b8dd6"
+        els.append(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{fill}"/>')
+        els.append(f'<text x="{x}" y="144" font-size="12.5" text-anchor="middle" fill="#555">{labels[i]}</text>')
+    return svg_wrap(els)
+
+def fig_dragon(i):
+    els = ['<path d="M96 30 L84 6 L110 20 Z M224 30 L236 6 L210 20 Z" fill="#c9a227"/>',
+           '<ellipse cx="160" cy="82" rx="76" ry="60" fill="#69a86b"/>',
+           '<ellipse cx="160" cy="104" rx="40" ry="24" fill="#8fc48f"/>',
+           '<circle cx="146" cy="112" r="4.5" fill="#33523a"/><circle cx="174" cy="112" r="4.5" fill="#33523a"/>',
+           '<path d="M138 128 Q160 138 182 128" stroke="#33523a" stroke-width="3.5" fill="none" stroke-linecap="round"/>',
+           '<path d="M84 74 Q52 66 44 44 M236 74 Q268 66 276 44" stroke="#69a86b" stroke-width="5" fill="none" stroke-linecap="round"/>',
+           '<circle cx="126" cy="70" r="15" fill="#ffffff"/><circle cx="194" cy="70" r="15" fill="#ffffff"/>']
+    if i == 1:
+        els.append('<circle cx="126" cy="70" r="8" fill="#d4a017"/><circle cx="194" cy="70" r="8" fill="#d4a017"/>')
+        els.append('<circle cx="126" cy="70" r="3.6" fill="#222"/><circle cx="194" cy="70" r="3.6" fill="#222"/>')
+    return svg_wrap(els, "#f2f8f0")
+
+def fig_bars4(v):
+    labels = ["知識", "理解", "判断", "活用"]
+    heights = [36, 58, 80, 104]
+    els = ['<line x1="24" y1="126" x2="300" y2="126" stroke="#b9c8dd" stroke-width="2"/>']
+    for i, h in enumerate(heights):
+        x = 44 + i * 68
+        fill = "#e08a2e" if i == v else "#a9c2e2"
+        els.append(f'<rect x="{x}" y="{126 - h}" width="42" height="{h}" rx="4" fill="{fill}"/>')
+        els.append(f'<text x="{x + 21}" y="144" font-size="13" text-anchor="middle" fill="#555">{labels[i]}</text>')
+    return svg_wrap(els)
+
+FIG_FUNCS = {"petals": fig_petals, "soup": fig_soup, "sunlight": fig_sunlight, "waves": fig_waves,
+             "winddir": fig_winddir, "heartmove": fig_heartmove, "graph": fig_graph,
+             "dragon": fig_dragon, "bars4": fig_bars4}
+
+# Which component (by entry number + component index) gets which figure.
+FIGURE_KIND = {
+    ("037", 0): "meter", ("038", 0): "meter", ("039", 0): "meter", ("040", 0): "meter",
+    ("042", 0): "meter", ("044", 0): "meter",
+    ("043", 0): "graph", ("043", 1): "dragon",
+    ("045", 0): "sunlight", ("054", 0): "heartmove",
+    ("056", 0): "winddir", ("056", 1): "waves",
+    ("057", 0): "petals", ("058", 0): "soup",
+    ("060", 0): "fields", ("061", 0): "bars4",
+    ("063", 1): "splitbar", ("065", 0): "balance",
+}
+
 def render_component(comp, idx):
     """Render one interactive component spec to static HTML wired by IX_JS."""
     t = comp.get("type")
@@ -225,10 +378,13 @@ def render_component(comp, idx):
     if t in ("tabs", "selector"):
         cls = "ix-tabs" if t == "tabs" else "ix-selector"
         items = comp.get("tabs") or comp.get("options") or []
+        fig_fn = FIG_FUNCS.get(comp.get("figure_kind") or "")
         btns, panels = [], []
-        for it in items:
+        for oi, it in enumerate(items):
             btns.append(f'<button class="ix-tab">{esc_text(it.get("label", ""))}</button>')
             inner = ""
+            if fig_fn:
+                inner += f'<div class="ix-fig on">{fig_fn(oi)}</div>'
             if it.get("diagram_boxes"):
                 inner += render_diagram_boxes(it["diagram_boxes"])
             elif it.get("diagram"):
@@ -243,9 +399,35 @@ def render_component(comp, idx):
             scale += f'<span class="mid">{esc_text(comp["mid_label"])}</span>'
         scale += f'<span>{esc_text(comp.get("right_label", ""))}</span>'
         formula = f'<p class="ix-note">{esc_text(comp["formula"])}</p>' if comp.get("formula") else ""
+        kind = comp.get("figure_kind") or ""
+        fig_h = ""
+        if kind == "meter":
+            nseg = len(comp.get("states", [])) or (comp.get("max", 0) - comp.get("min", 0) + 1)
+            fig_h = '<div class="ix-meter">' + "<i></i>" * nseg + "</div>"
+        elif kind in FIG_FUNCS and not comp.get("continuous"):
+            fn = FIG_FUNCS[kind]
+            fig_h = "".join(f'<div class="ix-fig" data-v="{s["value"]}">{fn(s["value"])}</div>' for s in comp.get("states", []))
+        elif kind == "fields":
+            rows = "".join(f'<div class="ix-fbar"><span class="fn">{n}</span><div class="bar"><i></i></div><span class="fv"></span></div>' for n in ("他人の田", "自分の田", "他人の田"))
+            fig_h = f'<div class="ix-fields">{rows}</div>'
+        elif kind == "splitbar":
+            fig_h = '<div class="ix-split"><div class="s0"></div><div class="s1"></div></div>'
+        elif kind == "balance":
+            names = comp.get("value_names", ["", ""])
+            fig_h = ('<div class="ix-fig on"><svg viewBox="0 0 320 150" role="img">'
+                     '<polygon points="160,54 136,142 184,142" fill="#b9c8dd"/>'
+                     '<g class="ix-beam" style="transform-origin:160px 48px">'
+                     '<line x1="52" y1="48" x2="268" y2="48" stroke="#7a6a53" stroke-width="5" stroke-linecap="round"/>'
+                     '<line x1="70" y1="48" x2="70" y2="78" stroke="#7a6a53" stroke-width="3"/>'
+                     '<line x1="250" y1="48" x2="250" y2="78" stroke="#7a6a53" stroke-width="3"/>'
+                     '<ellipse cx="70" cy="84" rx="31" ry="8" fill="#c9a86a"/>'
+                     '<ellipse cx="250" cy="84" rx="31" ry="8" fill="#c9a86a"/>'
+                     f'<text x="70" y="36" font-size="14" text-anchor="middle" fill="#555">{esc_text(names[0])}</text>'
+                     f'<text x="250" y="36" font-size="14" text-anchor="middle" fill="#555">{esc_text(names[1])}</text>'
+                     '</g></svg></div>')
         return (f'<div class="ix ix-slider" data-ix="{idx}">{head}'
                 f'<input type="range" min="{comp.get("min", 0)}" max="{comp.get("max", 0)}" step="1" value="{comp.get("initial", 0)}">'
-                f'<div class="ix-scale">{scale}</div><div class="ix-disp"></div>'
+                f'<div class="ix-scale">{scale}</div><div class="ix-disp"></div>{fig_h}'
                 f'<div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div>'
                 f'{formula}{note_h}{cap}</div>')
     if t == "simulation":
@@ -545,6 +727,10 @@ def main():
             with open(spec_path, encoding="utf-8") as fh:
                 components = json.load(fh).get("components", [])
         if components:
+            for ci, comp in enumerate(components):
+                kind = FIGURE_KIND.get((e["num"], ci))
+                if kind:
+                    comp["figure_kind"] = kind
             body = insert_components(body, components)
         # Only the tab-era entries (011-016) were A/B/C/D tabs in ChatGPT;
         # other entries show the same headings as a normal scroll.
