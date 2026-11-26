@@ -56,6 +56,27 @@ summary{cursor:pointer;font-weight:bold}
 .ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
 .ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
 .ix-cap{font-size:12.5px;color:#777;margin-top:8px}
+.ix-dboxes{display:flex;align-items:stretch;gap:8px;margin-bottom:10px}
+.ix-dbox{flex:1;background:#eef1f5;border:1px solid #c9d4e6;border-radius:10px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:110px}
+.ix-dbox .t{font-size:14.5px;font-weight:bold}
+.ix-dbox .n{font-size:13px;color:#666;margin:auto 0}
+.ix-dbox svg{margin:auto 0}
+.ix-darrow{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px}
+.ix-darrow .a{font-size:22px;color:#4a6fa5;line-height:1}
+.ix-darrow .l{font-size:13.5px;margin-top:4px}
+.ix-fig{display:none;margin:6px 0 2px}
+.ix-fig.on{display:block}
+.ix-fig svg{width:100%;height:auto;display:block}
+.ix-meter{display:flex;gap:4px;margin:10px 0 2px}
+.ix-meter i{flex:1;height:10px;border-radius:5px;background:#dbe4f0}
+.ix-meter i.on{background:#4a6fa5}
+.ix-fbar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:13.5px}
+.ix-fbar .fn{width:64px;text-align:right}
+.ix-fbar .bar{flex:1;background:#eef1f5;border-radius:5px;height:14px;overflow:hidden}
+.ix-fbar .bar i{display:block;height:100%;background:#5b8dd6;width:0}
+.ix-split{display:flex;height:22px;border-radius:6px;overflow:hidden;margin:10px 0 2px;font-size:13px;color:#fff}
+.ix-split .s0{background:#4a6fa5;text-align:left;padding:2px 8px;white-space:nowrap;overflow:hidden}
+.ix-split .s1{background:#c98a3d;text-align:right;padding:2px 8px;white-space:nowrap;overflow:hidden;flex:1}
 </style>
 </head>
 <body>
@@ -78,7 +99,7 @@ summary{cursor:pointer;font-weight:bold}
 <h2>C｜イメージ理解</h2>
 <h3>① 新人教育におけるさじ加減 — 指導と自主性のバランス</h3>
 <p>ChatGPT側には、スライダー付きの概念モデルがあります（天秤の図解付き）。バーの両端は左「丁寧に教える」／右「自分で考えさせる」で、値は連続（0〜100）、初期状態は値50（指導の優先度50%／自主性の優先度50%）です。確認した状態は次のとおりです（テキストは3種類）。</p>
-<div class="ix ix-slider" data-ix="0"><div class="ix-title">新人教育におけるさじ加減 — 指導と自主性のバランス</div><input type="range" min="0" max="100" step="1" value="50"><div class="ix-scale"><span>丁寧に教える</span><span>自分で考えさせる</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">値vに対して指導の優先度＝100−v、自主性の優先度＝v（値0で指導の優先度100%／自主性の優先度0%、値100で指導の優先度0%／自主性の優先度100%）</p><p class="ix-note">「スライダーで優先度を調整できます。数値は理解のための仮定であり、最適な指導割合を示すものではありません。」確認した状態のテキストは3種類です。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
+<div class="ix ix-slider" data-ix="0"><div class="ix-title">新人教育におけるさじ加減 — 指導と自主性のバランス</div><input type="range" min="0" max="100" step="1" value="50"><div class="ix-scale"><span>丁寧に教える</span><span>自分で考えさせる</span></div><div class="ix-disp"></div><div class="ix-fig on"><svg viewBox="0 0 320 150" role="img"><polygon points="160,54 136,142 184,142" fill="#b9c8dd"/><g class="ix-beam" style="transform-origin:160px 48px"><line x1="52" y1="48" x2="268" y2="48" stroke="#7a6a53" stroke-width="5" stroke-linecap="round"/><line x1="70" y1="48" x2="70" y2="78" stroke="#7a6a53" stroke-width="3"/><line x1="250" y1="48" x2="250" y2="78" stroke="#7a6a53" stroke-width="3"/><ellipse cx="70" cy="84" rx="31" ry="8" fill="#c9a86a"/><ellipse cx="250" cy="84" rx="31" ry="8" fill="#c9a86a"/><text x="70" y="36" font-size="14" text-anchor="middle" fill="#555">指導</text><text x="250" y="36" font-size="14" text-anchor="middle" fill="#555">自主性</text></g></svg></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">値vに対して指導の優先度＝100−v、自主性の優先度＝v（値0で指導の優先度100%／自主性の優先度0%、値100で指導の優先度0%／自主性の優先度100%）</p><p class="ix-note">「スライダーで優先度を調整できます。数値は理解のための仮定であり、最適な指導割合を示すものではありません。」確認した状態のテキストは3種類です。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>値0（指導の優先度100%／自主性の優先度0%）：「指導を重視する段階」「基本的な知識を習得しやすい一方、自分で考える機会が少なくなる可能性があります。」</li><li>値50（初期値、指導の優先度50%／自主性の優先度50%）：「指導と自主性の両方を考慮する段階」「基本的な手順を教えながら、自分で判断する機会も与えます。」</li><li>値100（指導の優先度0%／自主性の優先度100%）：「自主性を重視する段階」「自分で考える力を育てやすい一方、知識や経験が不足している場合には支援が必要です。」</li></ul>
 <p>「スライダーで優先度を調整できます。数値は理解のための仮定であり、最適な指導割合を示すものではありません。」</p>
 <h3>② さじ加減を決める思考の流れ</h3>
@@ -149,7 +170,7 @@ document.getElementById('reset').onclick = build;
 </script>
 <script>
 
-const IX_DATA = [{"anchor": "ChatGPT側には、スライダー付きの概念モデルがあります（天秤の図解付き）。", "continuous": true, "formula": "値vに対して指導の優先度＝100−v、自主性の優先度＝v（値0で指導の優先度100%／自主性の優先度0%、値100で指導の優先度0%／自主性の優先度100%）", "initial": 50, "left_label": "丁寧に教える", "max": 100, "min": 0, "note": "「スライダーで優先度を調整できます。数値は理解のための仮定であり、最適な指導割合を示すものではありません。」確認した状態のテキストは3種類です。", "right_label": "自分で考えさせる", "states": [{"label": "指導を重視する段階", "text": "基本的な知識を習得しやすい一方、自分で考える機会が少なくなる可能性があります。", "value": 0}, {"label": "指導と自主性の両方を考慮する段階", "text": "基本的な手順を教えながら、自分で判断する機会も与えます。", "value": 50}, {"label": "自主性を重視する段階", "text": "自分で考える力を育てやすい一方、知識や経験が不足している場合には支援が必要です。", "value": 100}], "title": "新人教育におけるさじ加減 — 指導と自主性のバランス", "type": "slider", "display_rule": "split", "value_names": ["指導", "自主性"]}];
+const IX_DATA = [{"anchor": "ChatGPT側には、スライダー付きの概念モデルがあります（天秤の図解付き）。", "continuous": true, "formula": "値vに対して指導の優先度＝100−v、自主性の優先度＝v（値0で指導の優先度100%／自主性の優先度0%、値100で指導の優先度0%／自主性の優先度100%）", "initial": 50, "left_label": "丁寧に教える", "max": 100, "min": 0, "note": "「スライダーで優先度を調整できます。数値は理解のための仮定であり、最適な指導割合を示すものではありません。」確認した状態のテキストは3種類です。", "right_label": "自分で考えさせる", "states": [{"label": "指導を重視する段階", "text": "基本的な知識を習得しやすい一方、自分で考える機会が少なくなる可能性があります。", "value": 0}, {"label": "指導と自主性の両方を考慮する段階", "text": "基本的な手順を教えながら、自分で判断する機会も与えます。", "value": 50}, {"label": "自主性を重視する段階", "text": "自分で考える力を育てやすい一方、知識や経験が不足している場合には支援が必要です。", "value": 100}], "title": "新人教育におけるさじ加減 — 指導と自主性のバランス", "type": "slider", "display_rule": "split", "value_names": ["指導", "自主性"], "figure_kind": "balance"}];
 function ixTabs(root){
   const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
   function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
@@ -161,16 +182,26 @@ document.querySelectorAll('.ix-slider').forEach(root => {
   const d = IX_DATA[parseInt(root.dataset.ix, 10)];
   const input = root.querySelector('input[type=range]');
   const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  const figs = root.querySelectorAll('.ix-fig'), segs = root.querySelectorAll('.ix-meter i');
+  const beam = root.querySelector('.ix-beam'), split = root.querySelector('.ix-split'),
+        fbars = root.querySelectorAll('.ix-fbar');
   function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
   function render(){
     const v = parseInt(input.value, 10);
     if (d.continuous){
+      let a = 0, b = 0;
       if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
-      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v; a = Math.floor(r / 2); b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
       const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      if (split){ const s0 = split.querySelector('.s0'), s1 = split.querySelector('.s1'); s0.style.width = (100 - v) + '%'; s0.textContent = d.value_names[0] + ' ' + (100 - v) + '%'; s1.textContent = d.value_names[1] + ' ' + v + '%'; }
+      if (beam){ beam.style.transform = 'rotate(' + ((v - 50) / 5) + 'deg)'; }
+      if (fbars.length === 3){ const vals = [a, v, b]; fbars.forEach((fb, i) => { fb.querySelector('.bar i').style.width = vals[i] + '%'; fb.querySelector('.fv').textContent = vals[i] + '%'; }); }
     } else {
       const s = d.states.find(s => s.value === v) || nearest(v);
       lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      figs.forEach(f => f.classList.toggle('on', parseInt(f.dataset.v, 10) === s.value));
+      const si = d.states.indexOf(s);
+      segs.forEach((sg, i) => sg.classList.toggle('on', i === si));
     }
   }
   input.oninput = render; render();

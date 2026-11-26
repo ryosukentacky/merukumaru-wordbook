@@ -56,6 +56,27 @@ summary{cursor:pointer;font-weight:bold}
 .ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
 .ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
 .ix-cap{font-size:12.5px;color:#777;margin-top:8px}
+.ix-dboxes{display:flex;align-items:stretch;gap:8px;margin-bottom:10px}
+.ix-dbox{flex:1;background:#eef1f5;border:1px solid #c9d4e6;border-radius:10px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:110px}
+.ix-dbox .t{font-size:14.5px;font-weight:bold}
+.ix-dbox .n{font-size:13px;color:#666;margin:auto 0}
+.ix-dbox svg{margin:auto 0}
+.ix-darrow{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px}
+.ix-darrow .a{font-size:22px;color:#4a6fa5;line-height:1}
+.ix-darrow .l{font-size:13.5px;margin-top:4px}
+.ix-fig{display:none;margin:6px 0 2px}
+.ix-fig.on{display:block}
+.ix-fig svg{width:100%;height:auto;display:block}
+.ix-meter{display:flex;gap:4px;margin:10px 0 2px}
+.ix-meter i{flex:1;height:10px;border-radius:5px;background:#dbe4f0}
+.ix-meter i.on{background:#4a6fa5}
+.ix-fbar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:13.5px}
+.ix-fbar .fn{width:64px;text-align:right}
+.ix-fbar .bar{flex:1;background:#eef1f5;border-radius:5px;height:14px;overflow:hidden}
+.ix-fbar .bar i{display:block;height:100%;background:#5b8dd6;width:0}
+.ix-split{display:flex;height:22px;border-radius:6px;overflow:hidden;margin:10px 0 2px;font-size:13px;color:#fff}
+.ix-split .s0{background:#4a6fa5;text-align:left;padding:2px 8px;white-space:nowrap;overflow:hidden}
+.ix-split .s1{background:#c98a3d;text-align:right;padding:2px 8px;white-space:nowrap;overflow:hidden;flex:1}
 </style>
 </head>
 <body>
@@ -81,7 +102,7 @@ summary{cursor:pointer;font-weight:bold}
 <p>先輩、知識をレンガに例えてみましょう。レンガをたくさん持っていても、それだけでは家は建ちません。どのように組み合わせれば丈夫な建物になるのかを理解し、必要な材料を選び、適切に組み立てる必要があります。知識は材料であり、リテラシーはその材料を適切に扱う能力です。</p>
 <h3>② Excelを使ったリテラシーの理解</h3>
 <p>ChatGPT側には、スライダー付きの概念モデルがあります（知識・理解・判断・活用の4本の棒グラフ付き）。バーの両端は左「知識」／右「活用」で、全4状態（0〜3）、初期状態は値0「1. 知識」です。全4状態は次のとおりです。</p>
-<div class="ix ix-slider" data-ix="0"><div class="ix-title">Excelを使ったリテラシーの理解</div><input type="range" min="0" max="3" step="1" value="0"><div class="ix-scale"><span>知識</span><span>活用</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">「スライダーで知識から活用までの変化を確認できます。実際の能力を測定する尺度ではありません。」</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
+<div class="ix ix-slider" data-ix="0"><div class="ix-title">Excelを使ったリテラシーの理解</div><input type="range" min="0" max="3" step="1" value="0"><div class="ix-scale"><span>知識</span><span>活用</span></div><div class="ix-disp"></div><div class="ix-fig" data-v="0"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><line x1="24" y1="126" x2="300" y2="126" stroke="#b9c8dd" stroke-width="2"/><rect x="44" y="90" width="42" height="36" rx="4" fill="#e08a2e"/><text x="65" y="144" font-size="13" text-anchor="middle" fill="#555">知識</text><rect x="112" y="68" width="42" height="58" rx="4" fill="#a9c2e2"/><text x="133" y="144" font-size="13" text-anchor="middle" fill="#555">理解</text><rect x="180" y="46" width="42" height="80" rx="4" fill="#a9c2e2"/><text x="201" y="144" font-size="13" text-anchor="middle" fill="#555">判断</text><rect x="248" y="22" width="42" height="104" rx="4" fill="#a9c2e2"/><text x="269" y="144" font-size="13" text-anchor="middle" fill="#555">活用</text></svg></div><div class="ix-fig" data-v="1"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><line x1="24" y1="126" x2="300" y2="126" stroke="#b9c8dd" stroke-width="2"/><rect x="44" y="90" width="42" height="36" rx="4" fill="#a9c2e2"/><text x="65" y="144" font-size="13" text-anchor="middle" fill="#555">知識</text><rect x="112" y="68" width="42" height="58" rx="4" fill="#e08a2e"/><text x="133" y="144" font-size="13" text-anchor="middle" fill="#555">理解</text><rect x="180" y="46" width="42" height="80" rx="4" fill="#a9c2e2"/><text x="201" y="144" font-size="13" text-anchor="middle" fill="#555">判断</text><rect x="248" y="22" width="42" height="104" rx="4" fill="#a9c2e2"/><text x="269" y="144" font-size="13" text-anchor="middle" fill="#555">活用</text></svg></div><div class="ix-fig" data-v="2"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><line x1="24" y1="126" x2="300" y2="126" stroke="#b9c8dd" stroke-width="2"/><rect x="44" y="90" width="42" height="36" rx="4" fill="#a9c2e2"/><text x="65" y="144" font-size="13" text-anchor="middle" fill="#555">知識</text><rect x="112" y="68" width="42" height="58" rx="4" fill="#a9c2e2"/><text x="133" y="144" font-size="13" text-anchor="middle" fill="#555">理解</text><rect x="180" y="46" width="42" height="80" rx="4" fill="#e08a2e"/><text x="201" y="144" font-size="13" text-anchor="middle" fill="#555">判断</text><rect x="248" y="22" width="42" height="104" rx="4" fill="#a9c2e2"/><text x="269" y="144" font-size="13" text-anchor="middle" fill="#555">活用</text></svg></div><div class="ix-fig" data-v="3"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><line x1="24" y1="126" x2="300" y2="126" stroke="#b9c8dd" stroke-width="2"/><rect x="44" y="90" width="42" height="36" rx="4" fill="#a9c2e2"/><text x="65" y="144" font-size="13" text-anchor="middle" fill="#555">知識</text><rect x="112" y="68" width="42" height="58" rx="4" fill="#a9c2e2"/><text x="133" y="144" font-size="13" text-anchor="middle" fill="#555">理解</text><rect x="180" y="46" width="42" height="80" rx="4" fill="#a9c2e2"/><text x="201" y="144" font-size="13" text-anchor="middle" fill="#555">判断</text><rect x="248" y="22" width="42" height="104" rx="4" fill="#e08a2e"/><text x="269" y="144" font-size="13" text-anchor="middle" fill="#555">活用</text></svg></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">「スライダーで知識から活用までの変化を確認できます。実際の能力を測定する尺度ではありません。」</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>値0「1. 知識」：「XLOOKUPという関数を知っている。」「関数の名前や基本的な構文を覚えている。」</li><li>値1「2. 理解」：「XLOOKUPがどのように値を検索するか説明できる。」「検索値・検索範囲・戻り範囲の役割が分かる。」</li><li>値2「3. 判断」：「どの業務でXLOOKUPを使うべきか判断できる。」「重複データや検索できない値がある場合の問題点も考慮する。」</li><li>値3「4. 活用」：「実際の業務に導入し、結果を検証できる。」「銀行明細と入金一覧の照合を効率化し、例外や不一致を適切に確認する。」</li></ul>
 <p>「スライダーで知識から活用までの変化を確認できます。実際の能力を測定する尺度ではありません。」先輩、関数を何十種類も暗記することだけが目的になってはいけません。業務のどの部分に問題があるのかを理解し、適切な関数を選択し、結果が正しいか確認する。そこまでできてこそ、実務で役立つITリテラシーにつながるんです。</p>
 <h2>D｜具体例</h2>
@@ -147,7 +168,7 @@ document.getElementById('reset').onclick = build;
 </script>
 <script>
 
-const IX_DATA = [{"anchor": "ChatGPT側には、スライダー付きの概念モデルがあります（知識・理解・判断・活用の4本の棒グラフ付き）。", "initial": 0, "left_label": "知識", "max": 3, "min": 0, "note": "「スライダーで知識から活用までの変化を確認できます。実際の能力を測定する尺度ではありません。」", "right_label": "活用", "states": [{"label": "1. 知識", "text": "XLOOKUPという関数を知っている。関数の名前や基本的な構文を覚えている。", "value": 0}, {"label": "2. 理解", "text": "XLOOKUPがどのように値を検索するか説明できる。検索値・検索範囲・戻り範囲の役割が分かる。", "value": 1}, {"label": "3. 判断", "text": "どの業務でXLOOKUPを使うべきか判断できる。重複データや検索できない値がある場合の問題点も考慮する。", "value": 2}, {"label": "4. 活用", "text": "実際の業務に導入し、結果を検証できる。銀行明細と入金一覧の照合を効率化し、例外や不一致を適切に確認する。", "value": 3}], "title": "Excelを使ったリテラシーの理解", "type": "slider"}];
+const IX_DATA = [{"anchor": "ChatGPT側には、スライダー付きの概念モデルがあります（知識・理解・判断・活用の4本の棒グラフ付き）。", "initial": 0, "left_label": "知識", "max": 3, "min": 0, "note": "「スライダーで知識から活用までの変化を確認できます。実際の能力を測定する尺度ではありません。」", "right_label": "活用", "states": [{"label": "1. 知識", "text": "XLOOKUPという関数を知っている。関数の名前や基本的な構文を覚えている。", "value": 0}, {"label": "2. 理解", "text": "XLOOKUPがどのように値を検索するか説明できる。検索値・検索範囲・戻り範囲の役割が分かる。", "value": 1}, {"label": "3. 判断", "text": "どの業務でXLOOKUPを使うべきか判断できる。重複データや検索できない値がある場合の問題点も考慮する。", "value": 2}, {"label": "4. 活用", "text": "実際の業務に導入し、結果を検証できる。銀行明細と入金一覧の照合を効率化し、例外や不一致を適切に確認する。", "value": 3}], "title": "Excelを使ったリテラシーの理解", "type": "slider", "figure_kind": "bars4"}];
 function ixTabs(root){
   const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
   function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
@@ -159,16 +180,26 @@ document.querySelectorAll('.ix-slider').forEach(root => {
   const d = IX_DATA[parseInt(root.dataset.ix, 10)];
   const input = root.querySelector('input[type=range]');
   const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  const figs = root.querySelectorAll('.ix-fig'), segs = root.querySelectorAll('.ix-meter i');
+  const beam = root.querySelector('.ix-beam'), split = root.querySelector('.ix-split'),
+        fbars = root.querySelectorAll('.ix-fbar');
   function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
   function render(){
     const v = parseInt(input.value, 10);
     if (d.continuous){
+      let a = 0, b = 0;
       if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
-      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v; a = Math.floor(r / 2); b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
       const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      if (split){ const s0 = split.querySelector('.s0'), s1 = split.querySelector('.s1'); s0.style.width = (100 - v) + '%'; s0.textContent = d.value_names[0] + ' ' + (100 - v) + '%'; s1.textContent = d.value_names[1] + ' ' + v + '%'; }
+      if (beam){ beam.style.transform = 'rotate(' + ((v - 50) / 5) + 'deg)'; }
+      if (fbars.length === 3){ const vals = [a, v, b]; fbars.forEach((fb, i) => { fb.querySelector('.bar i').style.width = vals[i] + '%'; fb.querySelector('.fv').textContent = vals[i] + '%'; }); }
     } else {
       const s = d.states.find(s => s.value === v) || nearest(v);
       lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      figs.forEach(f => f.classList.toggle('on', parseInt(f.dataset.v, 10) === s.value));
+      const si = d.states.indexOf(s);
+      segs.forEach((sg, i) => sg.classList.toggle('on', i === si));
     }
   }
   input.oninput = render; render();

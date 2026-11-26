@@ -56,6 +56,27 @@ summary{cursor:pointer;font-weight:bold}
 .ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
 .ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
 .ix-cap{font-size:12.5px;color:#777;margin-top:8px}
+.ix-dboxes{display:flex;align-items:stretch;gap:8px;margin-bottom:10px}
+.ix-dbox{flex:1;background:#eef1f5;border:1px solid #c9d4e6;border-radius:10px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:110px}
+.ix-dbox .t{font-size:14.5px;font-weight:bold}
+.ix-dbox .n{font-size:13px;color:#666;margin:auto 0}
+.ix-dbox svg{margin:auto 0}
+.ix-darrow{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px}
+.ix-darrow .a{font-size:22px;color:#4a6fa5;line-height:1}
+.ix-darrow .l{font-size:13.5px;margin-top:4px}
+.ix-fig{display:none;margin:6px 0 2px}
+.ix-fig.on{display:block}
+.ix-fig svg{width:100%;height:auto;display:block}
+.ix-meter{display:flex;gap:4px;margin:10px 0 2px}
+.ix-meter i{flex:1;height:10px;border-radius:5px;background:#dbe4f0}
+.ix-meter i.on{background:#4a6fa5}
+.ix-fbar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:13.5px}
+.ix-fbar .fn{width:64px;text-align:right}
+.ix-fbar .bar{flex:1;background:#eef1f5;border-radius:5px;height:14px;overflow:hidden}
+.ix-fbar .bar i{display:block;height:100%;background:#5b8dd6;width:0}
+.ix-split{display:flex;height:22px;border-radius:6px;overflow:hidden;margin:10px 0 2px;font-size:13px;color:#fff}
+.ix-split .s0{background:#4a6fa5;text-align:left;padding:2px 8px;white-space:nowrap;overflow:hidden}
+.ix-split .s1{background:#c98a3d;text-align:right;padding:2px 8px;white-space:nowrap;overflow:hidden;flex:1}
 </style>
 </head>
 <body>
@@ -80,7 +101,7 @@ summary{cursor:pointer;font-weight:bold}
 <p>「先輩、「えも言われぬ」は、美しいものや素晴らしいものだけに使うと思っていませんか？」「実は、そうではありません。」「この言葉自体には、良いか悪いかという評価は含まれていません。」「あくまで、言葉では表現しきれないということを表しています。」「後ろに続く言葉によって、肯定的にも否定的にもなります。」</p>
 <ul><li>肯定的な使い方：えも言われぬ美しさ／えも言われぬ幸福感／えも言われぬ芳香</li><li>否定的な使い方：えも言われぬ不気味さ／えも言われぬ恐怖／えも言われぬ寂しさ</li></ul>
 <h3>⑤ 感情や感覚の表現の違い</h3>
-<div class="ix ix-slider" data-ix="0"><div class="ix-title">美しさを表す言葉のニュアンス比較</div><input type="range" min="0" max="4" step="1" value="3"><div class="ix-scale"><span>直接的な表現</span><span>情緒的な表現</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">スライダーは、この表現の違いを理解するためのものです。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
+<div class="ix ix-slider" data-ix="0"><div class="ix-title">美しさを表す言葉のニュアンス比較</div><input type="range" min="0" max="4" step="1" value="3"><div class="ix-scale"><span>直接的な表現</span><span>情緒的な表現</span></div><div class="ix-disp"></div><div class="ix-meter"><i></i><i></i><i></i><i></i><i></i></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">スライダーは、この表現の違いを理解するためのものです。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <p>ChatGPT側には、スライダー付きの概念モデル（美しさを表す言葉のニュアンス比較）があります。バーの両端は左「直接的な表現」／右「情緒的な表現」で、初期状態は値3「えも言われぬ美しさ」です。全5状態は次のとおりです。</p>
 <ul><li>値0「美しい」— ニュアンス「見た目の美しさを素直に表現する。」／例文「山頂から美しい景色が見えた。」</li><li>値1「非常に美しい」— ニュアンス「美しさの程度が大きいことを強調する。」／例文「山頂から非常に美しい景色が見えた。」</li><li>値2「息をのむほど美しい」— ニュアンス「驚きや感動によって息をのむほどの美しさを表現する。」／例文「山頂には息をのむほど美しい光景が広がっていた。」</li><li>値3「えも言われぬ美しさ」（初期状態）— ニュアンス「普通の言葉では十分に伝えられない美しさを表現する。」／例文「朝日に照らされた雲海には、えも言われぬ美しさがあった。」</li><li>値4「言葉を超えた感動」— ニュアンス「感動や感情の深さが言葉で捉えきれないことを表現する。」／例文「山頂に立った瞬間、言葉を超えた感動に包まれた。」</li></ul>
 <p>注記：「スライダーは、この表現の違いを理解するためのものです。」</p>
@@ -151,7 +172,7 @@ document.getElementById('reset').onclick = build;
 </script>
 <script>
 
-const IX_DATA = [{"anchor": "### ⑤ 感情や感覚の表現の違い", "initial": 3, "left_label": "直接的な表現", "max": 4, "min": 0, "note": "スライダーは、この表現の違いを理解するためのものです。", "right_label": "情緒的な表現", "states": [{"label": "美しい", "text": "ニュアンス「見た目の美しさを素直に表現する。」／例文「山頂から美しい景色が見えた。」", "value": 0}, {"label": "非常に美しい", "text": "ニュアンス「美しさの程度が大きいことを強調する。」／例文「山頂から非常に美しい景色が見えた。」", "value": 1}, {"label": "息をのむほど美しい", "text": "ニュアンス「驚きや感動によって息をのむほどの美しさを表現する。」／例文「山頂には息をのむほど美しい光景が広がっていた。」", "value": 2}, {"label": "えも言われぬ美しさ", "text": "ニュアンス「普通の言葉では十分に伝えられない美しさを表現する。」／例文「朝日に照らされた雲海には、えも言われぬ美しさがあった。」", "value": 3}, {"label": "言葉を超えた感動", "text": "ニュアンス「感動や感情の深さが言葉で捉えきれないことを表現する。」／例文「山頂に立った瞬間、言葉を超えた感動に包まれた。」", "value": 4}], "title": "美しさを表す言葉のニュアンス比較", "type": "slider"}];
+const IX_DATA = [{"anchor": "### ⑤ 感情や感覚の表現の違い", "initial": 3, "left_label": "直接的な表現", "max": 4, "min": 0, "note": "スライダーは、この表現の違いを理解するためのものです。", "right_label": "情緒的な表現", "states": [{"label": "美しい", "text": "ニュアンス「見た目の美しさを素直に表現する。」／例文「山頂から美しい景色が見えた。」", "value": 0}, {"label": "非常に美しい", "text": "ニュアンス「美しさの程度が大きいことを強調する。」／例文「山頂から非常に美しい景色が見えた。」", "value": 1}, {"label": "息をのむほど美しい", "text": "ニュアンス「驚きや感動によって息をのむほどの美しさを表現する。」／例文「山頂には息をのむほど美しい光景が広がっていた。」", "value": 2}, {"label": "えも言われぬ美しさ", "text": "ニュアンス「普通の言葉では十分に伝えられない美しさを表現する。」／例文「朝日に照らされた雲海には、えも言われぬ美しさがあった。」", "value": 3}, {"label": "言葉を超えた感動", "text": "ニュアンス「感動や感情の深さが言葉で捉えきれないことを表現する。」／例文「山頂に立った瞬間、言葉を超えた感動に包まれた。」", "value": 4}], "title": "美しさを表す言葉のニュアンス比較", "type": "slider", "figure_kind": "meter"}];
 function ixTabs(root){
   const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
   function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
@@ -163,16 +184,26 @@ document.querySelectorAll('.ix-slider').forEach(root => {
   const d = IX_DATA[parseInt(root.dataset.ix, 10)];
   const input = root.querySelector('input[type=range]');
   const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  const figs = root.querySelectorAll('.ix-fig'), segs = root.querySelectorAll('.ix-meter i');
+  const beam = root.querySelector('.ix-beam'), split = root.querySelector('.ix-split'),
+        fbars = root.querySelectorAll('.ix-fbar');
   function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
   function render(){
     const v = parseInt(input.value, 10);
     if (d.continuous){
+      let a = 0, b = 0;
       if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
-      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v; a = Math.floor(r / 2); b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
       const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      if (split){ const s0 = split.querySelector('.s0'), s1 = split.querySelector('.s1'); s0.style.width = (100 - v) + '%'; s0.textContent = d.value_names[0] + ' ' + (100 - v) + '%'; s1.textContent = d.value_names[1] + ' ' + v + '%'; }
+      if (beam){ beam.style.transform = 'rotate(' + ((v - 50) / 5) + 'deg)'; }
+      if (fbars.length === 3){ const vals = [a, v, b]; fbars.forEach((fb, i) => { fb.querySelector('.bar i').style.width = vals[i] + '%'; fb.querySelector('.fv').textContent = vals[i] + '%'; }); }
     } else {
       const s = d.states.find(s => s.value === v) || nearest(v);
       lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      figs.forEach(f => f.classList.toggle('on', parseInt(f.dataset.v, 10) === s.value));
+      const si = d.states.indexOf(s);
+      segs.forEach((sg, i) => sg.classList.toggle('on', i === si));
     }
   }
   input.oninput = render; render();

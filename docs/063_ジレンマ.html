@@ -56,6 +56,27 @@ summary{cursor:pointer;font-weight:bold}
 .ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
 .ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
 .ix-cap{font-size:12.5px;color:#777;margin-top:8px}
+.ix-dboxes{display:flex;align-items:stretch;gap:8px;margin-bottom:10px}
+.ix-dbox{flex:1;background:#eef1f5;border:1px solid #c9d4e6;border-radius:10px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:110px}
+.ix-dbox .t{font-size:14.5px;font-weight:bold}
+.ix-dbox .n{font-size:13px;color:#666;margin:auto 0}
+.ix-dbox svg{margin:auto 0}
+.ix-darrow{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px}
+.ix-darrow .a{font-size:22px;color:#4a6fa5;line-height:1}
+.ix-darrow .l{font-size:13.5px;margin-top:4px}
+.ix-fig{display:none;margin:6px 0 2px}
+.ix-fig.on{display:block}
+.ix-fig svg{width:100%;height:auto;display:block}
+.ix-meter{display:flex;gap:4px;margin:10px 0 2px}
+.ix-meter i{flex:1;height:10px;border-radius:5px;background:#dbe4f0}
+.ix-meter i.on{background:#4a6fa5}
+.ix-fbar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:13.5px}
+.ix-fbar .fn{width:64px;text-align:right}
+.ix-fbar .bar{flex:1;background:#eef1f5;border-radius:5px;height:14px;overflow:hidden}
+.ix-fbar .bar i{display:block;height:100%;background:#5b8dd6;width:0}
+.ix-split{display:flex;height:22px;border-radius:6px;overflow:hidden;margin:10px 0 2px;font-size:13px;color:#fff}
+.ix-split .s0{background:#4a6fa5;text-align:left;padding:2px 8px;white-space:nowrap;overflow:hidden}
+.ix-split .s1{background:#c98a3d;text-align:right;padding:2px 8px;white-space:nowrap;overflow:hidden;flex:1}
 </style>
 </head>
 <body>
@@ -83,7 +104,7 @@ summary{cursor:pointer;font-weight:bold}
 <h2>C｜イメージ理解</h2>
 <h3>仕事における正確性と効率のジレンマ</h3>
 <p>二つの目標が衝突し、どちらを優先するか悩んでいる状態。例えば、経理業務で大量の銀行明細を確認する場面です。正確性を追求して何度も確認すれば、ほかの業務に取り組む時間が減ってしまいます。反対に、作業速度を優先して必要な確認を省けば、金額の不一致を見落とす可能性があります。これが正確性と効率のジレンマです。<br>ChatGPT側には、優先度スライダーがあります（連続値0〜100、初期値50。値vに対して正確性の優先度＝100−v、効率の優先度＝v）。確認した状態は次のとおりです（テキストは3種類）。</p>
-<div class="ix ix-slider" data-ix="1"><div class="ix-title">優先度スライダー</div><input type="range" min="0" max="100" step="1" value="50"><div class="ix-scale"><span>正確性</span><span>効率</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">値vに対して正確性の優先度＝100−v、効率の優先度＝v</p><p class="ix-note">「優先度を表した仮想モデルです。実際の正確性や効率を測定した数値ではありません。」確認した状態のテキストは3種類です。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
+<div class="ix ix-slider" data-ix="1"><div class="ix-title">優先度スライダー</div><input type="range" min="0" max="100" step="1" value="50"><div class="ix-scale"><span>正確性</span><span>効率</span></div><div class="ix-disp"></div><div class="ix-split"><div class="s0"></div><div class="s1"></div></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">値vに対して正確性の優先度＝100−v、効率の優先度＝v</p><p class="ix-note">「優先度を表した仮想モデルです。実際の正確性や効率を測定した数値ではありません。」確認した状態のテキストは3種類です。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>v=0（正確性100%／効率0%）：「正確性を重視する方針です。確認に必要な時間や他業務への影響も考慮する必要があります。」</li><li>v=50（初期値、正確性50%／効率50%）：「両方の目標を考慮する方針です。ただし、必ずしも中間の配分が最適とは限りません。」</li><li>v=100（正確性0%／効率100%）：「効率を重視する方針です。必要な確認手順が省略されていないか注意が必要です。」</li></ul>
 <p>「優先度を表した仮想モデルです。実際の正確性や効率を測定した数値ではありません。」ただし、先輩、必ずどちらかを犠牲にしなければならないとは限りません。Excelによる照合の自動化やチェックリストの導入によって、正確性と効率を同時に改善できる可能性があります。二者択一だと思っていた問題でも、方法を変えることで第三の選択肢が生まれることがあるんです。</p>
 <h2>D｜具体例</h2>
@@ -152,7 +173,7 @@ document.getElementById('reset').onclick = build;
 </script>
 <script>
 
-const IX_DATA = [{"anchor": "ChatGPT側には、「囚人のジレンマを体験する」シミュレーションがあります", "initial": [0, 0], "outcomes": {"0,0": "囚人A 1年、囚人B 1年、合計2年。二人が協力したため、刑期の合計が最も短くなりました。", "0,1": "囚人A 10年、囚人B 0年、合計10年。自白した側は釈放されますが、黙秘した側には重い刑罰が科されます。", "1,0": "囚人A 0年、囚人B 10年、合計10年。自白した側は釈放されますが、黙秘した側には重い刑罰が科されます。", "1,1": "囚人A 5年、囚人B 5年、合計10年。二人とも自分の利益を優先した結果、互いに黙秘する場合よりも悪い結果になりました。"}, "selectors": [{"name": "囚人Aの選択", "options": ["黙秘する", "自白する"]}, {"name": "囚人Bの選択", "options": ["黙秘する", "自白する"]}], "title": "囚人のジレンマを体験する", "type": "simulation"}, {"anchor": "ChatGPT側には、優先度スライダーがあります（連続値0〜100、初期値50。", "continuous": true, "formula": "値vに対して正確性の優先度＝100−v、効率の優先度＝v", "initial": 50, "left_label": "正確性", "max": 100, "min": 0, "note": "「優先度を表した仮想モデルです。実際の正確性や効率を測定した数値ではありません。」確認した状態のテキストは3種類です。", "right_label": "効率", "states": [{"label": "正確性100%／効率0%", "text": "正確性を重視する方針です。確認に必要な時間や他業務への影響も考慮する必要があります。", "value": 0}, {"label": "正確性50%／効率50%", "text": "両方の目標を考慮する方針です。ただし、必ずしも中間の配分が最適とは限りません。", "value": 50}, {"label": "正確性0%／効率100%", "text": "効率を重視する方針です。必要な確認手順が省略されていないか注意が必要です。", "value": 100}], "title": "優先度スライダー", "type": "slider", "display_rule": "split", "value_names": ["正確性", "効率"]}, {"anchor": "ChatGPT側には、「ジレンマに直面した際のチェックリスト」（意思決定の確認、6項目、カウンタ0/6、「リセット」ボタン）があります。", "items": ["何と何が衝突しているのか明確にしたか", "それぞれのメリットとデメリットを整理したか", "短期的な利益と長期的な利益を区別したか", "守らなければならない条件を確認したか", "本当に二つの選択肢しかないのか考えたか", "両方の目的を満たす第三の方法を検討したか"], "note": "意思決定の確認。カウンタ0/6、「リセット」ボタン付き。", "title": "ジレンマに直面した際のチェックリスト", "type": "checklist"}];
+const IX_DATA = [{"anchor": "ChatGPT側には、「囚人のジレンマを体験する」シミュレーションがあります", "initial": [0, 0], "outcomes": {"0,0": "囚人A 1年、囚人B 1年、合計2年。二人が協力したため、刑期の合計が最も短くなりました。", "0,1": "囚人A 10年、囚人B 0年、合計10年。自白した側は釈放されますが、黙秘した側には重い刑罰が科されます。", "1,0": "囚人A 0年、囚人B 10年、合計10年。自白した側は釈放されますが、黙秘した側には重い刑罰が科されます。", "1,1": "囚人A 5年、囚人B 5年、合計10年。二人とも自分の利益を優先した結果、互いに黙秘する場合よりも悪い結果になりました。"}, "selectors": [{"name": "囚人Aの選択", "options": ["黙秘する", "自白する"]}, {"name": "囚人Bの選択", "options": ["黙秘する", "自白する"]}], "title": "囚人のジレンマを体験する", "type": "simulation"}, {"anchor": "ChatGPT側には、優先度スライダーがあります（連続値0〜100、初期値50。", "continuous": true, "formula": "値vに対して正確性の優先度＝100−v、効率の優先度＝v", "initial": 50, "left_label": "正確性", "max": 100, "min": 0, "note": "「優先度を表した仮想モデルです。実際の正確性や効率を測定した数値ではありません。」確認した状態のテキストは3種類です。", "right_label": "効率", "states": [{"label": "正確性100%／効率0%", "text": "正確性を重視する方針です。確認に必要な時間や他業務への影響も考慮する必要があります。", "value": 0}, {"label": "正確性50%／効率50%", "text": "両方の目標を考慮する方針です。ただし、必ずしも中間の配分が最適とは限りません。", "value": 50}, {"label": "正確性0%／効率100%", "text": "効率を重視する方針です。必要な確認手順が省略されていないか注意が必要です。", "value": 100}], "title": "優先度スライダー", "type": "slider", "display_rule": "split", "value_names": ["正確性", "効率"], "figure_kind": "splitbar"}, {"anchor": "ChatGPT側には、「ジレンマに直面した際のチェックリスト」（意思決定の確認、6項目、カウンタ0/6、「リセット」ボタン）があります。", "items": ["何と何が衝突しているのか明確にしたか", "それぞれのメリットとデメリットを整理したか", "短期的な利益と長期的な利益を区別したか", "守らなければならない条件を確認したか", "本当に二つの選択肢しかないのか考えたか", "両方の目的を満たす第三の方法を検討したか"], "note": "意思決定の確認。カウンタ0/6、「リセット」ボタン付き。", "title": "ジレンマに直面した際のチェックリスト", "type": "checklist"}];
 function ixTabs(root){
   const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
   function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
@@ -164,16 +185,26 @@ document.querySelectorAll('.ix-slider').forEach(root => {
   const d = IX_DATA[parseInt(root.dataset.ix, 10)];
   const input = root.querySelector('input[type=range]');
   const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  const figs = root.querySelectorAll('.ix-fig'), segs = root.querySelectorAll('.ix-meter i');
+  const beam = root.querySelector('.ix-beam'), split = root.querySelector('.ix-split'),
+        fbars = root.querySelectorAll('.ix-fbar');
   function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
   function render(){
     const v = parseInt(input.value, 10);
     if (d.continuous){
+      let a = 0, b = 0;
       if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
-      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v; a = Math.floor(r / 2); b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
       const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      if (split){ const s0 = split.querySelector('.s0'), s1 = split.querySelector('.s1'); s0.style.width = (100 - v) + '%'; s0.textContent = d.value_names[0] + ' ' + (100 - v) + '%'; s1.textContent = d.value_names[1] + ' ' + v + '%'; }
+      if (beam){ beam.style.transform = 'rotate(' + ((v - 50) / 5) + 'deg)'; }
+      if (fbars.length === 3){ const vals = [a, v, b]; fbars.forEach((fb, i) => { fb.querySelector('.bar i').style.width = vals[i] + '%'; fb.querySelector('.fv').textContent = vals[i] + '%'; }); }
     } else {
       const s = d.states.find(s => s.value === v) || nearest(v);
       lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      figs.forEach(f => f.classList.toggle('on', parseInt(f.dataset.v, 10) === s.value));
+      const si = d.states.indexOf(s);
+      segs.forEach((sg, i) => sg.classList.toggle('on', i === si));
     }
   }
   input.oninput = render; render();

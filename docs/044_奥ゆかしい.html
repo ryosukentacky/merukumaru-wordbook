@@ -56,6 +56,27 @@ summary{cursor:pointer;font-weight:bold}
 .ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
 .ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
 .ix-cap{font-size:12.5px;color:#777;margin-top:8px}
+.ix-dboxes{display:flex;align-items:stretch;gap:8px;margin-bottom:10px}
+.ix-dbox{flex:1;background:#eef1f5;border:1px solid #c9d4e6;border-radius:10px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:110px}
+.ix-dbox .t{font-size:14.5px;font-weight:bold}
+.ix-dbox .n{font-size:13px;color:#666;margin:auto 0}
+.ix-dbox svg{margin:auto 0}
+.ix-darrow{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px}
+.ix-darrow .a{font-size:22px;color:#4a6fa5;line-height:1}
+.ix-darrow .l{font-size:13.5px;margin-top:4px}
+.ix-fig{display:none;margin:6px 0 2px}
+.ix-fig.on{display:block}
+.ix-fig svg{width:100%;height:auto;display:block}
+.ix-meter{display:flex;gap:4px;margin:10px 0 2px}
+.ix-meter i{flex:1;height:10px;border-radius:5px;background:#dbe4f0}
+.ix-meter i.on{background:#4a6fa5}
+.ix-fbar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:13.5px}
+.ix-fbar .fn{width:64px;text-align:right}
+.ix-fbar .bar{flex:1;background:#eef1f5;border-radius:5px;height:14px;overflow:hidden}
+.ix-fbar .bar i{display:block;height:100%;background:#5b8dd6;width:0}
+.ix-split{display:flex;height:22px;border-radius:6px;overflow:hidden;margin:10px 0 2px;font-size:13px;color:#fff}
+.ix-split .s0{background:#4a6fa5;text-align:left;padding:2px 8px;white-space:nowrap;overflow:hidden}
+.ix-split .s1{background:#c98a3d;text-align:right;padding:2px 8px;white-space:nowrap;overflow:hidden;flex:1}
 </style>
 </head>
 <body>
@@ -82,7 +103,7 @@ summary{cursor:pointer;font-weight:bold}
 <p>「先輩、豪華な花束は、華やかで直接的な美しさがあります。」「一方、一輪挿しは、控えめでありながら、余韻のある美しさがあります。」「奥ゆかしさは、一輪挿しのような美しさです。」「派手さはありませんが、その奥にある美しさを感じ取ることができます。」</p>
 <blockquote><p>図解（ChatGPT側の表示）：B⑤に2枚のカードがあります（豪華な花束：華やかで直接的な美／一輪挿し：控えめで余韻のある美）。</p></blockquote>
 <h3>⑥ 自己表現の仕方による違い</h3>
-<div class="ix ix-slider" data-ix="0"><div class="ix-title">自己表現の仕方による違い</div><input type="range" min="0" max="3" step="1" value="1"><div class="ix-scale"><span>自己表現を抑える</span><span>自己表現を強める</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">なお、このスライダーは表現の違いを理解するための概念モデルです。自己主張の強さだけで奥ゆかしさを測定できるわけではありません。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
+<div class="ix ix-slider" data-ix="0"><div class="ix-title">自己表現の仕方による違い</div><input type="range" min="0" max="3" step="1" value="1"><div class="ix-scale"><span>自己表現を抑える</span><span>自己表現を強める</span></div><div class="ix-disp"></div><div class="ix-meter"><i></i><i></i><i></i><i></i></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">なお、このスライダーは表現の違いを理解するための概念モデルです。自己主張の強さだけで奥ゆかしさを測定できるわけではありません。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <p>ChatGPT側には、スライダー付きの概念モデルがあります。バーの両端は左「自己表現を抑える」／右「自己表現を強める」で、全4状態（0〜3）、初期状態は値1「奥ゆかしい振る舞い」です。全4状態は次のとおりです。</p>
 <ul><li>値0「過度な自己否定」— 特徴「自分の能力や成果を必要以上に否定する。」／発言例「「私なんて何もできません。すべて他の人のおかげです。」」</li><li>値1「奥ゆかしい振る舞い」（初期状態）— 特徴「自分の成果を認めながら、周囲への感謝や配慮を忘れない。」／発言例「「ありがとうございます。皆さんの協力もあり、無事に完成できました。」」</li><li>値2「積極的な自己表現」— 特徴「自分の能力や成果を明確に伝える。」／発言例「「今回の業務では、私が作業工程を見直し、効率化を実現しました。」」</li><li>値3「自己顕示」— 特徴「自分の優秀さを必要以上に誇示する。」／発言例「「私ほど優秀な人がいなければ、この仕事は成功しなかったでしょう。」」</li></ul>
 <p>注記：「なお、このスライダーは表現の違いを理解するための概念モデルです。自己主張の強さだけで奥ゆかしさを測定できるわけではありません。」</p>
@@ -154,7 +175,7 @@ document.getElementById('reset').onclick = build;
 </script>
 <script>
 
-const IX_DATA = [{"anchor": "### ⑥ 自己表現の仕方による違い", "initial": 1, "left_label": "自己表現を抑える", "max": 3, "min": 0, "note": "なお、このスライダーは表現の違いを理解するための概念モデルです。自己主張の強さだけで奥ゆかしさを測定できるわけではありません。", "right_label": "自己表現を強める", "states": [{"label": "過度な自己否定", "text": "特徴「自分の能力や成果を必要以上に否定する。」／発言例「「私なんて何もできません。すべて他の人のおかげです。」」", "value": 0}, {"label": "奥ゆかしい振る舞い", "text": "特徴「自分の成果を認めながら、周囲への感謝や配慮を忘れない。」／発言例「「ありがとうございます。皆さんの協力もあり、無事に完成できました。」」", "value": 1}, {"label": "積極的な自己表現", "text": "特徴「自分の能力や成果を明確に伝える。」／発言例「「今回の業務では、私が作業工程を見直し、効率化を実現しました。」」", "value": 2}, {"label": "自己顕示", "text": "特徴「自分の優秀さを必要以上に誇示する。」／発言例「「私ほど優秀な人がいなければ、この仕事は成功しなかったでしょう。」」", "value": 3}], "title": "自己表現の仕方による違い", "type": "slider"}];
+const IX_DATA = [{"anchor": "### ⑥ 自己表現の仕方による違い", "initial": 1, "left_label": "自己表現を抑える", "max": 3, "min": 0, "note": "なお、このスライダーは表現の違いを理解するための概念モデルです。自己主張の強さだけで奥ゆかしさを測定できるわけではありません。", "right_label": "自己表現を強める", "states": [{"label": "過度な自己否定", "text": "特徴「自分の能力や成果を必要以上に否定する。」／発言例「「私なんて何もできません。すべて他の人のおかげです。」」", "value": 0}, {"label": "奥ゆかしい振る舞い", "text": "特徴「自分の成果を認めながら、周囲への感謝や配慮を忘れない。」／発言例「「ありがとうございます。皆さんの協力もあり、無事に完成できました。」」", "value": 1}, {"label": "積極的な自己表現", "text": "特徴「自分の能力や成果を明確に伝える。」／発言例「「今回の業務では、私が作業工程を見直し、効率化を実現しました。」」", "value": 2}, {"label": "自己顕示", "text": "特徴「自分の優秀さを必要以上に誇示する。」／発言例「「私ほど優秀な人がいなければ、この仕事は成功しなかったでしょう。」」", "value": 3}], "title": "自己表現の仕方による違い", "type": "slider", "figure_kind": "meter"}];
 function ixTabs(root){
   const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
   function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
@@ -166,16 +187,26 @@ document.querySelectorAll('.ix-slider').forEach(root => {
   const d = IX_DATA[parseInt(root.dataset.ix, 10)];
   const input = root.querySelector('input[type=range]');
   const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  const figs = root.querySelectorAll('.ix-fig'), segs = root.querySelectorAll('.ix-meter i');
+  const beam = root.querySelector('.ix-beam'), split = root.querySelector('.ix-split'),
+        fbars = root.querySelectorAll('.ix-fbar');
   function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
   function render(){
     const v = parseInt(input.value, 10);
     if (d.continuous){
+      let a = 0, b = 0;
       if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
-      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v; a = Math.floor(r / 2); b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
       const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      if (split){ const s0 = split.querySelector('.s0'), s1 = split.querySelector('.s1'); s0.style.width = (100 - v) + '%'; s0.textContent = d.value_names[0] + ' ' + (100 - v) + '%'; s1.textContent = d.value_names[1] + ' ' + v + '%'; }
+      if (beam){ beam.style.transform = 'rotate(' + ((v - 50) / 5) + 'deg)'; }
+      if (fbars.length === 3){ const vals = [a, v, b]; fbars.forEach((fb, i) => { fb.querySelector('.bar i').style.width = vals[i] + '%'; fb.querySelector('.fv').textContent = vals[i] + '%'; }); }
     } else {
       const s = d.states.find(s => s.value === v) || nearest(v);
       lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      figs.forEach(f => f.classList.toggle('on', parseInt(f.dataset.v, 10) === s.value));
+      const si = d.states.indexOf(s);
+      segs.forEach((sg, i) => sg.classList.toggle('on', i === si));
     }
   }
   input.oninput = render; render();

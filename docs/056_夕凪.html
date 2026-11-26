@@ -56,6 +56,27 @@ summary{cursor:pointer;font-weight:bold}
 .ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
 .ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
 .ix-cap{font-size:12.5px;color:#777;margin-top:8px}
+.ix-dboxes{display:flex;align-items:stretch;gap:8px;margin-bottom:10px}
+.ix-dbox{flex:1;background:#eef1f5;border:1px solid #c9d4e6;border-radius:10px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:110px}
+.ix-dbox .t{font-size:14.5px;font-weight:bold}
+.ix-dbox .n{font-size:13px;color:#666;margin:auto 0}
+.ix-dbox svg{margin:auto 0}
+.ix-darrow{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px}
+.ix-darrow .a{font-size:22px;color:#4a6fa5;line-height:1}
+.ix-darrow .l{font-size:13.5px;margin-top:4px}
+.ix-fig{display:none;margin:6px 0 2px}
+.ix-fig.on{display:block}
+.ix-fig svg{width:100%;height:auto;display:block}
+.ix-meter{display:flex;gap:4px;margin:10px 0 2px}
+.ix-meter i{flex:1;height:10px;border-radius:5px;background:#dbe4f0}
+.ix-meter i.on{background:#4a6fa5}
+.ix-fbar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:13.5px}
+.ix-fbar .fn{width:64px;text-align:right}
+.ix-fbar .bar{flex:1;background:#eef1f5;border-radius:5px;height:14px;overflow:hidden}
+.ix-fbar .bar i{display:block;height:100%;background:#5b8dd6;width:0}
+.ix-split{display:flex;height:22px;border-radius:6px;overflow:hidden;margin:10px 0 2px;font-size:13px;color:#fff}
+.ix-split .s0{background:#4a6fa5;text-align:left;padding:2px 8px;white-space:nowrap;overflow:hidden}
+.ix-split .s1{background:#c98a3d;text-align:right;padding:2px 8px;white-space:nowrap;overflow:hidden;flex:1}
 </style>
 </head>
 <body>
@@ -71,7 +92,7 @@ summary{cursor:pointer;font-weight:bold}
 <p>夕（ゆう） — 日が暮れる頃／凪（なぎ） — 風がやみ、穏やかになること ↓ 夕凪 — 夕方に風がやみ、穏やかになる現象。「凪」は国字です。国字とは、日本で作られた漢字のことです。「凪」は、「風」の外側の形と「止」を組み合わせて作られました。以前学んだ「木枯らし」を表す「凩」も国字です。「凪」と「凩」は、どちらも風に関係する国字です。</p>
 <h3>② なぜ夕凪が起こるのか？</h3>
 <p>夕凪は、陸と海の温度差の変化によって起こります。昼間は、陸地が海よりも温まり、海から陸へ風が吹きます。これを「海風」といいます。夕方になると、陸地と海の温度差が小さくなり、海風が弱まります。夜になると、陸地が海よりも冷たくなり、陸から海へ風が吹き始めます。これを「陸風」といいます。海風から陸風へ切り替わる途中で、風が一時的に弱まる時間帯があります。この時間帯が夕凪です。<br>ChatGPT側には、時間帯を選ぶ選択式の要素（昼／夕方／夜／朝、初期選択は「夕方」）があります。選択すると海風・陸風の図解と説明文が切り替わります。全4選択肢は次のとおりです。</p>
-<div class="ix ix-selector" data-initial="1"><div class="ix-title">時間帯を選ぶ選択式の要素</div><div class="ix-tabbar"><button class="ix-tab">昼（昼間・海風）</button><button class="ix-tab">夕方（夕方・夕凪）</button><button class="ix-tab">夜（夜間・陸風）</button><button class="ix-tab">朝（明け方・朝凪）</button></div><div class="ix-panel"><div>陸地が海より温まり、海から陸へ風が吹く。</div></div><div class="ix-panel"><div>陸と海の温度差が小さくなり、風が弱まる。</div></div><div class="ix-panel"><div>陸地が海より冷たくなり、陸から海へ風が吹く。</div></div><div class="ix-panel"><div>日の出前後に陸風が弱まり、海風へ切り替わる途中で風が穏やかになることがある。</div></div><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
+<div class="ix ix-selector" data-initial="1"><div class="ix-title">時間帯を選ぶ選択式の要素</div><div class="ix-tabbar"><button class="ix-tab">昼（昼間・海風）</button><button class="ix-tab">夕方（夕方・夕凪）</button><button class="ix-tab">夜（夜間・陸風）</button><button class="ix-tab">朝（明け方・朝凪）</button></div><div class="ix-panel"><div class="ix-fig on"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><rect x="18" y="34" width="104" height="76" rx="10" fill="#bcd9f2"/><rect x="198" y="34" width="104" height="76" rx="10" fill="#d9e6c3"/><text x="70" y="78" font-size="19" text-anchor="middle" fill="#33526e">海</text><text x="250" y="78" font-size="19" text-anchor="middle" fill="#4c5e33">陸</text><path d="M132 62 L188 62" stroke="#e08a2e" stroke-width="6"/><path d="M188 62 L172 52 M188 62 L172 72" stroke="#e08a2e" stroke-width="6" fill="none"/><text x="160" y="98" font-size="14" text-anchor="middle" fill="#8a5a14">海風</text></svg></div><div>陸地が海より温まり、海から陸へ風が吹く。</div></div><div class="ix-panel"><div class="ix-fig on"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><rect x="18" y="34" width="104" height="76" rx="10" fill="#bcd9f2"/><rect x="198" y="34" width="104" height="76" rx="10" fill="#d9e6c3"/><text x="70" y="78" font-size="19" text-anchor="middle" fill="#33526e">海</text><text x="250" y="78" font-size="19" text-anchor="middle" fill="#4c5e33">陸</text><line x1="134" y1="62" x2="186" y2="62" stroke="#b9c8dd" stroke-width="4" stroke-dasharray="6 6"/><text x="160" y="98" font-size="14" text-anchor="middle" fill="#7c8aa0">凪（風が弱まる）</text></svg></div><div>陸と海の温度差が小さくなり、風が弱まる。</div></div><div class="ix-panel"><div class="ix-fig on"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><rect x="18" y="34" width="104" height="76" rx="10" fill="#bcd9f2"/><rect x="198" y="34" width="104" height="76" rx="10" fill="#d9e6c3"/><text x="70" y="78" font-size="19" text-anchor="middle" fill="#33526e">海</text><text x="250" y="78" font-size="19" text-anchor="middle" fill="#4c5e33">陸</text><path d="M188 62 L132 62" stroke="#7a6fd0" stroke-width="6"/><path d="M132 62 L148 52 M132 62 L148 72" stroke="#7a6fd0" stroke-width="6" fill="none"/><text x="160" y="98" font-size="14" text-anchor="middle" fill="#4c4390">陸風</text></svg></div><div>陸地が海より冷たくなり、陸から海へ風が吹く。</div></div><div class="ix-panel"><div class="ix-fig on"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><rect x="18" y="34" width="104" height="76" rx="10" fill="#bcd9f2"/><rect x="198" y="34" width="104" height="76" rx="10" fill="#d9e6c3"/><text x="70" y="78" font-size="19" text-anchor="middle" fill="#33526e">海</text><text x="250" y="78" font-size="19" text-anchor="middle" fill="#4c5e33">陸</text><line x1="134" y1="62" x2="186" y2="62" stroke="#b9c8dd" stroke-width="4" stroke-dasharray="6 6"/><text x="160" y="98" font-size="14" text-anchor="middle" fill="#7c8aa0">凪（風が弱まる）</text></svg></div><div>日の出前後に陸風が弱まり、海風へ切り替わる途中で風が穏やかになることがある。</div></div><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>昼（昼間・海風）：「陸地が海より温まり、海から陸へ風が吹く。」</li><li>夕方（夕方・夕凪）（初期選択）：「陸と海の温度差が小さくなり、風が弱まる。」</li><li>夜（夜間・陸風）：「陸地が海より冷たくなり、陸から海へ風が吹く。」</li><li>朝（明け方・朝凪）：「日の出前後に陸風が弱まり、海風へ切り替わる途中で風が穏やかになることがある。」</li></ul>
 <p>ただし、実際の風は地形や気圧配置にも影響されるため、毎日必ず夕凪や朝凪が起こるわけではありません。</p>
 <h3>③ 夕凪はなぜ夏の季語なのか？</h3>
@@ -84,7 +105,7 @@ summary{cursor:pointer;font-weight:bold}
 <p>先輩、夏の海辺の一日を想像してください。昼間は、海風が吹き、波が立っています。夕方になると、風が弱まり、海面が穏やかになっていきます。この変化を、夕凪といいます。</p>
 <h3>風の強さと海面の変化</h3>
 <p>ChatGPT側には、スライダー付きの概念モデルがあります（風の強さで海面の波の様子が変わるイラスト付き）。バーの両端は左「風が穏やか」／右「風が強い」で、全4状態（0〜3）、初期状態は値0「無風に近い」です。全4状態は次のとおりです。</p>
-<div class="ix ix-slider" data-ix="1"><div class="ix-title">風の強さと海面の変化</div><input type="range" min="0" max="3" step="1" value="0"><div class="ix-scale"><span>風が穏やか</span><span>風が強い</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">「風と水面の関係を理解するための概念モデルです。実際の波高や風速を再現したものではありません。」</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
+<div class="ix ix-slider" data-ix="1"><div class="ix-title">風の強さと海面の変化</div><input type="range" min="0" max="3" step="1" value="0"><div class="ix-scale"><span>風が穏やか</span><span>風が強い</span></div><div class="ix-disp"></div><div class="ix-fig" data-v="0"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#eef6fd"/><path d="M0 58 Q40 55.0 80 58 T160 58 T240 58 T320 58" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M0 92 Q40 89.54 80 92 T160 92 T240 92 T320 92" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M0 124 Q40 122.08 80 124 T160 124 T240 124 T320 124" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/></svg></div><div class="ix-fig" data-v="1"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#eef6fd"/><path d="M0 58 Q40 51.0 80 58 T160 58 T240 58 T320 58" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M0 92 Q40 86.26 80 92 T160 92 T240 92 T320 92" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M0 124 Q40 119.52 80 124 T160 124 T240 124 T320 124" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/></svg></div><div class="ix-fig" data-v="2"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#eef6fd"/><path d="M0 58 Q40 45.0 80 58 T160 58 T240 58 T320 58" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M0 92 Q40 81.34 80 92 T160 92 T240 92 T320 92" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M0 124 Q40 115.68 80 124 T160 124 T240 124 T320 124" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/></svg></div><div class="ix-fig" data-v="3"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#eef6fd"/><path d="M0 58 Q40 38.0 80 58 T160 58 T240 58 T320 58" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M0 92 Q40 75.6 80 92 T160 92 T240 92 T320 92" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M0 124 Q40 111.2 80 124 T160 124 T240 124 T320 124" stroke="#5b8dd6" stroke-width="4" fill="none" stroke-linecap="round"/></svg></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">「風と水面の関係を理解するための概念モデルです。実際の波高や風速を再現したものではありません。」</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>値0「無風に近い」（初期値）：「水面が穏やかで、夕凪を連想させる状態。」</li><li>値1「そよ風」：「水面に細かなさざ波が立ち始める。」</li><li>値2「やや強い風」：「水面の波が目立つようになる。」</li><li>値3「強い風」：「水面が大きく波立ち、穏やかさが失われる。」</li></ul>
 <p>「風と水面の関係を理解するための概念モデルです。実際の波高や風速を再現したものではありません。」</p>
 <h2>D｜具体例</h2>
@@ -150,7 +171,7 @@ document.getElementById('reset').onclick = build;
 </script>
 <script>
 
-const IX_DATA = [{"anchor": "ChatGPT側には、時間帯を選ぶ選択式の要素（昼／夕方／夜／朝、初期選択は「夕方」）があります。", "initial": 1, "options": [{"label": "昼（昼間・海風）", "text": "陸地が海より温まり、海から陸へ風が吹く。"}, {"label": "夕方（夕方・夕凪）", "text": "陸と海の温度差が小さくなり、風が弱まる。"}, {"label": "夜（夜間・陸風）", "text": "陸地が海より冷たくなり、陸から海へ風が吹く。"}, {"label": "朝（明け方・朝凪）", "text": "日の出前後に陸風が弱まり、海風へ切り替わる途中で風が穏やかになることがある。"}], "title": "時間帯を選ぶ選択式の要素", "type": "selector"}, {"anchor": "ChatGPT側には、スライダー付きの概念モデルがあります（風の強さで海面の波の様子が変わるイラスト付き）。", "initial": 0, "left_label": "風が穏やか", "max": 3, "min": 0, "note": "「風と水面の関係を理解するための概念モデルです。実際の波高や風速を再現したものではありません。」", "right_label": "風が強い", "states": [{"label": "無風に近い", "text": "水面が穏やかで、夕凪を連想させる状態。", "value": 0}, {"label": "そよ風", "text": "水面に細かなさざ波が立ち始める。", "value": 1}, {"label": "やや強い風", "text": "水面の波が目立つようになる。", "value": 2}, {"label": "強い風", "text": "水面が大きく波立ち、穏やかさが失われる。", "value": 3}], "title": "風の強さと海面の変化", "type": "slider"}];
+const IX_DATA = [{"anchor": "ChatGPT側には、時間帯を選ぶ選択式の要素（昼／夕方／夜／朝、初期選択は「夕方」）があります。", "initial": 1, "options": [{"label": "昼（昼間・海風）", "text": "陸地が海より温まり、海から陸へ風が吹く。"}, {"label": "夕方（夕方・夕凪）", "text": "陸と海の温度差が小さくなり、風が弱まる。"}, {"label": "夜（夜間・陸風）", "text": "陸地が海より冷たくなり、陸から海へ風が吹く。"}, {"label": "朝（明け方・朝凪）", "text": "日の出前後に陸風が弱まり、海風へ切り替わる途中で風が穏やかになることがある。"}], "title": "時間帯を選ぶ選択式の要素", "type": "selector", "figure_kind": "winddir"}, {"anchor": "ChatGPT側には、スライダー付きの概念モデルがあります（風の強さで海面の波の様子が変わるイラスト付き）。", "initial": 0, "left_label": "風が穏やか", "max": 3, "min": 0, "note": "「風と水面の関係を理解するための概念モデルです。実際の波高や風速を再現したものではありません。」", "right_label": "風が強い", "states": [{"label": "無風に近い", "text": "水面が穏やかで、夕凪を連想させる状態。", "value": 0}, {"label": "そよ風", "text": "水面に細かなさざ波が立ち始める。", "value": 1}, {"label": "やや強い風", "text": "水面の波が目立つようになる。", "value": 2}, {"label": "強い風", "text": "水面が大きく波立ち、穏やかさが失われる。", "value": 3}], "title": "風の強さと海面の変化", "type": "slider", "figure_kind": "waves"}];
 function ixTabs(root){
   const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
   function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
@@ -162,16 +183,26 @@ document.querySelectorAll('.ix-slider').forEach(root => {
   const d = IX_DATA[parseInt(root.dataset.ix, 10)];
   const input = root.querySelector('input[type=range]');
   const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  const figs = root.querySelectorAll('.ix-fig'), segs = root.querySelectorAll('.ix-meter i');
+  const beam = root.querySelector('.ix-beam'), split = root.querySelector('.ix-split'),
+        fbars = root.querySelectorAll('.ix-fbar');
   function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
   function render(){
     const v = parseInt(input.value, 10);
     if (d.continuous){
+      let a = 0, b = 0;
       if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
-      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v; a = Math.floor(r / 2); b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
       const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      if (split){ const s0 = split.querySelector('.s0'), s1 = split.querySelector('.s1'); s0.style.width = (100 - v) + '%'; s0.textContent = d.value_names[0] + ' ' + (100 - v) + '%'; s1.textContent = d.value_names[1] + ' ' + v + '%'; }
+      if (beam){ beam.style.transform = 'rotate(' + ((v - 50) / 5) + 'deg)'; }
+      if (fbars.length === 3){ const vals = [a, v, b]; fbars.forEach((fb, i) => { fb.querySelector('.bar i').style.width = vals[i] + '%'; fb.querySelector('.fv').textContent = vals[i] + '%'; }); }
     } else {
       const s = d.states.find(s => s.value === v) || nearest(v);
       lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      figs.forEach(f => f.classList.toggle('on', parseInt(f.dataset.v, 10) === s.value));
+      const si = d.states.indexOf(s);
+      segs.forEach((sg, i) => sg.classList.toggle('on', i === si));
     }
   }
   input.oninput = render; render();

@@ -56,6 +56,27 @@ summary{cursor:pointer;font-weight:bold}
 .ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
 .ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
 .ix-cap{font-size:12.5px;color:#777;margin-top:8px}
+.ix-dboxes{display:flex;align-items:stretch;gap:8px;margin-bottom:10px}
+.ix-dbox{flex:1;background:#eef1f5;border:1px solid #c9d4e6;border-radius:10px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:110px}
+.ix-dbox .t{font-size:14.5px;font-weight:bold}
+.ix-dbox .n{font-size:13px;color:#666;margin:auto 0}
+.ix-dbox svg{margin:auto 0}
+.ix-darrow{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px}
+.ix-darrow .a{font-size:22px;color:#4a6fa5;line-height:1}
+.ix-darrow .l{font-size:13.5px;margin-top:4px}
+.ix-fig{display:none;margin:6px 0 2px}
+.ix-fig.on{display:block}
+.ix-fig svg{width:100%;height:auto;display:block}
+.ix-meter{display:flex;gap:4px;margin:10px 0 2px}
+.ix-meter i{flex:1;height:10px;border-radius:5px;background:#dbe4f0}
+.ix-meter i.on{background:#4a6fa5}
+.ix-fbar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:13.5px}
+.ix-fbar .fn{width:64px;text-align:right}
+.ix-fbar .bar{flex:1;background:#eef1f5;border-radius:5px;height:14px;overflow:hidden}
+.ix-fbar .bar i{display:block;height:100%;background:#5b8dd6;width:0}
+.ix-split{display:flex;height:22px;border-radius:6px;overflow:hidden;margin:10px 0 2px;font-size:13px;color:#fff}
+.ix-split .s0{background:#4a6fa5;text-align:left;padding:2px 8px;white-space:nowrap;overflow:hidden}
+.ix-split .s1{background:#c98a3d;text-align:right;padding:2px 8px;white-space:nowrap;overflow:hidden;flex:1}
 </style>
 </head>
 <body>
@@ -74,7 +95,7 @@ summary{cursor:pointer;font-weight:bold}
 <table><tr><th>意味</th><th>内容</th></tr><tr><td>味加減</td><td>料理の味の調整。塩加減や調味料のバランス。</td></tr><tr><td>物事の具合</td><td>仕事や計画の進み具合、全体のバランス。</td></tr><tr><td>身体の調子</td><td>体調や健康状態の具合。</td></tr><tr><td>状況のバランス</td><td>人間関係や場面における適切な対応の具合。</td></tr></table>
 <h3>③ いい塩梅とは何か？</h3>
 <p>先輩、「いい塩梅」とは、どのような状態でしょうか。いい塩梅とは、必ずしも真ん中であるとは限りません。その場の状況や目的にふさわしい加減であることが大切です。例えば、料理では、素材の味を生かすために、あえて薄味にすることもあります。また、仕事では、正確さと効率のバランスを取ることが求められます。いい塩梅とは、状況に応じて最適なバランスを見つけることです。<br>ChatGPT側には、スライダー付きの概念モデルがあります（塩の量でスープの様子が変わるイラスト付き、副ラベル「塩の量を調整する」）。バーの両端は左「少なすぎる」／中央「ちょうどよい」／右「多すぎる」で、全7状態（0〜6）、初期状態は値3「いい塩梅」です。全7状態は次のとおりです。</p>
-<div class="ix ix-slider" data-ix="0"><div class="ix-title">塩の量を調整する</div><input type="range" min="0" max="6" step="1" value="3"><div class="ix-scale"><span>少なすぎる</span><span class="mid">ちょうどよい</span><span>多すぎる</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
+<div class="ix ix-slider" data-ix="0"><div class="ix-title">塩の量を調整する</div><input type="range" min="0" max="6" step="1" value="3"><div class="ix-scale"><span>少なすぎる</span><span class="mid">ちょうどよい</span><span>多すぎる</span></div><div class="ix-disp"></div><div class="ix-fig" data-v="0"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><path d="M52 66 L268 66 Q258 128 160 128 Q62 128 52 66 Z" fill="#dfe7ef" stroke="#b9c8dd"/><ellipse cx="160" cy="66" rx="108" ry="13" fill="#f7d774"/><path d="M52 66 L34 58 M268 66 L286 58" stroke="#b9c8dd" stroke-width="5" stroke-linecap="round"/></svg></div><div class="ix-fig" data-v="1"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><path d="M52 66 L268 66 Q258 128 160 128 Q62 128 52 66 Z" fill="#dfe7ef" stroke="#b9c8dd"/><ellipse cx="160" cy="66" rx="108" ry="13" fill="#f5cd60"/><rect x="96" y="61" width="7" height="7" fill="#ffffff" transform="rotate(45 99 64)"/><path d="M52 66 L34 58 M268 66 L286 58" stroke="#b9c8dd" stroke-width="5" stroke-linecap="round"/></svg></div><div class="ix-fig" data-v="2"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><path d="M52 66 L268 66 Q258 128 160 128 Q62 128 52 66 Z" fill="#dfe7ef" stroke="#b9c8dd"/><ellipse cx="160" cy="66" rx="108" ry="13" fill="#f2c14e"/><rect x="96" y="61" width="7" height="7" fill="#ffffff" transform="rotate(45 99 64)"/><rect x="119" y="69" width="7" height="7" fill="#ffffff" transform="rotate(45 122 72)"/><path d="M52 66 L34 58 M268 66 L286 58" stroke="#b9c8dd" stroke-width="5" stroke-linecap="round"/></svg></div><div class="ix-fig" data-v="3"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><path d="M52 66 L268 66 Q258 128 160 128 Q62 128 52 66 Z" fill="#dfe7ef" stroke="#b9c8dd"/><ellipse cx="160" cy="66" rx="108" ry="13" fill="#eeb840"/><rect x="96" y="61" width="7" height="7" fill="#ffffff" transform="rotate(45 99 64)"/><rect x="119" y="69" width="7" height="7" fill="#ffffff" transform="rotate(45 122 72)"/><rect x="142" y="61" width="7" height="7" fill="#ffffff" transform="rotate(45 145 64)"/><path d="M52 66 L34 58 M268 66 L286 58" stroke="#b9c8dd" stroke-width="5" stroke-linecap="round"/></svg></div><div class="ix-fig" data-v="4"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><path d="M52 66 L268 66 Q258 128 160 128 Q62 128 52 66 Z" fill="#dfe7ef" stroke="#b9c8dd"/><ellipse cx="160" cy="66" rx="108" ry="13" fill="#e8ab32"/><rect x="96" y="61" width="7" height="7" fill="#ffffff" transform="rotate(45 99 64)"/><rect x="119" y="69" width="7" height="7" fill="#ffffff" transform="rotate(45 122 72)"/><rect x="142" y="61" width="7" height="7" fill="#ffffff" transform="rotate(45 145 64)"/><rect x="165" y="69" width="7" height="7" fill="#ffffff" transform="rotate(45 168 72)"/><path d="M52 66 L34 58 M268 66 L286 58" stroke="#b9c8dd" stroke-width="5" stroke-linecap="round"/></svg></div><div class="ix-fig" data-v="5"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><path d="M52 66 L268 66 Q258 128 160 128 Q62 128 52 66 Z" fill="#dfe7ef" stroke="#b9c8dd"/><ellipse cx="160" cy="66" rx="108" ry="13" fill="#e29e2b"/><rect x="96" y="61" width="7" height="7" fill="#ffffff" transform="rotate(45 99 64)"/><rect x="119" y="69" width="7" height="7" fill="#ffffff" transform="rotate(45 122 72)"/><rect x="142" y="61" width="7" height="7" fill="#ffffff" transform="rotate(45 145 64)"/><rect x="165" y="69" width="7" height="7" fill="#ffffff" transform="rotate(45 168 72)"/><rect x="188" y="61" width="7" height="7" fill="#ffffff" transform="rotate(45 191 64)"/><path d="M52 66 L34 58 M268 66 L286 58" stroke="#b9c8dd" stroke-width="5" stroke-linecap="round"/></svg></div><div class="ix-fig" data-v="6"><svg viewBox="0 0 320 150" role="img"><rect width="320" height="150" fill="#fbfcfe"/><path d="M52 66 L268 66 Q258 128 160 128 Q62 128 52 66 Z" fill="#dfe7ef" stroke="#b9c8dd"/><ellipse cx="160" cy="66" rx="108" ry="13" fill="#db9124"/><rect x="96" y="61" width="7" height="7" fill="#ffffff" transform="rotate(45 99 64)"/><rect x="119" y="69" width="7" height="7" fill="#ffffff" transform="rotate(45 122 72)"/><rect x="142" y="61" width="7" height="7" fill="#ffffff" transform="rotate(45 145 64)"/><rect x="165" y="69" width="7" height="7" fill="#ffffff" transform="rotate(45 168 72)"/><rect x="188" y="61" width="7" height="7" fill="#ffffff" transform="rotate(45 191 64)"/><rect x="211" y="69" width="7" height="7" fill="#ffffff" transform="rotate(45 214 72)"/><path d="M52 66 L34 58 M268 66 L286 58" stroke="#b9c8dd" stroke-width="5" stroke-linecap="round"/></svg></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>値0「味が薄すぎる」：「塩味がほとんど感じられない。」</li><li>値1「やや薄い」：「もう少し味付けが欲しい状態。」</li><li>値2「控えめな味付け」：「素材の味を生かした薄めの味付け。」</li><li>値3「いい塩梅」（初期値）：「素材の味と塩味がちょうどよく調和している。」</li><li>値4「やや濃い」：「塩味が少し強く感じられる。」</li><li>値5「塩辛い」：「塩味が強く、素材の味が分かりにくい。」</li><li>値6「塩辛すぎる」：「塩を入れすぎて、全体の調和が崩れている。」</li></ul>
 <h2>C｜イメージ理解</h2>
 <h3>仕事における正確性と効率の塩梅</h3>
@@ -147,7 +168,7 @@ document.getElementById('reset').onclick = build;
 </script>
 <script>
 
-const IX_DATA = [{"anchor": "ChatGPT側には、スライダー付きの概念モデルがあります（塩の量でスープの様子が変わるイラスト付き、副ラベル「塩の量を調整する」）。", "initial": 3, "left_label": "少なすぎる", "max": 6, "mid_label": "ちょうどよい", "min": 0, "right_label": "多すぎる", "states": [{"label": "味が薄すぎる", "text": "塩味がほとんど感じられない。", "value": 0}, {"label": "やや薄い", "text": "もう少し味付けが欲しい状態。", "value": 1}, {"label": "控えめな味付け", "text": "素材の味を生かした薄めの味付け。", "value": 2}, {"label": "いい塩梅", "text": "素材の味と塩味がちょうどよく調和している。", "value": 3}, {"label": "やや濃い", "text": "塩味が少し強く感じられる。", "value": 4}, {"label": "塩辛い", "text": "塩味が強く、素材の味が分かりにくい。", "value": 5}, {"label": "塩辛すぎる", "text": "塩を入れすぎて、全体の調和が崩れている。", "value": 6}], "title": "塩の量を調整する", "type": "slider"}];
+const IX_DATA = [{"anchor": "ChatGPT側には、スライダー付きの概念モデルがあります（塩の量でスープの様子が変わるイラスト付き、副ラベル「塩の量を調整する」）。", "initial": 3, "left_label": "少なすぎる", "max": 6, "mid_label": "ちょうどよい", "min": 0, "right_label": "多すぎる", "states": [{"label": "味が薄すぎる", "text": "塩味がほとんど感じられない。", "value": 0}, {"label": "やや薄い", "text": "もう少し味付けが欲しい状態。", "value": 1}, {"label": "控えめな味付け", "text": "素材の味を生かした薄めの味付け。", "value": 2}, {"label": "いい塩梅", "text": "素材の味と塩味がちょうどよく調和している。", "value": 3}, {"label": "やや濃い", "text": "塩味が少し強く感じられる。", "value": 4}, {"label": "塩辛い", "text": "塩味が強く、素材の味が分かりにくい。", "value": 5}, {"label": "塩辛すぎる", "text": "塩を入れすぎて、全体の調和が崩れている。", "value": 6}], "title": "塩の量を調整する", "type": "slider", "figure_kind": "soup"}];
 function ixTabs(root){
   const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
   function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
@@ -159,16 +180,26 @@ document.querySelectorAll('.ix-slider').forEach(root => {
   const d = IX_DATA[parseInt(root.dataset.ix, 10)];
   const input = root.querySelector('input[type=range]');
   const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  const figs = root.querySelectorAll('.ix-fig'), segs = root.querySelectorAll('.ix-meter i');
+  const beam = root.querySelector('.ix-beam'), split = root.querySelector('.ix-split'),
+        fbars = root.querySelectorAll('.ix-fbar');
   function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
   function render(){
     const v = parseInt(input.value, 10);
     if (d.continuous){
+      let a = 0, b = 0;
       if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
-      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v; a = Math.floor(r / 2); b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
       const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      if (split){ const s0 = split.querySelector('.s0'), s1 = split.querySelector('.s1'); s0.style.width = (100 - v) + '%'; s0.textContent = d.value_names[0] + ' ' + (100 - v) + '%'; s1.textContent = d.value_names[1] + ' ' + v + '%'; }
+      if (beam){ beam.style.transform = 'rotate(' + ((v - 50) / 5) + 'deg)'; }
+      if (fbars.length === 3){ const vals = [a, v, b]; fbars.forEach((fb, i) => { fb.querySelector('.bar i').style.width = vals[i] + '%'; fb.querySelector('.fv').textContent = vals[i] + '%'; }); }
     } else {
       const s = d.states.find(s => s.value === v) || nearest(v);
       lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      figs.forEach(f => f.classList.toggle('on', parseInt(f.dataset.v, 10) === s.value));
+      const si = d.states.indexOf(s);
+      segs.forEach((sg, i) => sg.classList.toggle('on', i === si));
     }
   }
   input.oninput = render; render();

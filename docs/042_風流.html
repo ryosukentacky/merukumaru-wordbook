@@ -56,6 +56,27 @@ summary{cursor:pointer;font-weight:bold}
 .ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
 .ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
 .ix-cap{font-size:12.5px;color:#777;margin-top:8px}
+.ix-dboxes{display:flex;align-items:stretch;gap:8px;margin-bottom:10px}
+.ix-dbox{flex:1;background:#eef1f5;border:1px solid #c9d4e6;border-radius:10px;padding:10px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;min-height:110px}
+.ix-dbox .t{font-size:14.5px;font-weight:bold}
+.ix-dbox .n{font-size:13px;color:#666;margin:auto 0}
+.ix-dbox svg{margin:auto 0}
+.ix-darrow{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:64px}
+.ix-darrow .a{font-size:22px;color:#4a6fa5;line-height:1}
+.ix-darrow .l{font-size:13.5px;margin-top:4px}
+.ix-fig{display:none;margin:6px 0 2px}
+.ix-fig.on{display:block}
+.ix-fig svg{width:100%;height:auto;display:block}
+.ix-meter{display:flex;gap:4px;margin:10px 0 2px}
+.ix-meter i{flex:1;height:10px;border-radius:5px;background:#dbe4f0}
+.ix-meter i.on{background:#4a6fa5}
+.ix-fbar{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:13.5px}
+.ix-fbar .fn{width:64px;text-align:right}
+.ix-fbar .bar{flex:1;background:#eef1f5;border-radius:5px;height:14px;overflow:hidden}
+.ix-fbar .bar i{display:block;height:100%;background:#5b8dd6;width:0}
+.ix-split{display:flex;height:22px;border-radius:6px;overflow:hidden;margin:10px 0 2px;font-size:13px;color:#fff}
+.ix-split .s0{background:#4a6fa5;text-align:left;padding:2px 8px;white-space:nowrap;overflow:hidden}
+.ix-split .s1{background:#c98a3d;text-align:right;padding:2px 8px;white-space:nowrap;overflow:hidden;flex:1}
 </style>
 </head>
 <body>
@@ -80,7 +101,7 @@ summary{cursor:pointer;font-weight:bold}
 <h3>⑤ 風流と風情の関係</h3>
 <p>風情：古い庭園に紅葉が広がっている → 趣のある景色や雰囲気<br>風流：庭園を眺めながらお茶を飲む → その趣を味わう楽しみ方<br>「先輩、風情と風流は、密接に関係しています。」「風情は、物事から感じられる趣そのものを表します。」「一方、風流は、その趣を味わう美意識や楽しみ方に重点があります。」</p>
 <h3>⑥ 日常の過ごし方と風流</h3>
-<div class="ix ix-slider" data-ix="0"><div class="ix-title">同じ川辺でも異なる楽しみ方</div><input type="range" min="0" max="3" step="1" value="3"><div class="ix-scale"><span>実用性を重視</span><span>趣を味わう</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">このスライダーは楽しみ方の違いを理解するための概念モデルであり、人の美意識や優劣を測るものではありません。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
+<div class="ix ix-slider" data-ix="0"><div class="ix-title">同じ川辺でも異なる楽しみ方</div><input type="range" min="0" max="3" step="1" value="3"><div class="ix-scale"><span>実用性を重視</span><span>趣を味わう</span></div><div class="ix-disp"></div><div class="ix-meter"><i></i><i></i><i></i><i></i></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">このスライダーは楽しみ方の違いを理解するための概念モデルであり、人の美意識や優劣を測るものではありません。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <p>「同じ川辺でも、過ごし方によって、実用的な過ごし方にも、風流な楽しみ方にもなります。」<br>ChatGPT側には、スライダー付きの概念モデル「同じ川辺でも異なる楽しみ方」があります。バーの両端は左「実用性を重視」／右「趣を味わう」で、全4状態（0〜3）、初期状態は値3「風流な楽しみ方」（最右端）です。全4状態は次のとおりです。</p>
 <ul><li>値0「実用的な過ごし方」— 特徴「目的を達成することを中心に考える。」／具体例「目的地に到着するために、川沿いの道を歩く。」</li><li>値1「自然を楽しむ」— 特徴「周囲の景色や自然の美しさにも目を向ける。」／具体例「川沿いを歩きながら、夕焼けや鳥の姿を眺める。」</li><li>値2「季節の趣を味わう」— 特徴「自然の変化や季節ならではの情緒を楽しむ。」／具体例「秋の川辺で、すすきの揺れる姿や虫の鳴き声を楽しむ。」</li><li>値3「風流な楽しみ方」（初期状態）— 特徴「自然の趣に文化的な楽しみや美意識を重ねる。」／具体例「秋の川辺で月を眺めながらお茶を飲み、その情景を俳句に詠む。」</li></ul>
 <p>注記：「このスライダーは楽しみ方の違いを理解するための概念モデルであり、人の美意識や優劣を測るものではありません。」</p>
@@ -151,7 +172,7 @@ document.getElementById('reset').onclick = build;
 </script>
 <script>
 
-const IX_DATA = [{"anchor": "### ⑥ 日常の過ごし方と風流", "initial": 3, "left_label": "実用性を重視", "max": 3, "min": 0, "note": "このスライダーは楽しみ方の違いを理解するための概念モデルであり、人の美意識や優劣を測るものではありません。", "right_label": "趣を味わう", "states": [{"label": "実用的な過ごし方", "text": "特徴「目的を達成することを中心に考える。」／具体例「目的地に到着するために、川沿いの道を歩く。」", "value": 0}, {"label": "自然を楽しむ", "text": "特徴「周囲の景色や自然の美しさにも目を向ける。」／具体例「川沿いを歩きながら、夕焼けや鳥の姿を眺める。」", "value": 1}, {"label": "季節の趣を味わう", "text": "特徴「自然の変化や季節ならではの情緒を楽しむ。」／具体例「秋の川辺で、すすきの揺れる姿や虫の鳴き声を楽しむ。」", "value": 2}, {"label": "風流な楽しみ方", "text": "特徴「自然の趣に文化的な楽しみや美意識を重ねる。」／具体例「秋の川辺で月を眺めながらお茶を飲み、その情景を俳句に詠む。」", "value": 3}], "title": "同じ川辺でも異なる楽しみ方", "type": "slider"}];
+const IX_DATA = [{"anchor": "### ⑥ 日常の過ごし方と風流", "initial": 3, "left_label": "実用性を重視", "max": 3, "min": 0, "note": "このスライダーは楽しみ方の違いを理解するための概念モデルであり、人の美意識や優劣を測るものではありません。", "right_label": "趣を味わう", "states": [{"label": "実用的な過ごし方", "text": "特徴「目的を達成することを中心に考える。」／具体例「目的地に到着するために、川沿いの道を歩く。」", "value": 0}, {"label": "自然を楽しむ", "text": "特徴「周囲の景色や自然の美しさにも目を向ける。」／具体例「川沿いを歩きながら、夕焼けや鳥の姿を眺める。」", "value": 1}, {"label": "季節の趣を味わう", "text": "特徴「自然の変化や季節ならではの情緒を楽しむ。」／具体例「秋の川辺で、すすきの揺れる姿や虫の鳴き声を楽しむ。」", "value": 2}, {"label": "風流な楽しみ方", "text": "特徴「自然の趣に文化的な楽しみや美意識を重ねる。」／具体例「秋の川辺で月を眺めながらお茶を飲み、その情景を俳句に詠む。」", "value": 3}], "title": "同じ川辺でも異なる楽しみ方", "type": "slider", "figure_kind": "meter"}];
 function ixTabs(root){
   const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
   function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
@@ -163,16 +184,26 @@ document.querySelectorAll('.ix-slider').forEach(root => {
   const d = IX_DATA[parseInt(root.dataset.ix, 10)];
   const input = root.querySelector('input[type=range]');
   const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  const figs = root.querySelectorAll('.ix-fig'), segs = root.querySelectorAll('.ix-meter i');
+  const beam = root.querySelector('.ix-beam'), split = root.querySelector('.ix-split'),
+        fbars = root.querySelectorAll('.ix-fbar');
   function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
   function render(){
     const v = parseInt(input.value, 10);
     if (d.continuous){
+      let a = 0, b = 0;
       if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
-      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v; a = Math.floor(r / 2); b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
       const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      if (split){ const s0 = split.querySelector('.s0'), s1 = split.querySelector('.s1'); s0.style.width = (100 - v) + '%'; s0.textContent = d.value_names[0] + ' ' + (100 - v) + '%'; s1.textContent = d.value_names[1] + ' ' + v + '%'; }
+      if (beam){ beam.style.transform = 'rotate(' + ((v - 50) / 5) + 'deg)'; }
+      if (fbars.length === 3){ const vals = [a, v, b]; fbars.forEach((fb, i) => { fb.querySelector('.bar i').style.width = vals[i] + '%'; fb.querySelector('.fv').textContent = vals[i] + '%'; }); }
     } else {
       const s = d.states.find(s => s.value === v) || nearest(v);
       lab.textContent = s.label || ''; txt.textContent = s.text || '';
+      figs.forEach(f => f.classList.toggle('on', parseInt(f.dataset.v, 10) === s.value));
+      const si = d.states.indexOf(s);
+      segs.forEach((sg, i) => sg.classList.toggle('on', i === si));
     }
   }
   input.oninput = render; render();
