@@ -30,6 +30,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 </style>
 </head>
 <body>
@@ -52,6 +78,7 @@ summary{cursor:pointer;font-weight:bold}
 <p>心そぞろとは、別のことが気になり、心が落ち着かない状態です。例えば、明日の旅行が楽しみで、仕事に集中できないとき、心はそぞろになっています。心そぞろは、期待や不安、楽しみなど、さまざまな感情によって生まれます。</p>
 <blockquote><p>図解（ChatGPT側の表示）：B④に左右2枚のパネルがあります（左「身体は職場」＝机で働く人物、ラベル「目の前の仕事」／右「心は旅行先」＝山と太陽、ラベル「明日への期待」）。</p></blockquote>
 <h3>⑤ 心が向いている場所を比較する</h3>
+<div class="ix ix-slider" data-ix="0"><div class="ix-title">心が向いている場所を比較する</div><input type="range" min="0" max="3" step="1" value="2"><div class="ix-scale"><span>目の前に集中</span><span>別のことに意識が向く</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">スライダー上部に「目の前のこと」「別のこと」の2つの枠があり、その間を「心」の円が移動する図が連動する。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <p>ChatGPT側には、スライダー付きの概念モデルがあります（上部に「目の前のこと」「別のこと」の2つの枠と、その間を移動する「心」の円）。バーの両端は左「目の前に集中」／右「別のことに意識が向く」で、全4状態（0〜3）、初期状態は値2「心そぞろ」です。全4状態は次のとおりです。</p>
 <ul><li>値0「集中している」：特徴「目の前の作業に意識を向けている。」具体例「資料の確認に集中している。」</li><li>値1「少し気が散っている」：特徴「別のことが時々頭に浮かぶ。」具体例「仕事中に明日の予定を思い出す。」</li><li>値2「心そぞろ」（初期値）：特徴「別のことに心が引かれ、落ち着かない。」具体例「旅行が楽しみで仕事が手につかない。」</li><li>値3「上の空」：特徴「目の前のことに十分な注意を払っていない。」具体例「話しかけられても内容が頭に入らない。」</li></ul>
 <h2>C｜イメージ理解</h2>
@@ -118,6 +145,84 @@ function build(){
 }
 build();
 document.getElementById('reset').onclick = build;
+
+</script>
+<script>
+
+const IX_DATA = [{"anchor": "### ⑤ 心が向いている場所を比較する", "initial": 2, "left_label": "目の前に集中", "max": 3, "min": 0, "note": "スライダー上部に「目の前のこと」「別のこと」の2つの枠があり、その間を「心」の円が移動する図が連動する。", "right_label": "別のことに意識が向く", "states": [{"label": "集中している", "text": "特徴「目の前の作業に意識を向けている。」具体例「資料の確認に集中している。」", "value": 0}, {"label": "少し気が散っている", "text": "特徴「別のことが時々頭に浮かぶ。」具体例「仕事中に明日の予定を思い出す。」", "value": 1}, {"label": "心そぞろ", "text": "特徴「別のことに心が引かれ、落ち着かない。」具体例「旅行が楽しみで仕事が手につかない。」", "value": 2}, {"label": "上の空", "text": "特徴「目の前のことに十分な注意を払っていない。」具体例「話しかけられても内容が頭に入らない。」", "value": 3}], "title": "心が向いている場所を比較する", "type": "slider"}];
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
 
 </script>
 </body>

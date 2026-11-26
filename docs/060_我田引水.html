@@ -30,6 +30,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 </style>
 </head>
 <body>
@@ -56,6 +82,7 @@ summary{cursor:pointer;font-weight:bold}
 <h2>C｜イメージ理解</h2>
 <h3>水の配分から我田引水を理解する</h3>
 <p>ChatGPT側には、スライダー付きの概念モデル「100単位の水を三つの田んぼに配分する」があります（共有の水路から3つの田んぼへ水が配分される図解付き、副ラベル「自分の田んぼに引き入れる水の量」）。バーの両端は左「0単位」／右「100単位」で、値は連続（0〜100）、初期状態は値34（他人の田33%／自分の田34%／他人の田33%）です。残りの水は2つの他人の田にほぼ均等に分けられます。確認された主な状態は次のとおりです。</p>
+<div class="ix ix-slider" data-ix="0"><div class="ix-title">100単位の水を三つの田んぼに配分する</div><input type="range" min="0" max="100" step="1" value="34"><div class="ix-scale"><span>0単位</span><span>100単位</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">スライダーの値が「自分の田んぼに引き入れる水の量」で、残りの水は2つの他人の田にほぼ均等に分けられます。</p><p class="ix-note">副ラベル「自分の田んぼに引き入れる水の量」。見出しは4種類（ほかの田んぼを優先した配分／ほぼ均等な配分／自分を優先した配分／自分の利益に大きく偏った状態）で、見出しが切り替わる正確な境目は未確認です。「我田引水の語源を理解するための仮想モデルです。実際の公平性は田んぼの面積や必要水量などによって異なります。」</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>値0：他人の田50%／自分の田0%／他人の田50%。見出し「ほかの田んぼを優先した配分」。「自分よりもほかの田んぼに多くの水が行き渡っています。」</li><li>値33：他人の田33%／自分の田33%／他人の田34%。見出し「ほぼ均等な配分」。</li><li>値34（初期値）：他人の田33%／自分の田34%／他人の田33%。見出し「ほぼ均等な配分」。「三つの田んぼに同程度の水が行き渡っています。」</li><li>値50：他人の田25%／自分の田50%／他人の田25%。見出し「自分を優先した配分」。「自分の田んぼに多くの水を引き入れています。」</li><li>値99：他人の田0%／自分の田99%／他人の田1%。見出し「自分の利益に大きく偏った状態」。「自分の田んぼに水が集中し、ほかの田んぼには十分な水が行き渡りません。」</li><li>値100：他人の田0%／自分の田100%／他人の田0%。見出し「自分の利益に大きく偏った状態」。</li></ul>
 <p>見出しは4種類（ほかの田んぼを優先した配分／ほぼ均等な配分／自分を優先した配分／自分の利益に大きく偏った状態）。見出しが切り替わる正確な境目は未確認です。「我田引水の語源を理解するための仮想モデルです。実際の公平性は田んぼの面積や必要水量などによって異なります。」</p>
 <h3>同じ事実でも解釈が変わる</h3>
@@ -81,6 +108,7 @@ summary{cursor:pointer;font-weight:bold}
 <p>① 我田引水と牽強付会（けんきょうふかい）：我田引水：自分に都合がよいように物事を解釈すること。牽強付会：本来は筋の通らないことを、無理にこじつけて理屈を通そうとすること。自分の利益のために都合よく解釈するのは我田引水です。無関係な事実まで結び付け、強引に自分の主張を正当化するのは牽強付会です。我田引水は自分の都合に、牽強付会は論理の強引さに重点があります。<br>② 我田引水と自己正当化：我田引水：自分の利益や立場に合わせて物事を解釈すること。自己正当化：自分の行動や判断が正しかったと思おうとすること。我田引水な解釈によって、自己正当化を行う場合があります。<br>③ 我田引水と手前味噌（てまえみそ）：我田引水：自分に都合がよいように話を進めること。手前味噌：自分で自分のことを褒めること。「手前味噌ですが、今回の資料はよくできたと思います。」この表現は、自画自賛であることを自覚したうえで、謙遜を交えて使っています。手前味噌は必ずしも事実を歪めることではありませんが、我田引水には否定的なニュアンスがあります。<br>④ 我田引水と独善的（どくぜんてき）：我田引水：自分に都合がよいように物事を解釈すること。独善的：他人の意見を考慮せず、自分だけが正しいと思い込むこと。我田引水は解釈や話の進め方に、独善的は考え方や態度に重点があります。<br>⑤ 我田引水と利益誘導（りえきゆうどう）：我田引水：自分に都合がよいように物事を進めること。利益誘導：特定の人物や団体、地域などに利益がもたらされるように働きかけること。我田引水は解釈や議論にも使われますが、利益誘導は具体的な利益の配分や働きかけに重点があります。<br>⑥ 我田引水と恣意的（しいてき）：我田引水：自分の都合に合わせて物事を解釈すること。恣意的：客観的な基準や一貫した根拠によらず、自分の判断や思いつきで物事を決めること。自分に有利になるよう評価基準を変える行為は、我田引水であり、恣意的でもあるといえます。<br>⑦ 我田引水と忖度（そんたく）：我田引水：自分の都合を優先して解釈すること。忖度：他人の気持ちや意図を推し量ること。我田引水では自分の都合が中心になりますが、忖度では相手の気持ちや意図が中心になります。</p>
 <h3>我田引水を防ぐための考え方</h3>
 <p>先輩、我田引水は他人の行動を批判するためだけの言葉ではありません。自分自身の思考を点検するためにも役立ちます。<br>ChatGPT側には、「我田引水を防ぐチェックリスト」（カウンタ0/5、5つのチェックボックス、「リセット」ボタン）があります。項目は次の5つです。</p>
+<div class="ix ix-check" data-ix="1"><div class="ix-title">我田引水を防ぐチェックリスト</div><label><input type="checkbox"> 自分の考えに反する情報も確認したか</label><label><input type="checkbox"> 自分と他人に同じ判断基準を適用しているか</label><label><input type="checkbox"> 事実と自分の解釈を区別しているか</label><label><input type="checkbox"> 自分に不利な情報も考慮しているか</label><label><input type="checkbox"> 第三者の立場から考えてみたか</label><div class="ix-foot"><span class="ix-count"></span><button class="act ix-rst">リセット</button></div><div class="ix-msg"></div><p class="ix-note">カウンタ0/5、「リセット」ボタン付き。5項目すべてにチェックを入れるとカウンタは「5/5」になり、「五つの観点を確認できました。ただし、これだけで判断の偏りが完全になくなるわけではありません。」と表示されます。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>自分の考えに反する情報も確認したか</li><li>自分と他人に同じ判断基準を適用しているか</li><li>事実と自分の解釈を区別しているか</li><li>自分に不利な情報も考慮しているか</li><li>第三者の立場から考えてみたか</li></ul>
 <p>5項目すべてにチェックを入れるとカウンタは「5/5」になり、「五つの観点を確認できました。ただし、これだけで判断の偏りが完全になくなるわけではありません。」と表示されます。特に重要なのは、自分と他人に同じ判断基準を適用しているかという点です。他人の失敗には厳しいのに、自分の失敗には事情があったと説明していないでしょうか。以前学んだ「岡目八目」のように、第三者の視点を取り入れることも、判断の偏りを見直すうえで役立ちます。</p>
 <p>関連する日本語：自分本位（じぶんほんい）＝自分の都合を中心に考えること／牽強付会（けんきょうふかい）＝無理に理屈をこじつけること／詭弁（きべん）＝もっともらしく見せかけた誤った議論／曲解（きょっかい）＝本来の意味を歪めて解釈すること／糊塗（こと）＝その場しのぎで取り繕うこと／保身（ほしん）＝自分の地位や立場を守ること／利己的（りこてき）＝自分の利益ばかりを考えること／公明正大（こうめいせいだい）＝私心がなく、公平で正しいこと／是々非々（ぜぜひひ）＝立場にとらわれず、正しいものは正しいと判断すること／不偏不党（ふへんふとう）＝特定の立場や党派に偏らないこと。我田引水とは対照的な考え方として、特に「是々非々」を覚えておくとよいでしょう。</p>
@@ -124,6 +152,84 @@ function build(){
 }
 build();
 document.getElementById('reset').onclick = build;
+
+</script>
+<script>
+
+const IX_DATA = [{"anchor": "ChatGPT側には、スライダー付きの概念モデル「100単位の水を三つの田んぼに配分する」があります", "continuous": true, "formula": "スライダーの値が「自分の田んぼに引き入れる水の量」で、残りの水は2つの他人の田にほぼ均等に分けられます。", "initial": 34, "left_label": "0単位", "max": 100, "min": 0, "note": "副ラベル「自分の田んぼに引き入れる水の量」。見出しは4種類（ほかの田んぼを優先した配分／ほぼ均等な配分／自分を優先した配分／自分の利益に大きく偏った状態）で、見出しが切り替わる正確な境目は未確認です。「我田引水の語源を理解するための仮想モデルです。実際の公平性は田んぼの面積や必要水量などによって異なります。」", "right_label": "100単位", "states": [{"label": "ほかの田んぼを優先した配分", "text": "他人の田50%／自分の田0%／他人の田50%。自分よりもほかの田んぼに多くの水が行き渡っています。", "value": 0}, {"label": "ほぼ均等な配分", "text": "他人の田33%／自分の田33%／他人の田34%。", "value": 33}, {"label": "ほぼ均等な配分", "text": "他人の田33%／自分の田34%／他人の田33%。三つの田んぼに同程度の水が行き渡っています。", "value": 34}, {"label": "自分を優先した配分", "text": "他人の田25%／自分の田50%／他人の田25%。自分の田んぼに多くの水を引き入れています。", "value": 50}, {"label": "自分の利益に大きく偏った状態", "text": "他人の田0%／自分の田99%／他人の田1%。自分の田んぼに水が集中し、ほかの田んぼには十分な水が行き渡りません。", "value": 99}, {"label": "自分の利益に大きく偏った状態", "text": "他人の田0%／自分の田100%／他人の田0%。", "value": 100}], "title": "100単位の水を三つの田んぼに配分する", "type": "slider", "display_rule": "water"}, {"anchor": "ChatGPT側には、「我田引水を防ぐチェックリスト」（カウンタ0/5、5つのチェックボックス、「リセット」ボタン）があります。", "items": ["自分の考えに反する情報も確認したか", "自分と他人に同じ判断基準を適用しているか", "事実と自分の解釈を区別しているか", "自分に不利な情報も考慮しているか", "第三者の立場から考えてみたか"], "note": "カウンタ0/5、「リセット」ボタン付き。5項目すべてにチェックを入れるとカウンタは「5/5」になり、「五つの観点を確認できました。ただし、これだけで判断の偏りが完全になくなるわけではありません。」と表示されます。", "title": "我田引水を防ぐチェックリスト", "type": "checklist", "complete_message": "五つの観点を確認できました。ただし、これだけで判断の偏りが完全になくなるわけではありません。"}];
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
 
 </script>
 </body>

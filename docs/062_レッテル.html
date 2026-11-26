@@ -30,6 +30,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 </style>
 </head>
 <body>
@@ -52,6 +78,7 @@ summary{cursor:pointer;font-weight:bold}
 <h2>C｜イメージ理解</h2>
 <h3>同じ人物でも、レッテルによって見え方が変わる</h3>
 <p>ChatGPT側には、選択式の要素（否定的／肯定的／客観的、初期選択は「否定的」）があります。観察された事実は共通です（質問する回数が多い。確認作業に時間をかけている）。全3状態は次のとおりです。</p>
+<div class="ix ix-selector" data-initial="0"><div class="ix-title">同じ人物でも、レッテルによって見え方が変わる</div><div class="ix-tabbar"><button class="ix-tab">否定的なレッテル</button><button class="ix-tab">肯定的なレッテル</button><button class="ix-tab">客観的な観察</button></div><div class="ix-panel"><div>質問が多いのは理解力が低いからだ。確認に時間がかかるのは能力が低いからだ。</div></div><div class="ix-panel"><div>質問が多いのは学習意欲が高いからだ。確認に時間がかかるのは責任感が強いからだ。</div></div><div class="ix-panel"><div>質問が多く、確認に時間をかけている。業務への習熟度や質問の内容、確認の必要性を調べて判断する。</div></div><p class="ix-note">観察された事実は共通です（質問する回数が多い。確認作業に時間をかけている）。見方を切り替えて、同じ事実に対する解釈の違いを確認できます。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>否定的「否定的なレッテル」：「質問が多いのは理解力が低いからだ。確認に時間がかかるのは能力が低いからだ。」</li><li>肯定的「肯定的なレッテル」：「質問が多いのは学習意欲が高いからだ。確認に時間がかかるのは責任感が強いからだ。」</li><li>客観的「客観的な観察」：「質問が多く、確認に時間をかけている。業務への習熟度や質問の内容、確認の必要性を調べて判断する。」</li></ul>
 <p>見方を切り替えて、同じ事実に対する解釈の違いを確認できます。先輩、質問が多いという事実だけでは、その人が優秀なのか、理解力が不足しているのかは判断できません。質問の内容や業務経験、指導方法なども確認する必要があります。事実は一つでも、解釈は複数存在する。この違いを意識することが重要です。</p>
 <h3>自分自身にレッテルを貼る場合</h3>
@@ -76,6 +103,7 @@ summary{cursor:pointer;font-weight:bold}
 <p>ハロー効果：ある優れた特徴に引きずられて、ほかの能力まで高く評価してしまう傾向。例：高学歴だから、コミュニケーション能力も高いはずだ。／ホーン効果：ある否定的な特徴に引きずられて、ほかの能力まで低く評価してしまう傾向。例：電話対応が苦手だから、経理業務も苦手なはずだ。／確証バイアス：自分の考えを裏付ける情報を重視し、反対する情報を軽視する傾向。例：仕事ができないと思っている社員の失敗ばかりに注目する。／基本的な帰属の誤り：他人の行動について、環境や状況の影響を軽視し、本人の性格や能力を重視しすぎる傾向。例：説明が不十分だった可能性を考えず、新人の理解力が低いと判断する。／自己成就予言：ある予想や思い込みが人の行動に影響し、結果としてその予想が現実になること。例：能力が低いと決めつけて仕事を任せないため、本人が経験を積む機会を失う。これらはレッテルの形成や維持に関係する心理的な仕組みです。ただし、すべてのレッテルがこれらの仕組みによって生じるとは限りません。</p>
 <h3>レッテルを貼らないための思考習慣</h3>
 <p>ChatGPT側には、「判断の偏りを防ぐチェックリスト」（5項目、カウンタ0/5、「リセット」ボタン）があります。項目は次の5つです。</p>
+<div class="ix ix-check" data-ix="1"><div class="ix-title">判断の偏りを防ぐチェックリスト</div><label><input type="checkbox"> 観察された事実と自分の解釈を区別したか</label><label><input type="checkbox"> 一度の出来事から全体を判断していないか</label><label><input type="checkbox"> 本人の性格だけでなく環境や状況も考慮したか</label><label><input type="checkbox"> 最初の印象に反する情報も確認したか</label><label><input type="checkbox"> 相手が成長・変化する可能性を考慮したか</label><div class="ix-foot"><span class="ix-count"></span><button class="act ix-rst">リセット</button></div><div class="ix-msg"></div><p class="ix-note">カウンタ0/5、「リセット」ボタン付き。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>観察された事実と自分の解釈を区別したか</li><li>一度の出来事から全体を判断していないか</li><li>本人の性格だけでなく環境や状況も考慮したか</li><li>最初の印象に反する情報も確認したか</li><li>相手が成長・変化する可能性を考慮したか</li></ul>
 <p>先輩、特に重要なのは、人格ではなく具体的な行動に注目することです。レッテルを貼る表現→具体的な表現：注意力がない→金額の確認が一箇所抜けていた／主体性がない→今回は自分から提案しなかった／説明が下手→結論と根拠の順序が整理されていなかった／意志が弱い→今週は勉強を継続できなかった／協調性がない→今回の提案には反対していた／仕事ができない→この業務にはまだ習熟していない。具体的な表現に置き換えると、問題の原因や改善方法を考えやすくなります。</p>
 <p>関連する日本語：烙印（らくいん）＝容易には消えない不名誉な評価／色眼鏡（いろめがね）＝偏見を持った物事の見方／早計（そうけい）＝十分に考えず、性急に判断すること／短絡的（たんらくてき）＝十分な思考を経ずに結論を出すこと／曲解（きょっかい）＝本来の意味を歪めて解釈すること／過度の一般化＝一部の経験を広い範囲に当てはめること／スティグマ＝社会的な偏見や差別につながる否定的な印／メタ認知＝自分自身の思考や認知を客観的に把握すること／是々非々（ぜぜひひ）＝立場にとらわれず、物事の是非を判断すること</p>
@@ -119,6 +147,84 @@ function build(){
 }
 build();
 document.getElementById('reset').onclick = build;
+
+</script>
+<script>
+
+const IX_DATA = [{"anchor": "ChatGPT側には、選択式の要素（否定的／肯定的／客観的、初期選択は「否定的」）があります。", "initial": 0, "note": "観察された事実は共通です（質問する回数が多い。確認作業に時間をかけている）。見方を切り替えて、同じ事実に対する解釈の違いを確認できます。", "options": [{"label": "否定的なレッテル", "text": "質問が多いのは理解力が低いからだ。確認に時間がかかるのは能力が低いからだ。"}, {"label": "肯定的なレッテル", "text": "質問が多いのは学習意欲が高いからだ。確認に時間がかかるのは責任感が強いからだ。"}, {"label": "客観的な観察", "text": "質問が多く、確認に時間をかけている。業務への習熟度や質問の内容、確認の必要性を調べて判断する。"}], "title": "同じ人物でも、レッテルによって見え方が変わる", "type": "selector"}, {"anchor": "ChatGPT側には、「判断の偏りを防ぐチェックリスト」（5項目、カウンタ0/5、「リセット」ボタン）があります。", "items": ["観察された事実と自分の解釈を区別したか", "一度の出来事から全体を判断していないか", "本人の性格だけでなく環境や状況も考慮したか", "最初の印象に反する情報も確認したか", "相手が成長・変化する可能性を考慮したか"], "note": "カウンタ0/5、「リセット」ボタン付き。", "title": "判断の偏りを防ぐチェックリスト", "type": "checklist"}];
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
 
 </script>
 </body>

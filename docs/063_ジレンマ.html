@@ -30,6 +30,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 </style>
 </head>
 <body>
@@ -51,11 +77,13 @@ summary{cursor:pointer;font-weight:bold}
 <p>ジレンマを理解するうえで有名なのが、ゲーム理論における「囚人のジレンマ」です。二人の容疑者が別々に取り調べを受け、それぞれが黙秘するか、自白して相手を裏切るかを選択するという仮想的な状況です。</p>
 <table><tr><th>Aの選択＼Bの選択</th><th>黙秘</th><th>自白</th></tr><tr><td>黙秘</td><td>A：1年・B：1年</td><td>A：10年・B：0年</td></tr><tr><td>自白</td><td>A：0年・B：10年</td><td>A：5年・B：5年</td></tr></table>
 <p>※刑期は仕組みを説明するための仮定です。<br>ChatGPT側には、「囚人のジレンマを体験する」シミュレーションがあります（A・Bそれぞれの選択を切り替えて結果を確認できるもの）。初期状態は両方「黙秘する」（囚人A 1年、囚人B 1年、合計2年）。4通りは次のとおりです。</p>
+<div class="ix ix-sim" data-ix="0"><div class="ix-title">囚人のジレンマを体験する</div><div class="ix-sgroup"><div>囚人Aの選択</div><div class="ix-tabbar"><button class="ix-tab">黙秘する</button><button class="ix-tab">自白する</button></div></div><div class="ix-sgroup"><div>囚人Bの選択</div><div class="ix-tabbar"><button class="ix-tab">黙秘する</button><button class="ix-tab">自白する</button></div></div><div class="ix-state ix-out"></div><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>両方「黙秘する」→A 1年・B 1年・合計2年。「二人が協力したため、刑期の合計が最も短くなりました。」</li><li>A「自白する」・B「黙秘する」→A 0年・B 10年・合計10年。「自白した側は釈放されますが、黙秘した側には重い刑罰が科されます。」</li><li>両方「自白する」→A 5年・B 5年・合計10年。「二人とも自分の利益を優先した結果、互いに黙秘する場合よりも悪い結果になりました。」</li><li>A「黙秘する」・B「自白する」→A 10年・B 0年・合計10年。「自白した側は釈放されますが、黙秘した側には重い刑罰が科されます。」</li></ul>
 <p>先輩、不思議だと思いませんか？二人とも黙秘すれば、それぞれの刑期は1年で済みます。しかし、相手がどちらを選択する場合でも、自分だけの刑期を考えると自白したほうが有利です。その結果、双方が合理的に自分の利益を追求すると、二人とも5年の刑期になる可能性があります。個人にとって合理的な判断が、集団全体にとって最善の結果になるとは限らない。これが囚人のジレンマの重要な論点です。企業間の価格競争や環境問題、組織内の協力関係などを考える際にも応用されます。</p>
 <h2>C｜イメージ理解</h2>
 <h3>仕事における正確性と効率のジレンマ</h3>
 <p>二つの目標が衝突し、どちらを優先するか悩んでいる状態。例えば、経理業務で大量の銀行明細を確認する場面です。正確性を追求して何度も確認すれば、ほかの業務に取り組む時間が減ってしまいます。反対に、作業速度を優先して必要な確認を省けば、金額の不一致を見落とす可能性があります。これが正確性と効率のジレンマです。<br>ChatGPT側には、優先度スライダーがあります（連続値0〜100、初期値50。値vに対して正確性の優先度＝100−v、効率の優先度＝v）。確認した状態は次のとおりです（テキストは3種類）。</p>
+<div class="ix ix-slider" data-ix="1"><div class="ix-title">優先度スライダー</div><input type="range" min="0" max="100" step="1" value="50"><div class="ix-scale"><span>正確性</span><span>効率</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">値vに対して正確性の優先度＝100−v、効率の優先度＝v</p><p class="ix-note">「優先度を表した仮想モデルです。実際の正確性や効率を測定した数値ではありません。」確認した状態のテキストは3種類です。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>v=0（正確性100%／効率0%）：「正確性を重視する方針です。確認に必要な時間や他業務への影響も考慮する必要があります。」</li><li>v=50（初期値、正確性50%／効率50%）：「両方の目標を考慮する方針です。ただし、必ずしも中間の配分が最適とは限りません。」</li><li>v=100（正確性0%／効率100%）：「効率を重視する方針です。必要な確認手順が省略されていないか注意が必要です。」</li></ul>
 <p>「優先度を表した仮想モデルです。実際の正確性や効率を測定した数値ではありません。」ただし、先輩、必ずどちらかを犠牲にしなければならないとは限りません。Excelによる照合の自動化やチェックリストの導入によって、正確性と効率を同時に改善できる可能性があります。二者択一だと思っていた問題でも、方法を変えることで第三の選択肢が生まれることがあるんです。</p>
 <h2>D｜具体例</h2>
@@ -76,6 +104,7 @@ summary{cursor:pointer;font-weight:bold}
 <p>① ジレンマと葛藤（かっとう）：ジレンマ：どちらを選んでも問題が残る難しい状況。葛藤：相反する感情や欲求が心の中で争うこと。また、人間関係などにおける対立。ジレンマは選択を取り巻く状況に、葛藤は心理的な対立などに重点があります。ジレンマに直面した結果、心の中に葛藤が生じることがあります。<br>② ジレンマとトレードオフ：ジレンマ：二つの選択肢の間で決断が難しくなる状態。トレードオフ：一方向を改善すると、もう一方が犠牲になる関係。トレードオフは二つの要素の関係を表します。その関係によって選択が難しくなった状態がジレンマです。<br>③ ジレンマと板挟み（いたばさみ）：ジレンマ：相反する選択肢の間で決断できない状態。板挟み：対立する双方の要求や立場の間に挟まれ、困ること。上司からは経費削減を求められ、部下からは職場環境の改善を求められる。このような人間関係や組織上の対立には、板挟みという言葉が特に適しています。<br>④ ジレンマと二律背反（にりつはいはん）：ジレンマ：どちらを選んでも問題が残る状態。二律背反：互いに矛盾する二つの命題や原理が、それぞれ成立するように見えること。二律背反は哲学的・論理的な意味合いが強い言葉です。ジレンマは、より日常的な意思決定にも使えます。<br>⑤ ジレンマとアンビバレンス：ジレンマ：相反する選択肢によって決断が難しい状態。アンビバレンス：同じ対象に対して、相反する感情や態度を同時に抱くこと。ある人を好きでありながら、同時に嫌悪感も抱いている状態はアンビバレンスです。必ずしも何かを選択する必要があるわけではありません。<br>⑥ ジレンマとパラドックス：ジレンマ：どちらを選んでも問題が残る状態。パラドックス：一見すると正しい考え方から、矛盾した結論や直感に反する結論が導かれること。ジレンマは選択の難しさ、パラドックスは論理や結論の逆説性に重点があります。<br>⑦ ジレンマと進退両難（しんたいりょうなん）：ジレンマ：相反する選択肢の間で悩む状態。進退両難：前に進むことも、後ろに退くことも難しい状態。進退両難は、どちらにも動けない窮地に陥っているという、より切迫した印象を持つ言葉です。</p>
 <h3>ジレンマを解消するための思考方法</h3>
 <p>先輩、ジレンマに直面したとき、最初から二つの選択肢のどちらかを選ばなければならないと思い込まないでください。第三の選択肢を探す：新人教育におけるジレンマ：選択肢A：すべて教える（業務を覚えやすいが、自分で考える機会が減る可能性がある）／選択肢B：自分で考えさせる（自主性を育てられるが、必要な知識が不足する可能性がある）→二者択一を見直す→選択肢C：段階的に指導する（基本的な手順を教えたうえで、自分で考える課題を与え、必要に応じて助言する）。こうすれば、丁寧な指導と自主性の育成を両立できる可能性があります。<br>ChatGPT側には、「ジレンマに直面した際のチェックリスト」（意思決定の確認、6項目、カウンタ0/6、「リセット」ボタン）があります。項目は次の6つです。</p>
+<div class="ix ix-check" data-ix="2"><div class="ix-title">ジレンマに直面した際のチェックリスト</div><label><input type="checkbox"> 何と何が衝突しているのか明確にしたか</label><label><input type="checkbox"> それぞれのメリットとデメリットを整理したか</label><label><input type="checkbox"> 短期的な利益と長期的な利益を区別したか</label><label><input type="checkbox"> 守らなければならない条件を確認したか</label><label><input type="checkbox"> 本当に二つの選択肢しかないのか考えたか</label><label><input type="checkbox"> 両方の目的を満たす第三の方法を検討したか</label><div class="ix-foot"><span class="ix-count"></span><button class="act ix-rst">リセット</button></div><div class="ix-msg"></div><p class="ix-note">意思決定の確認。カウンタ0/6、「リセット」ボタン付き。</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>何と何が衝突しているのか明確にしたか</li><li>それぞれのメリットとデメリットを整理したか</li><li>短期的な利益と長期的な利益を区別したか</li><li>守らなければならない条件を確認したか</li><li>本当に二つの選択肢しかないのか考えたか</li><li>両方の目的を満たす第三の方法を検討したか</li></ul>
 <p>もちろん、すべてのジレンマに第三の選択肢が存在するわけではありません。両立できない場合には、自分が何を優先すべきか明確にし、選択に伴う不利益も引き受ける必要があります。</p>
 <p>関連する日本語：葛藤（かっとう）＝相反する感情や考えなどが対立すること／二者択一（にしゃたくいつ）＝二つの選択肢から一つを選ぶこと／進退両難（しんたいりょうなん）＝進むことも退くことも難しい状態／苦渋の決断（くじゅうのけつだん）＝苦しみや悩みを伴う決断／折衷案（せっちゅうあん）＝異なる意見の長所を取り入れてまとめた案／妥協（だきょう）＝互いに譲歩して折り合いをつけること／煩悶（はんもん）＝深く悩み苦しむこと／苦肉の策（くにくのさく）＝やむを得ず、自分にも犠牲を伴う手段を取ること／背反（はいはん）＝互いに反すること／機会費用（きかいひよう）＝ある選択によって諦めた最善の選択肢から得られたはずの価値</p>
@@ -119,6 +148,84 @@ function build(){
 }
 build();
 document.getElementById('reset').onclick = build;
+
+</script>
+<script>
+
+const IX_DATA = [{"anchor": "ChatGPT側には、「囚人のジレンマを体験する」シミュレーションがあります", "initial": [0, 0], "outcomes": {"0,0": "囚人A 1年、囚人B 1年、合計2年。二人が協力したため、刑期の合計が最も短くなりました。", "0,1": "囚人A 10年、囚人B 0年、合計10年。自白した側は釈放されますが、黙秘した側には重い刑罰が科されます。", "1,0": "囚人A 0年、囚人B 10年、合計10年。自白した側は釈放されますが、黙秘した側には重い刑罰が科されます。", "1,1": "囚人A 5年、囚人B 5年、合計10年。二人とも自分の利益を優先した結果、互いに黙秘する場合よりも悪い結果になりました。"}, "selectors": [{"name": "囚人Aの選択", "options": ["黙秘する", "自白する"]}, {"name": "囚人Bの選択", "options": ["黙秘する", "自白する"]}], "title": "囚人のジレンマを体験する", "type": "simulation"}, {"anchor": "ChatGPT側には、優先度スライダーがあります（連続値0〜100、初期値50。", "continuous": true, "formula": "値vに対して正確性の優先度＝100−v、効率の優先度＝v", "initial": 50, "left_label": "正確性", "max": 100, "min": 0, "note": "「優先度を表した仮想モデルです。実際の正確性や効率を測定した数値ではありません。」確認した状態のテキストは3種類です。", "right_label": "効率", "states": [{"label": "正確性100%／効率0%", "text": "正確性を重視する方針です。確認に必要な時間や他業務への影響も考慮する必要があります。", "value": 0}, {"label": "正確性50%／効率50%", "text": "両方の目標を考慮する方針です。ただし、必ずしも中間の配分が最適とは限りません。", "value": 50}, {"label": "正確性0%／効率100%", "text": "効率を重視する方針です。必要な確認手順が省略されていないか注意が必要です。", "value": 100}], "title": "優先度スライダー", "type": "slider", "display_rule": "split", "value_names": ["正確性", "効率"]}, {"anchor": "ChatGPT側には、「ジレンマに直面した際のチェックリスト」（意思決定の確認、6項目、カウンタ0/6、「リセット」ボタン）があります。", "items": ["何と何が衝突しているのか明確にしたか", "それぞれのメリットとデメリットを整理したか", "短期的な利益と長期的な利益を区別したか", "守らなければならない条件を確認したか", "本当に二つの選択肢しかないのか考えたか", "両方の目的を満たす第三の方法を検討したか"], "note": "意思決定の確認。カウンタ0/6、「リセット」ボタン付き。", "title": "ジレンマに直面した際のチェックリスト", "type": "checklist"}];
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
 
 </script>
 </body>

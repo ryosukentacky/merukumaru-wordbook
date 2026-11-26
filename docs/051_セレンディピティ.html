@@ -30,6 +30,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 </style>
 </head>
 <body>
@@ -57,6 +83,7 @@ summary{cursor:pointer;font-weight:bold}
 <p>フランスの細菌学者であるルイ・パスツールは、次のような言葉を残しています。「偶然は、それにふさわしい心にのみ微笑む。」<br>先輩、同じ現象を見ても、セレンディピティを生むかどうかは人によって異なります。その違いを生むのが、事前の知識や経験です。知識が少ないと、現象は単なる「変わった出来事」として見過ごされてしまいます。一方、知識や関心を持っている人は、現象の意味を深く考え、新しい発見につなげることができます。偶然を価値ある発見に変えるためには、日頃から学び、関心を広げておくことが大切です。</p>
 <blockquote><p>図解（ChatGPT側の表示）：B⑤に図解があります（同じ現象を見る → 知識や関心が乏しい→「変わった現象だな」→見過ごす／関連知識や問題意識がある→「なぜこうなるのか？」→新しい発見）。</p></blockquote>
 <h3>⑥ セレンディピティを生み出しやすくする方法</h3>
+<div class="ix ix-slider" data-ix="0"><div class="ix-title">行動の幅と発見への向き合い方</div><input type="range" min="0" max="3" step="1" value="1"><div class="ix-scale"><span>習慣的な行動</span><span>探索・振り返り</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <p>先輩、セレンディピティは偶然に頼るだけのものではありません。日頃の行動や意識を変えることで、セレンディピティが生まれやすくなります。次のような習慣を取り入れてみましょう。</p>
 <table><tr><th>習慣</th><th>期待できること</th></tr><tr><td>興味のある分野に積極的に触れる</td><td>新しい知識や情報に出会いやすくなる</td></tr><tr><td>普段とは異なる場所を訪れる</td><td>偶然の出会いが増える</td></tr><tr><td>異なる分野の人と話をする</td><td>新しい視点やアイデアが得られる</td></tr><tr><td>疑問を持ち、調べる習慣を持つ</td><td>偶然の出来事を深く理解できる</td></tr><tr><td>記録を残し、振り返る</td><td>過去の経験が新しい発想につながる</td></tr><tr><td>柔軟な思考を持つ</td><td>思いがけない出来事を前向きに捉える</td></tr><tr><td>リラックスした時間を確保する</td><td>偶然の気づきが生まれやすくなる</td></tr></table>
 <p>ChatGPT側には、スライダー付きの概念モデル「行動の幅と発見への向き合い方」があります。バーの両端は左「習慣的な行動」／右「探索・振り返り」で、全4状態（0〜3）、初期状態は値1「小さな変化」です。全4状態は次のとおりです。</p>
@@ -126,6 +153,84 @@ function build(){
 }
 build();
 document.getElementById('reset').onclick = build;
+
+</script>
+<script>
+
+const IX_DATA = [{"anchor": "### ⑥ セレンディピティを生み出しやすくする方法", "initial": 1, "left_label": "習慣的な行動", "max": 3, "min": 0, "right_label": "探索・振り返り", "states": [{"label": "いつもと同じ行動", "text": "特徴「慣れた環境や情報源だけを利用する。」具体例「毎回同じジャンルの本を読み、同じ道を通る。」", "value": 0}, {"label": "小さな変化", "text": "特徴「普段とは少し異なる情報や環境に触れる。」具体例「書店で普段は見ない分野の棚を眺める。」", "value": 1}, {"label": "積極的な探索", "text": "特徴「異なる分野や価値観に意識的に触れる。」具体例「専門外の本を読み、異業種の人と交流する。」", "value": 2}, {"label": "探索と振り返り", "text": "特徴「新しい経験を既存の知識や課題と結び付ける。」具体例「読書や旅行で得た気づきを記録し、仕事への応用を考える。」", "value": 3}], "title": "行動の幅と発見への向き合い方", "type": "slider"}];
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
 
 </script>
 </body>

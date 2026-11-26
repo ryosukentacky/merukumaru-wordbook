@@ -30,6 +30,32 @@ a{color:#2f5aa8}
 #reset{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
 details{border:1px solid #ddd;border-radius:10px;padding:10px 14px;margin:12px 0}
 summary{cursor:pointer;font-weight:bold}
+.ix{border:1px solid #c9d4e6;border-radius:10px;padding:12px 14px;margin:14px 0;background:#fbfcfe}
+.ix-title{font-weight:bold;margin-bottom:8px}
+.ix-tabbar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.ix-tab{padding:8px 14px;border:1px solid #bbb;border-radius:999px;background:#f0f0f0;font-size:14.5px;cursor:pointer}
+.ix-tab.on{background:#4a6fa5;border-color:#4a6fa5;color:#fff}
+.ix-panel{display:none}
+.ix-panel.on{display:block}
+.ix-diagram{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-bottom:8px;font-size:14.5px}
+.ix-note{font-size:13px;color:#555;margin-top:8px}
+.ix input[type=range]{width:100%;margin:10px 0 2px}
+.ix-scale{display:flex;justify-content:space-between;font-size:13px;color:#555}
+.ix-scale .mid{flex:1;text-align:center}
+.ix-state{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px}
+.ix-state .lab{font-weight:bold}
+.ix-state p{margin:4px 0 0}
+.ix-disp{font-weight:bold;margin-top:10px}
+.ix-check label{display:block;margin:6px 0;font-size:15px;cursor:pointer}
+.ix-foot{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ix-count{font-weight:bold}
+.ix button.act{padding:9px 16px;border:1px solid #bbb;border-radius:8px;background:#f7f7f7;cursor:pointer;font-size:15px}
+.ix button.act:disabled{opacity:.45;cursor:default}
+.ix-items{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.ix-chip{border:1px solid #bbb;border-radius:999px;padding:4px 12px;font-size:13.5px;background:#f7f7f7}
+.ix-chip.sent{background:#e2f2e2;border-color:#4a8a4a}
+.ix-msg{background:#eef4ff;border-radius:8px;padding:8px 12px;margin-top:10px;display:none}
+.ix-cap{font-size:12.5px;color:#777;margin-top:8px}
 </style>
 </head>
 <body>
@@ -45,6 +71,7 @@ summary{cursor:pointer;font-weight:bold}
 <p>夕（ゆう） — 日が暮れる頃／凪（なぎ） — 風がやみ、穏やかになること ↓ 夕凪 — 夕方に風がやみ、穏やかになる現象。「凪」は国字です。国字とは、日本で作られた漢字のことです。「凪」は、「風」の外側の形と「止」を組み合わせて作られました。以前学んだ「木枯らし」を表す「凩」も国字です。「凪」と「凩」は、どちらも風に関係する国字です。</p>
 <h3>② なぜ夕凪が起こるのか？</h3>
 <p>夕凪は、陸と海の温度差の変化によって起こります。昼間は、陸地が海よりも温まり、海から陸へ風が吹きます。これを「海風」といいます。夕方になると、陸地と海の温度差が小さくなり、海風が弱まります。夜になると、陸地が海よりも冷たくなり、陸から海へ風が吹き始めます。これを「陸風」といいます。海風から陸風へ切り替わる途中で、風が一時的に弱まる時間帯があります。この時間帯が夕凪です。<br>ChatGPT側には、時間帯を選ぶ選択式の要素（昼／夕方／夜／朝、初期選択は「夕方」）があります。選択すると海風・陸風の図解と説明文が切り替わります。全4選択肢は次のとおりです。</p>
+<div class="ix ix-selector" data-initial="1"><div class="ix-title">時間帯を選ぶ選択式の要素</div><div class="ix-tabbar"><button class="ix-tab">昼（昼間・海風）</button><button class="ix-tab">夕方（夕方・夕凪）</button><button class="ix-tab">夜（夜間・陸風）</button><button class="ix-tab">朝（明け方・朝凪）</button></div><div class="ix-panel"><div>陸地が海より温まり、海から陸へ風が吹く。</div></div><div class="ix-panel"><div>陸と海の温度差が小さくなり、風が弱まる。</div></div><div class="ix-panel"><div>陸地が海より冷たくなり、陸から海へ風が吹く。</div></div><div class="ix-panel"><div>日の出前後に陸風が弱まり、海風へ切り替わる途中で風が穏やかになることがある。</div></div><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>昼（昼間・海風）：「陸地が海より温まり、海から陸へ風が吹く。」</li><li>夕方（夕方・夕凪）（初期選択）：「陸と海の温度差が小さくなり、風が弱まる。」</li><li>夜（夜間・陸風）：「陸地が海より冷たくなり、陸から海へ風が吹く。」</li><li>朝（明け方・朝凪）：「日の出前後に陸風が弱まり、海風へ切り替わる途中で風が穏やかになることがある。」</li></ul>
 <p>ただし、実際の風は地形や気圧配置にも影響されるため、毎日必ず夕凪や朝凪が起こるわけではありません。</p>
 <h3>③ 夕凪はなぜ夏の季語なのか？</h3>
@@ -57,6 +84,7 @@ summary{cursor:pointer;font-weight:bold}
 <p>先輩、夏の海辺の一日を想像してください。昼間は、海風が吹き、波が立っています。夕方になると、風が弱まり、海面が穏やかになっていきます。この変化を、夕凪といいます。</p>
 <h3>風の強さと海面の変化</h3>
 <p>ChatGPT側には、スライダー付きの概念モデルがあります（風の強さで海面の波の様子が変わるイラスト付き）。バーの両端は左「風が穏やか」／右「風が強い」で、全4状態（0〜3）、初期状態は値0「無風に近い」です。全4状態は次のとおりです。</p>
+<div class="ix ix-slider" data-ix="1"><div class="ix-title">風の強さと海面の変化</div><input type="range" min="0" max="3" step="1" value="0"><div class="ix-scale"><span>風が穏やか</span><span>風が強い</span></div><div class="ix-disp"></div><div class="ix-state"><span class="ix-slabel"></span><p class="ix-stext"></p></div><p class="ix-note">「風と水面の関係を理解するための概念モデルです。実際の波高や風速を再現したものではありません。」</p><p class="ix-cap">ChatGPTにあった要素を、記録された全状態の内容で操作できる形に再現したものです。</p></div>
 <ul><li>値0「無風に近い」（初期値）：「水面が穏やかで、夕凪を連想させる状態。」</li><li>値1「そよ風」：「水面に細かなさざ波が立ち始める。」</li><li>値2「やや強い風」：「水面の波が目立つようになる。」</li><li>値3「強い風」：「水面が大きく波立ち、穏やかさが失われる。」</li></ul>
 <p>「風と水面の関係を理解するための概念モデルです。実際の波高や風速を再現したものではありません。」</p>
 <h2>D｜具体例</h2>
@@ -118,6 +146,84 @@ function build(){
 }
 build();
 document.getElementById('reset').onclick = build;
+
+</script>
+<script>
+
+const IX_DATA = [{"anchor": "ChatGPT側には、時間帯を選ぶ選択式の要素（昼／夕方／夜／朝、初期選択は「夕方」）があります。", "initial": 1, "options": [{"label": "昼（昼間・海風）", "text": "陸地が海より温まり、海から陸へ風が吹く。"}, {"label": "夕方（夕方・夕凪）", "text": "陸と海の温度差が小さくなり、風が弱まる。"}, {"label": "夜（夜間・陸風）", "text": "陸地が海より冷たくなり、陸から海へ風が吹く。"}, {"label": "朝（明け方・朝凪）", "text": "日の出前後に陸風が弱まり、海風へ切り替わる途中で風が穏やかになることがある。"}], "title": "時間帯を選ぶ選択式の要素", "type": "selector"}, {"anchor": "ChatGPT側には、スライダー付きの概念モデルがあります（風の強さで海面の波の様子が変わるイラスト付き）。", "initial": 0, "left_label": "風が穏やか", "max": 3, "min": 0, "note": "「風と水面の関係を理解するための概念モデルです。実際の波高や風速を再現したものではありません。」", "right_label": "風が強い", "states": [{"label": "無風に近い", "text": "水面が穏やかで、夕凪を連想させる状態。", "value": 0}, {"label": "そよ風", "text": "水面に細かなさざ波が立ち始める。", "value": 1}, {"label": "やや強い風", "text": "水面の波が目立つようになる。", "value": 2}, {"label": "強い風", "text": "水面が大きく波立ち、穏やかさが失われる。", "value": 3}], "title": "風の強さと海面の変化", "type": "slider"}];
+function ixTabs(root){
+  const tabs = root.querySelectorAll('.ix-tab'), panels = root.querySelectorAll('.ix-panel');
+  function show(k){ tabs.forEach((t,i)=>t.classList.toggle('on', i===k)); panels.forEach((p,i)=>p.classList.toggle('on', i===k)); }
+  tabs.forEach((t,i)=>{ t.onclick = ()=>show(i); });
+  show(parseInt(root.dataset.initial || '0', 10));
+}
+document.querySelectorAll('.ix-tabs, .ix-selector').forEach(ixTabs);
+document.querySelectorAll('.ix-slider').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const input = root.querySelector('input[type=range]');
+  const lab = root.querySelector('.ix-slabel'), txt = root.querySelector('.ix-stext'), disp = root.querySelector('.ix-disp');
+  function nearest(v){ let best = d.states[0]; d.states.forEach(s => { if (Math.abs(s.value - v) < Math.abs(best.value - v)) best = s; }); return best; }
+  function render(){
+    const v = parseInt(input.value, 10);
+    if (d.continuous){
+      if (d.display_rule === 'split'){ disp.textContent = d.value_names[0] + '：' + (100 - v) + '% ／ ' + d.value_names[1] + '：' + v + '%'; }
+      else if (d.display_rule === 'water'){ const r = 100 - v, a = Math.floor(r / 2), b = r - a; disp.textContent = '他人の田 ' + a + '% ／ 自分の田 ' + v + '% ／ 他人の田 ' + b + '%'; }
+      const s = nearest(v); lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    } else {
+      const s = d.states.find(s => s.value === v) || nearest(v);
+      lab.textContent = s.label || ''; txt.textContent = s.text || '';
+    }
+  }
+  input.oninput = render; render();
+});
+document.querySelectorAll('.ix-sim').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const groups = root.querySelectorAll('.ix-sgroup'); const out = root.querySelector('.ix-out');
+  const sel = (d.initial || [0, 0]).slice();
+  function render(){
+    groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => b.classList.toggle('on', sel[gi] === bi)); });
+    out.textContent = d.outcomes[sel.join(',')] || d.outcomes[String(sel[0])] || '';
+  }
+  groups.forEach((g, gi) => { g.querySelectorAll('.ix-tab').forEach((b, bi) => { b.onclick = () => { sel[gi] = bi; render(); }; }); });
+  render();
+});
+document.querySelectorAll('.ix-send').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  let mode = (d.initial && d.initial[0]) || 0, mails = 0, sent = 0;
+  const modeBtns = root.querySelectorAll('.ix-mode'), act = root.querySelector('.ix-act'),
+        rst = root.querySelector('.ix-rst'), st = root.querySelector('.ix-status'),
+        chips = root.querySelectorAll('.ix-chip'), msg = root.querySelector('.ix-msg');
+  function render(){
+    modeBtns.forEach((b, i) => b.classList.toggle('on', mode === i));
+    act.textContent = mode === 0 ? 'まとめて送付する' : '完成した資料を1件送付する';
+    st.textContent = 'メール送信回数 ' + mails + '回 ／ 残りの資料 ' + (4 - sent) + '件 ／ 送付済み：' + sent + '/4件';
+    chips.forEach((c, i) => { c.classList.toggle('sent', i < sent); c.textContent = '資料' + (i + 1) + '（' + (i < sent ? '送付済' : '未送付') + '）'; });
+    act.disabled = sent >= 4;
+  }
+  modeBtns.forEach((b, i) => { b.onclick = () => { mode = i; mails = 0; sent = 0; msg.style.display = 'none'; render(); }; });
+  act.onclick = () => {
+    if (sent >= 4) return;
+    if (mode === 0){ mails = 1; sent = 4; msg.textContent = '4件の資料を1回のメールで送付しました。'; }
+    else { mails++; sent++; if (sent >= 4) msg.textContent = '4件の資料を4回に分けて送付しました。'; }
+    if (sent >= 4) msg.style.display = 'block';
+    render();
+  };
+  rst.onclick = () => { mails = 0; sent = 0; msg.style.display = 'none'; render(); };
+  render();
+});
+document.querySelectorAll('.ix-check').forEach(root => {
+  const d = IX_DATA[parseInt(root.dataset.ix, 10)];
+  const boxes = root.querySelectorAll('input[type=checkbox]'), cnt = root.querySelector('.ix-count'),
+        msg = root.querySelector('.ix-msg'), rst = root.querySelector('.ix-rst');
+  function render(){
+    const n = Array.from(boxes).filter(b => b.checked).length;
+    cnt.textContent = n + '/' + boxes.length;
+    if (d.complete_message){ const all = n === boxes.length; msg.textContent = all ? d.complete_message : ''; msg.style.display = all ? 'block' : 'none'; }
+  }
+  boxes.forEach(b => { b.onchange = render; });
+  rst.onclick = () => { boxes.forEach(b => { b.checked = false; }); render(); };
+  render();
+});
 
 </script>
 </body>
